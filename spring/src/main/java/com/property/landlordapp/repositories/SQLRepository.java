@@ -1,4 +1,4 @@
-package repositories;
+package com.property.landlordapp.repositories;
 
 import org.springframework.stereotype.Repository;
 
