@@ -1,5 +1,6 @@
 package com.property.landlordapp.repositories;
 
+import com.property.landlordapp.models.Login;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -16,5 +17,10 @@ public class SQLRepository implements RepositoryBase {
         username = env.getProperty("database.username");
         password = env.getProperty("database.password");
         this.sessionFactory = sessionFactory;
+    }
+
+    @Override
+    public String loginAttempt(Login login) {
+        return null;
     }
 }

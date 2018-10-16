@@ -1,8 +1,9 @@
 package com.property.landlordapp.controllers;
 
+import com.property.landlordapp.models.Login;
 import com.property.landlordapp.services.ServiceBase;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +16,8 @@ public class UserController {
         this.service = service;
     }
 
-    @PostMapping
-    public String loginAttempt(){
-        return null;
+    @PostMapping("/login")
+    public String loginAttempt(@RequestBody Login login){
+        return service.loginAttempt(login);
     }
 }
