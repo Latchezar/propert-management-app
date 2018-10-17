@@ -1,7 +1,8 @@
 package com.property.landlordapp.repositories;
 
 import com.property.landlordapp.models.Login;
+import com.property.landlordapp.models.User;
 
 public interface RepositoryBase {
-    String loginAttempt(Login login);
+    User loginAttempt(Login login);
 }

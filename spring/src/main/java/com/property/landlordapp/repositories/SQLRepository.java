@@ -1,6 +1,7 @@
 package com.property.landlordapp.repositories;
 
 import com.property.landlordapp.models.Login;
+import com.property.landlordapp.models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,13 +40,24 @@ public class SQLRepository implements RepositoryBase {
     }
 
     @Override
-    public String loginAttempt(Login login) {
-        String shaPassword = sha1(login.getPassword());
+    public User loginAttempt(Login login) {
+        User user = null;
+        String shaPassword = sha1(login.getPassword()).toLowerCase();
         try (Session session = sessionFactory.openSession()) {
-
+            session.beginTransaction();
+            user = session.get(User.class, login.getUsername());
+            session.getTransaction().commit();
 
         } catch (Exception e) {
-
+            return null;
+        }
+        try {
+            if (user.getPassword().equals(shaPassword)) {
+                user.setPassword("");
+                return user;
+            }
+        } catch (NullPointerException e){
+            return null;
         }
         return null;
     }
