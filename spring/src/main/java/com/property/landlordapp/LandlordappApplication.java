@@ -1,5 +1,6 @@
 package com.property.landlordapp;
 
+import com.property.landlordapp.models.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.boot.SpringApplication;
@@ -17,6 +18,7 @@ public class LandlordappApplication {
     public SessionFactory sessionFactory(){
         return new Configuration()
                 .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(User.class)
                 .buildSessionFactory();
     }
 }

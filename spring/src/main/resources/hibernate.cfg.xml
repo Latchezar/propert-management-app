@@ -10,13 +10,13 @@
             com.mysql.jdbc.Driver
         </property>
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost:3306/shoecatalogueapp
+            jdbc:mysql://localhost:3306/propertymanagement
         </property>
         <property name="hibernate.connection.username">
-            shoeuser
+            propertyuser
         </property>
         <property name="hibernate.connection.password">
-            shoes_password
+            propertypassword1
         </property>
     </session-factory>
 </hibernate-configuration>
