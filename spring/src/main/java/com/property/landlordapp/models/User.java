@@ -3,7 +3,10 @@ package com.property.landlordapp.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "Users", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "UserID"),
+        @UniqueConstraint(columnNames = "Email")
+})
 public class User {
 
     @GeneratedValue

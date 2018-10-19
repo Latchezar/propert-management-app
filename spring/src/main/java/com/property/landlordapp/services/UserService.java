@@ -4,6 +4,7 @@ import com.property.landlordapp.models.Login;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.repositories.RepositoryBase;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,7 +17,12 @@ public class UserService implements ServiceBase{
     }
 
     @Override
-    public User loginAttempt(Login login) {
+    public ResponseEntity loginAttempt(Login login) {
         return repository.loginAttempt(login);
+    }
+
+    @Override
+    public ResponseEntity registerNewUser(User user) {
+        return this.repository.registerNewUser(user);
     }
 }

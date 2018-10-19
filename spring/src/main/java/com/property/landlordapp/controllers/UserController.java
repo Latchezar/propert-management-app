@@ -3,7 +3,6 @@ package com.property.landlordapp.controllers;
 import com.property.landlordapp.models.Login;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.services.ServiceBase;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,11 +19,12 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public Object loginAttempt(@RequestBody Login login){
-        User user = service.loginAttempt(login);
-        if (user == null) {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
-        }
-        return user;
+    public ResponseEntity loginAttempt(@RequestBody Login login){
+        return this.service.loginAttempt(login);
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity registerNewUser(@RequestBody User user){
+        return this.service.registerNewUser(user);
     }
 }
