@@ -101,37 +101,24 @@ public class ValidatorTests {
 
     @Test
     public void validType1_ShouldReturnTrue(){
-        String type = "1";
+        int type = 1;
         boolean isValid = Validator.isValidType(type);
         Assert.assertTrue(isValid);
     }
     @Test
     public void validType2_ShouldReturnTrue(){
-        String type = "2";
+        int type = 2;
         boolean isValid = Validator.isValidType(type);
         Assert.assertTrue(isValid);
     }
     @Test
     public void invalidType1_ShouldReturnTrue(){
-        String type = "asdasdsdasd";
-        boolean isValid = Validator.isValidType(type);
+        boolean isValid = Validator.isValidType(0);
         Assert.assertFalse(isValid);
     }
     @Test
     public void invalidType2_ShouldReturnTrue(){
-        String type = "3";
-        boolean isValid = Validator.isValidType(type);
-        Assert.assertFalse(isValid);
-    }
-    @Test
-    public void invalidType3_ShouldReturnTrue(){
-        String type = "";
-        boolean isValid = Validator.isValidType(type);
-        Assert.assertFalse(isValid);
-    }
-    @Test
-    public void invalidType4_ShouldReturnTrue(){
-        String type = null;
+        int type = 3;
         boolean isValid = Validator.isValidType(type);
         Assert.assertFalse(isValid);
     }

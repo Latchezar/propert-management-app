@@ -39,13 +39,13 @@ public class SQLRepository implements RepositoryBase {
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
             return "false";
         }
-        return sha1;
+        return sha1.toLowerCase();
     }
 
     @Override
     public ResponseEntity loginAttempt(Login login) {
         User user = null;
-        String shaPassword = sha1(login.getPassword()).toLowerCase();
+        String shaPassword = sha1(login.getPassword());
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
             user = session.get(User.class, login.getEmail());
@@ -56,7 +56,6 @@ public class SQLRepository implements RepositoryBase {
         }
         try {
             if (user.getPassword().equals(shaPassword)) {
-                user.setPassword("");
                 return new ResponseEntity<>(user, HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(ResponseText.INVALID_DATA, HttpStatus.NOT_FOUND);
@@ -83,7 +82,7 @@ public class SQLRepository implements RepositoryBase {
         if (!Validator.isValidPassword(user.getPassword())){
             return new ResponseEntity<> (ResponseText.INVALID_PASSWORD, HttpStatus.BAD_REQUEST);
         }
-        user.setPassword(sha1(user.getPassword()).toLowerCase());
+        user.setPassword(sha1(user.getPassword()));
         try (Session session = sessionFactory.openSession()){
             session.beginTransaction();
             session.save(user);

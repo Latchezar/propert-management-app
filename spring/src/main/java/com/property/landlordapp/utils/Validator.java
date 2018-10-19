@@ -32,9 +32,9 @@ public class Validator {
         return true;
     }
 
-    public static boolean isValidType(String type){
+    public static boolean isValidType(int type){
         boolean result = false;
-        if (type != null && (type.equals("1") || type.equals("2"))){
+        if (type == 1 || type == 2){
             result = true;
         }
         return result;

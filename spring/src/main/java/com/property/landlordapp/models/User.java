@@ -26,7 +26,7 @@ public class User {
     private String password;
 
     @Column(name = "UserType")
-    private String userType;
+    private int userType;
 
     @Id
     @Column(name = "Email")
@@ -68,11 +68,11 @@ public class User {
         this.password = password;
     }
 
-    public String getUserType() {
+    public int getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(int userType) {
         this.userType = userType;
     }
 
