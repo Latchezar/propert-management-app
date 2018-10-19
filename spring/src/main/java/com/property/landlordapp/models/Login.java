@@ -1,7 +1,7 @@
 package com.property.landlordapp.models;
 
 public class Login {
-    private String username, password, userType;
+    private String email, password, userType;
 
 
 
@@ -13,12 +13,12 @@ public class Login {
         this.userType = userType;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

@@ -12,8 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
 import javax.xml.bind.DatatypeConverter;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -50,7 +48,7 @@ public class SQLRepository implements RepositoryBase {
         String shaPassword = sha1(login.getPassword()).toLowerCase();
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-            user = session.get(User.class, login.getUsername());
+            user = session.get(User.class, login.getEmail());
             session.getTransaction().commit();
             session.close();
         } catch (Exception e) {
