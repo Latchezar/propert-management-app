@@ -1,18 +1,20 @@
 package com.property.landlordapp.repositories;
 
+import com.property.landlordapp.constants.ResponseText;
 import com.property.landlordapp.models.Login;
 import com.property.landlordapp.models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.xml.bind.DatatypeConverter;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.logging.*;
 
 @Repository
 public class SQLRepository implements RepositoryBase {
@@ -40,25 +42,40 @@ public class SQLRepository implements RepositoryBase {
     }
 
     @Override
-    public User loginAttempt(Login login) {
+    public ResponseEntity loginAttempt(Login login) {
         User user = null;
         String shaPassword = sha1(login.getPassword()).toLowerCase();
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
             user = session.get(User.class, login.getUsername());
             session.getTransaction().commit();
-
+            session.close();
         } catch (Exception e) {
-            return null;
+            return new ResponseEntity<>(ResponseText.DATABASE_ERROR, HttpStatus.NOT_FOUND);
         }
         try {
             if (user.getPassword().equals(shaPassword)) {
                 user.setPassword("");
-                return user;
+                return new ResponseEntity<>(user, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(ResponseText.INVALID_DATA, HttpStatus.NOT_FOUND);
             }
         } catch (NullPointerException e){
-            return null;
+            return new ResponseEntity<>(ResponseText.INVALID_DATA, HttpStatus.NOT_FOUND);
         }
-        return null;
+    }
+
+    @Override
+    public ResponseEntity registerNewUser(User user) {
+        user.setPassword(sha1(user.getPassword()).toLowerCase());
+        try (Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            session.save(user);
+            session.getTransaction().commit();
+            session.close();
+            return new ResponseEntity<> (ResponseText.SUCCESS, HttpStatus.CREATED);
+        } catch (Exception e){
+            return new ResponseEntity<> (ResponseText.ALREADY_EXIST, HttpStatus.BAD_REQUEST);
+        }
     }
 }

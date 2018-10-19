@@ -2,8 +2,11 @@ package com.property.landlordapp.services;
 
 import com.property.landlordapp.models.Login;
 import com.property.landlordapp.models.User;
+import org.springframework.http.ResponseEntity;
 
 public interface ServiceBase {
 
-    User loginAttempt(Login login);
+    ResponseEntity loginAttempt(Login login);
+
+    ResponseEntity registerNewUser(User user);
 }
