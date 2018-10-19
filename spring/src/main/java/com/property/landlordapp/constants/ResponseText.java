@@ -8,4 +8,6 @@ public class ResponseText {
     public static final String INVALID_EMAIL = "Invalid Email Address";
     public static final String INVALID_FIRST_NAME = "Invalid First Name";
     public static final String INVALID_LAST_NAME = "Invalid Last Name";
+    public static final String INVALID_TYPE = "Invalid Type";
+    public static final String INVALID_PASSWORD = "Invalid Password";
 }

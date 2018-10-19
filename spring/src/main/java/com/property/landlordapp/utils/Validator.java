@@ -39,4 +39,11 @@ public class Validator {
         }
         return result;
     }
+
+    public static boolean isValidPassword(String password){
+        if (password != null && password.length() < 65 && password.length() > 6) {
+            return true;
+        }
+        return false;
+    }
 }

@@ -135,4 +135,30 @@ public class ValidatorTests {
         boolean isValid = Validator.isValidType(type);
         Assert.assertFalse(isValid);
     }
+
+    @Test
+    public void validPassword_ShouldReturnTrue(){
+        String password = "somepassword123";
+        boolean isValid = Validator.isValidPassword(password);
+        Assert.assertTrue(isValid);
+    }
+
+    @Test
+    public void longPassword_ShouldReturnFalse(){
+        String password = "someveryveryverylonglonglongpassssssssworddddddddddddddddddddddddddd";
+        boolean isValid = Validator.isValidPassword(password);
+        Assert.assertFalse(isValid);
+    }
+    @Test
+    public void shortPassword_ShouldReturnFalse(){
+        String password = "short";
+        boolean isValid = Validator.isValidPassword(password);
+        Assert.assertFalse(isValid);
+    }
+    @Test
+    public void nullPassword_ShouldReturnFalse(){
+        String password = null;
+        boolean isValid = Validator.isValidPassword(password);
+        Assert.assertFalse(isValid);
+    }
 }

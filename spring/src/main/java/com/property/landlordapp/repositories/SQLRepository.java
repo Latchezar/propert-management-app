@@ -79,6 +79,12 @@ public class SQLRepository implements RepositoryBase {
         if (!Validator.isValidName(user.getLastName())){
             return new ResponseEntity<>(ResponseText.INVALID_LAST_NAME, HttpStatus.BAD_REQUEST);
         }
+        if (!Validator.isValidType(user.getUserType())){
+            return new ResponseEntity<>(ResponseText.INVALID_TYPE, HttpStatus.BAD_REQUEST);
+        }
+        if (!Validator.isValidPassword(user.getPassword())){
+            return new ResponseEntity<> (ResponseText.INVALID_PASSWORD, HttpStatus.BAD_REQUEST);
+        }
         user.setPassword(sha1(user.getPassword()).toLowerCase());
         try (Session session = sessionFactory.openSession()){
             session.beginTransaction();
