@@ -1,23 +1,20 @@
 package com.property.landlordapp.repositories;
 
+import com.property.landlordapp.constants.ResponseText;
 import com.property.landlordapp.models.Login;
 import com.property.landlordapp.models.User;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.PersistenceException;
 import javax.xml.bind.DatatypeConverter;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.logging.*;
 
 @Repository
 public class SQLRepository implements RepositoryBase {
@@ -54,17 +51,17 @@ public class SQLRepository implements RepositoryBase {
             session.getTransaction().commit();
             session.close();
         } catch (Exception e) {
-            return new ResponseEntity<>("Database Error", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(ResponseText.DATABASE_ERROR, HttpStatus.NOT_FOUND);
         }
         try {
             if (user.getPassword().equals(shaPassword)) {
                 user.setPassword("");
                 return new ResponseEntity<>(user, HttpStatus.OK);
             } else {
-                return new ResponseEntity<>("Invalid Data", HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(ResponseText.INVALID_DATA, HttpStatus.NOT_FOUND);
             }
         } catch (NullPointerException e){
-            return new ResponseEntity<>("Invalid Data", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(ResponseText.INVALID_DATA, HttpStatus.NOT_FOUND);
         }
     }
 
@@ -76,9 +73,9 @@ public class SQLRepository implements RepositoryBase {
             session.save(user);
             session.getTransaction().commit();
             session.close();
-            return new ResponseEntity<> ("Success", HttpStatus.CREATED);
+            return new ResponseEntity<> (ResponseText.SUCCESS, HttpStatus.CREATED);
         } catch (Exception e){
-            return new ResponseEntity<> ("User already exists", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<> (ResponseText.ALREADY_EXIST, HttpStatus.BAD_REQUEST);
         }
     }
 }
