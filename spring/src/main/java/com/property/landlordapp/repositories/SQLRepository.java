@@ -3,6 +3,7 @@ package com.property.landlordapp.repositories;
 import com.property.landlordapp.constants.ResponseText;
 import com.property.landlordapp.models.Login;
 import com.property.landlordapp.models.User;
+import com.property.landlordapp.utils.Validator;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import javax.xml.bind.DatatypeConverter;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -67,6 +70,15 @@ public class SQLRepository implements RepositoryBase {
 
     @Override
     public ResponseEntity registerNewUser(User user) {
+        if (!Validator.isValidEmailAddress(user.getEmail())){
+            return new ResponseEntity<>(ResponseText.INVALID_EMAIL, HttpStatus.BAD_REQUEST);
+        }
+        if (!Validator.isValidName(user.getFirstName())){
+            return new ResponseEntity<>(ResponseText.INVALID_FIRST_NAME, HttpStatus.BAD_REQUEST);
+        }
+        if (!Validator.isValidName(user.getLastName())){
+            return new ResponseEntity<>(ResponseText.INVALID_LAST_NAME, HttpStatus.BAD_REQUEST);
+        }
         user.setPassword(sha1(user.getPassword()).toLowerCase());
         try (Session session = sessionFactory.openSession()){
             session.beginTransaction();
