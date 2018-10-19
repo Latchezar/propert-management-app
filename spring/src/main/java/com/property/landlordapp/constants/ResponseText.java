@@ -5,9 +5,10 @@ public class ResponseText {
     public static final String INVALID_DATA = "Invalid Data";
     public static final String SUCCESS = "Success";
     public static final String ALREADY_EXIST = "Already Exist";
-    public static final String INVALID_EMAIL = "Invalid Email Address";
-    public static final String INVALID_FIRST_NAME = "Invalid First Name";
-    public static final String INVALID_LAST_NAME = "Invalid Last Name";
-    public static final String INVALID_TYPE = "Invalid Type";
-    public static final String INVALID_PASSWORD = "Invalid Password";
+    public static final String EMAIL = "Email ";
+    public static final String FIRST_NAME = "First-Name ";
+    public static final String LAST_NAME = "Last-Name ";
+    public static final String TYPE = "Type ";
+    public static final String PASSWORD = "Password ";
+    public static final String INVALID_REGISTER_TEXT_START = "Invalid ";
 }

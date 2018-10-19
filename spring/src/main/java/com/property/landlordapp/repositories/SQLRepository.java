@@ -67,20 +67,31 @@ public class SQLRepository implements RepositoryBase {
 
     @Override
     public ResponseEntity registerNewUser(User user) {
+        boolean isValidInformation = true;
+        StringBuilder sb = new StringBuilder();
+        sb.append(ResponseText.INVALID_REGISTER_TEXT_START);
         if (!Validator.isValidEmailAddress(user.getEmail())){
-            return new ResponseEntity<>(ResponseText.INVALID_EMAIL, HttpStatus.BAD_REQUEST);
+            isValidInformation = false;
+            sb.append(ResponseText.EMAIL);
         }
         if (!Validator.isValidName(user.getFirstName())){
-            return new ResponseEntity<>(ResponseText.INVALID_FIRST_NAME, HttpStatus.BAD_REQUEST);
+            isValidInformation = false;
+            sb.append(ResponseText.FIRST_NAME);
         }
         if (!Validator.isValidName(user.getLastName())){
-            return new ResponseEntity<>(ResponseText.INVALID_LAST_NAME, HttpStatus.BAD_REQUEST);
+            isValidInformation = false;
+            sb.append(ResponseText.LAST_NAME);
         }
         if (!Validator.isValidType(user.getUserType())){
-            return new ResponseEntity<>(ResponseText.INVALID_TYPE, HttpStatus.BAD_REQUEST);
+            isValidInformation = false;
+            sb.append(ResponseText.TYPE);
         }
         if (!Validator.isValidPassword(user.getPassword())){
-            return new ResponseEntity<> (ResponseText.INVALID_PASSWORD, HttpStatus.BAD_REQUEST);
+            isValidInformation = false;
+            sb.append(ResponseText.PASSWORD);
+        }
+        if (!isValidInformation){
+            return new ResponseEntity<> (sb.toString(), HttpStatus.BAD_REQUEST);
         }
         user.setPassword(sha1(user.getPassword()));
         try (Session session = sessionFactory.openSession()){
