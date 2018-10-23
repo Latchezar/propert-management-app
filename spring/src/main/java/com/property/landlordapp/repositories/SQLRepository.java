@@ -52,16 +52,16 @@ public class SQLRepository implements RepositoryBase {
             session.getTransaction().commit();
             session.close();
         } catch (Exception e) {
-            return new ResponseEntity<>(ResponseText.DATABASE_ERROR, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(ResponseText.DATABASE_ERROR, HttpStatus.FORBIDDEN);
         }
         try {
             if (user.getPassword().equals(shaPassword)) {
                 return new ResponseEntity<>(user, HttpStatus.OK);
             } else {
-                return new ResponseEntity<>(ResponseText.INVALID_DATA, HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(ResponseText.INVALID_DATA, HttpStatus.FORBIDDEN);
             }
         } catch (NullPointerException e){
-            return new ResponseEntity<>(ResponseText.INVALID_DATA, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(ResponseText.INVALID_DATA, HttpStatus.FORBIDDEN);
         }
     }
 
