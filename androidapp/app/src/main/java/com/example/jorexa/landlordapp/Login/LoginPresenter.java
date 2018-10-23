@@ -44,6 +44,11 @@ public class LoginPresenter implements LoginContracts.Presenter {
                 LoginUser loggedUser = mLoginService.signIn(signInUser);
                 if (loggedUser != null) {
                     mView.showCustomException("OK!");
+                    //create intent
+                    //put extra object
+                    //start intent
+
+                    //loggedUser.getUserType()
                 } else {
                     mView.showCustomException("Invalid login. Please, enter valid name and password");
                 }

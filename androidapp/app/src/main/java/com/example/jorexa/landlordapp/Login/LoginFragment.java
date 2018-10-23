@@ -1,6 +1,7 @@
 package com.example.jorexa.landlordapp.Login;
 
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -112,5 +113,10 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
     private void runOnUi(Runnable action) {
         getActivity()
                 .runOnUiThread(action);
+    }
+    
+    public void startNext(Intent intent){
+        startActivity(intent);
+        this.getActivity().finish();
     }
 }
