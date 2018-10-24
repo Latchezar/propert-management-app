@@ -11,9 +11,9 @@ public interface LoginContracts {
 
         void showError(Exception e);
 
-        void startNext(Intent intent);
-
         Activity getActivity();
+
+        void startActivity(Intent intent);
     }
 
     interface Presenter {

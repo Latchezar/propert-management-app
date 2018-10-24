@@ -104,10 +104,4 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
         getActivity()
                 .runOnUiThread(action);
     }
-    @Override
-    public void startNext(Intent intent){
-        startActivity(intent);
-        this.getActivity().finish();
-        getActivity();
-    }
 }

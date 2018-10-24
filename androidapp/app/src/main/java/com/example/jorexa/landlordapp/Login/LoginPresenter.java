@@ -65,7 +65,7 @@ public class LoginPresenter implements LoginContracts.Presenter {
     @Override
     public void signUp(){
         Intent intent = new Intent(mView.getActivity(), SignUpActivity.class);
-        mView.startNext(intent);
+        mView.startActivity(intent);
     }
 
     @Override
