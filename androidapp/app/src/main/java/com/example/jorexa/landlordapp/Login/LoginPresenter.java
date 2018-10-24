@@ -37,28 +37,31 @@ public class LoginPresenter implements LoginContracts.Presenter {
     @Override
     public void signIn(final String email,final String password) {
 
-        mAsyncRunner.runInBackground(() -> {
-            try {
+        if (email.matches("") || password.matches("")) {
+            mView.showCustomException("Please, enter email and password");
+        } else {
+            mAsyncRunner.runInBackground(() -> {
+                try {
 
-                SignInUser signInUser = new SignInUser();
-                signInUser.setPassword(password);
-                signInUser.setEmail(email);
-                LoginUser loggedUser = mLoginService.signIn(signInUser);
-                if (loggedUser != null) {
-                    mView.showCustomException("OK!");
-                    //create intent
-                    //put extra object
-                    //mView.startNext(intent);
-                    //loggedUser.getUserType()
-                } else {
-                    mView.showCustomException("Invalid login. Please, enter valid name and password");
+                    SignInUser signInUser = new SignInUser();
+                    signInUser.setPassword(password);
+                    signInUser.setEmail(email);
+                    LoginUser loggedUser = mLoginService.signIn(signInUser);
+                    if (loggedUser != null) {
+                        mView.showCustomException("OK!");
+                        //create intent
+                        //put extra object
+                        //mView.startNext(intent);
+                        //loggedUser.getUserType()
+                    } else {
+                        mView.showCustomException("Invalid login. Please, enter valid name and password");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    mView.showError(e);
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-                mView.showError(e);
-            }
-        });
-
+            });
+        }
         //mView.loadLogin("123");
     }
 

@@ -78,13 +78,7 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
     public void signIn(View view) {
         String email = mLoginEmail.getText().toString();
         String password = mLoginPassword.getText().toString();
-
-        if (!email.matches("") && !password.matches("")) {
-            mPresenter.signIn(email, password);
-        } else {
-            //showCustomException("Please, enter email and password");
-            mMessage.setText("Please, enter email and password");
-        }
+        mPresenter.signIn(email, password);
     }
 
     @OnClick(R.id.btn_signUp)
