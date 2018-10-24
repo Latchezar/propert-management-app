@@ -1,38 +1,23 @@
 package com.example.jorexa.landlordapp.Login;
 
 
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jorexa.landlordapp.R;
-import com.example.jorexa.landlordapp.async.AsyncRunner;
-import com.example.jorexa.landlordapp.async.testAsyncRunner;
-import com.example.jorexa.landlordapp.http.OkHttpHttpRequester;
-import com.example.jorexa.landlordapp.models.SignInUser;
-import com.example.jorexa.landlordapp.parsers.GsonJsonParser;
-import com.example.jorexa.landlordapp.parsers.base.JsonParser;
-import com.example.jorexa.landlordapp.repositories.HttpRepository;
-import com.example.jorexa.landlordapp.repositories.base.Repository;
-
-import java.io.IOException;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -105,7 +90,6 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
     @OnClick(R.id.btn_signUp)
     public void signUp(View view) {
         mPresenter.signUp();
-        this.getActivity().finish();
     }
 
     @Override
@@ -120,10 +104,10 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
         getActivity()
                 .runOnUiThread(action);
     }
-
     @Override
     public void startNext(Intent intent){
         startActivity(intent);
         this.getActivity().finish();
+        getActivity();
     }
 }

@@ -1,8 +1,7 @@
 package com.example.jorexa.landlordapp.Login;
 
+import android.app.Activity;
 import android.content.Intent;
-
-import java.util.List;
 
 public interface LoginContracts {
     interface View {
@@ -13,6 +12,8 @@ public interface LoginContracts {
         void showError(Exception e);
 
         void startNext(Intent intent);
+
+        Activity getActivity();
     }
 
     interface Presenter {

@@ -1,4 +1,4 @@
-package com.example.jorexa.landlordapp.Login;
+package com.example.jorexa.landlordapp.singup;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -9,25 +9,25 @@ import javax.inject.Inject;
 
 import dagger.android.support.DaggerAppCompatActivity;
 
-public class MainActivity extends DaggerAppCompatActivity {
+public class SignUpActivity extends DaggerAppCompatActivity {
 
     @Inject
-    LoginFragment mLoginFragment;
+    RegisterFormFragment mRegisterFormFragment;
 
     @Inject
-    LoginContracts.Presenter mLoginPresenter;
+    SignUpContracts.Presenter mSignUpPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sing_up);
 
-        mLoginFragment.setPresenter(mLoginPresenter);
+        mRegisterFormFragment.setPresenter(mSignUpPresenter);
 
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction();
 
-        transaction.replace(R.id.content, mLoginFragment);
+        transaction.replace(R.id.sign_up_content, mRegisterFormFragment);
         transaction.commit();
     }
 }
