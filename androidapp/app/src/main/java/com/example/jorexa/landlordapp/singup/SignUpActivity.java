@@ -6,7 +6,7 @@ import com.example.jorexa.landlordapp.R;
 
 import dagger.android.support.DaggerAppCompatActivity;
 
-public class SingUpActivity extends DaggerAppCompatActivity {
+public class SignUpActivity extends DaggerAppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

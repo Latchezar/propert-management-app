@@ -1,5 +1,6 @@
 package com.example.jorexa.landlordapp.Login;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.widget.EditText;
 
@@ -7,9 +8,9 @@ import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.SignInUser;
 import com.example.jorexa.landlordapp.services.base.LoginService;
+import com.example.jorexa.landlordapp.singup.SignUpActivity;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -47,7 +48,7 @@ public class LoginPresenter implements LoginContracts.Presenter {
                     mView.showCustomException("OK!");
                     //create intent
                     //put extra object
-                    mView.startNext(intent);
+                    //mView.startNext(intent);
                     //loggedUser.getUserType()
                 } else {
                     mView.showCustomException("Invalid login. Please, enter valid name and password");
@@ -63,8 +64,8 @@ public class LoginPresenter implements LoginContracts.Presenter {
 
     @Override
     public void signUp(){
-        Intent intent = new Intent();
-        intent
+        Intent intent = new Intent(mView.getActivity(), SignUpActivity.class);
+        mView.startNext(intent);
     }
 
     @Override

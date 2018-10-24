@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".singup.SingUpActivity"></activity>
+        <activity android:name=".singup.SignUpActivity"></activity>
     </application>
 
 </manifest>
