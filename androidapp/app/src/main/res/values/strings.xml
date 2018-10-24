@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">Landlordapp</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Landlord Аpp</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="first_name_register">First Name</string>
+    <string name="last_name_register">Last Name</string>
+    <string name="email_register">Email Address</string>
+    <string name="password_register">Password</string>
+    <string name="confirm_password_register">Confirm Password</string>
+    <string name="sign_up_button">Sign Up</string>
 </resources>

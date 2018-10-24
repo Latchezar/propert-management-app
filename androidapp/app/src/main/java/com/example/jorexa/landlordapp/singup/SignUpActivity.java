@@ -1,5 +1,6 @@
 package com.example.jorexa.landlordapp.singup;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.jorexa.landlordapp.R;
@@ -20,5 +21,13 @@ public class SignUpActivity extends DaggerAppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_up);
+
+        mRegisterFormFragment.setPresenter(mSignUpPresenter);
+
+        FragmentTransaction transaction = getFragmentManager()
+                .beginTransaction();
+
+        transaction.replace(R.id.sign_up_content, mRegisterFormFragment);
+        transaction.commit();
     }
 }
