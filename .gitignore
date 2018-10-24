@@ -44,22 +44,113 @@
 
 # Keystore files
 # Uncomment the following line if you do not want to check your keystore files in.
-#*.jks
+/androidapp/#*.jks
 
-# External native build folder generated in Android Studio 2.2 and later
-.externalNativeBuild
+/androidapp/# External native build folder generated in Android Studio 2.2 and later
+/androidapp/.externalNativeBuild
 
 # Google Services (e.g. APIs or Firebase)
-google-services.json
+/androidapp/google-services.json
 
 # Freeline
-freeline.py
-freeline/
-freeline_project_description.json
+/androidapp/freeline.py
+/androidapp/freeline/
+/androidapp/freeline_project_description.json
 
 # fastlane
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots
-fastlane/test_output
-fastlane/readme.md
+/androidapp/fastlane/report.xml
+/androidapp/fastlane/Preview.html
+/androidapp/fastlane/screenshots
+/androidapp/fastlane/test_output
+/androidapp/fastlane/readme.md
+
+
+# Created by http://gitignore.io
+
+### Windows ###
+# Windows image file caches
+/spring/Thumbs.db
+/spring/ehthumbs.db
+
+# Folder config file
+/spring/Desktop.ini
+
+# Recycle Bin used on file shares
+/spring/$RECYCLE.BIN/
+
+### Linux ###
+/spring/.*
+/spring/!.gitignore
+/spring/!.git*
+/spring/*~
+
+
+### OSX ###
+/spring/.DS_Store
+/spring/.AppleDouble
+/spring/.LSOverride
+/spring/Icon
+
+
+# Thumbnails
+/spring/._*
+
+# Files that might appear on external disk
+/spring/.Spotlight-V100
+/spring/.Trashes
+
+### Java ###
+/spring/*.class
+
+# Package Files #
+/spring/*.jar
+/spring/*.war
+/spring/*.ear
+
+### Gradle ###
+# Exclude Folder List #
+/spring/.gradle/
+/spring/build/
+
+
+### Eclipse ###
+/spring/*.pydevproject
+/spring/.project
+/spring/.metadata
+/spring/bin/**
+/spring/tmp/**
+/spring/tmp/**/*
+/spring/*.tmp
+/spring/*.bak
+/spring/*.swp
+/spring/*~.nib
+/spring/local.properties
+/spring/.classpath
+/spring/.settings/
+/spring/.loadpath
+
+# External tool builders
+/spring/.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+/spring/*.launch
+
+# CDT-specific
+/spring/.cproject
+
+# PDT-specific
+/spring/.buildpath
+
+### IntelliJ ###
+/spring/*.iml
+/spring/*.ipr
+/spring/*.iws
+/spring/.idea/
+
+### SVN ###
+/spring/.svn/
+
+### Maven ###
+/spring/target/
+
+/spring/bin
