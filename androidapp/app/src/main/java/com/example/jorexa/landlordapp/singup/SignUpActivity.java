@@ -4,9 +4,17 @@ import android.os.Bundle;
 
 import com.example.jorexa.landlordapp.R;
 
+import javax.inject.Inject;
+
 import dagger.android.support.DaggerAppCompatActivity;
 
 public class SignUpActivity extends DaggerAppCompatActivity {
+
+    @Inject
+    RegisterFormFragment mRegisterFormFragment;
+
+    @Inject
+    SignUpContracts.Presenter mSignUpPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

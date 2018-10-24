@@ -3,6 +3,8 @@ package com.example.jorexa.landlordapp.diconfig;
 //package com.example.android.architecture.blueprints.todoapp.di;
 
 import com.example.jorexa.landlordapp.Login.MainActivity;
+import com.example.jorexa.landlordapp.singup.SignUpActivity;
+import com.example.jorexa.landlordapp.singup.SignUpContracts;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -16,4 +18,12 @@ public abstract class ActivityBindingModule {
     //abstract SuperheroesListActivity superheroesListActivity();
      //abstract MainActivity mainActivity();
     abstract MainActivity mainActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(
+            modules = SignUpModule.class
+    )
+    abstract SignUpActivity signUpActivity();
+
+
 }

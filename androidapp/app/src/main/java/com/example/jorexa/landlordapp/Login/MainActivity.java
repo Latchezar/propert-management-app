@@ -1,7 +1,6 @@
 package com.example.jorexa.landlordapp.Login;
 
 import android.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.jorexa.landlordapp.R;
@@ -12,11 +11,11 @@ import dagger.android.support.DaggerAppCompatActivity;
 
 public class MainActivity extends DaggerAppCompatActivity {
 
-   @Inject
+    @Inject
     LoginFragment mLoginFragment;
 
-   @Inject
-   LoginContracts.Presenter mLoginPresenter;
+    @Inject
+    LoginContracts.Presenter mLoginPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

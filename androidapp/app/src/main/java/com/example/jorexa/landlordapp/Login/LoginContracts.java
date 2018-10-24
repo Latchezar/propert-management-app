@@ -3,8 +3,6 @@ package com.example.jorexa.landlordapp.Login;
 import android.app.Activity;
 import android.content.Intent;
 
-import java.util.List;
-
 public interface LoginContracts {
     interface View {
         void setPresenter(Presenter presenter);
