@@ -6,8 +6,10 @@
     <string name="email_register">Email Address</string>
     <string name="password_register">Password</string>
     <string name="confirm_password_register">Confirm Password</string>
-    <string name="sign_up_button">Sign Up</string>
+    <string name="sign_up_button">Create Profile</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="radio_landlord">Landlord</string>
+    <string name="radio_tenant">Tenant</string>
 </resources>

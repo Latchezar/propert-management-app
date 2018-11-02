@@ -2,6 +2,7 @@ package com.example.jorexa.landlordapp.singup;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.jorexa.landlordapp.R;
 
@@ -29,5 +30,9 @@ public class SignUpActivity extends DaggerAppCompatActivity {
 
         transaction.replace(R.id.sign_up_content, mRegisterFormFragment);
         transaction.commit();
+    }
+
+    public void onRadioButtonClicked(View view){
+        mRegisterFormFragment.onRadioButtonClicked(view);
     }
 }

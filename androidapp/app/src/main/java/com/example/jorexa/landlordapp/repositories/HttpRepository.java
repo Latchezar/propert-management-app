@@ -26,15 +26,27 @@ public class HttpRepository<T> implements Repository<T> {
     }
 
     @Override
-    public LoginUser login(T item) throws IOException {
+    public T login(T item) throws IOException {
         String requestBody = mJsonParser.toJson(item);
-        Response response = mHttpRequester.post(mServerUrl, requestBody);
+        Response response = mHttpRequester.post(mServerUrl + "login", requestBody);
         int code = response.code();
         if (code == 200) {
             String responseBody = response.body().string();
-            JsonParser<LoginUser> LoginUser = new GsonJsonParser<>(LoginUser.class, LoginUser[].class);
-            return LoginUser.fromJson(responseBody);
+            return mJsonParser.fromJson(responseBody);
         } else {
+            return null;
+        }
+    }
+
+    @Override
+    public T createUser(T mUser) throws IOException {
+        String requestBody = mJsonParser.toJson(mUser);
+        Response response = mHttpRequester.post(mServerUrl + "register", requestBody);
+        int code = response.code();
+        if (code == 200) {
+            String responseBody = response.body().string();
+            return mJsonParser.fromJson(responseBody);
+        }else {
             return null;
         }
     }
