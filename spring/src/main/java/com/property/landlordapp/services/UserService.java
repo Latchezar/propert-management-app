@@ -1,6 +1,5 @@
 package com.property.landlordapp.services;
 
-import com.property.landlordapp.models.Login;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.repositories.RepositoryBase;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ public class UserService implements ServiceBase{
     }
 
     @Override
-    public ResponseEntity loginAttempt(Login login) {
+    public ResponseEntity loginAttempt(User login) {
         return repository.loginAttempt(login);
     }
 

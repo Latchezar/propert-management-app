@@ -1,10 +1,12 @@
 package com.property.landlordapp.controllers;
 
-import com.property.landlordapp.models.Login;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.services.ServiceBase;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
@@ -16,7 +18,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity loginAttempt(@RequestBody Login login){
+    public ResponseEntity loginAttempt(@RequestBody User login){
         return this.service.loginAttempt(login);
     }
 

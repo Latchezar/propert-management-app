@@ -43,7 +43,7 @@ public class SQLRepository implements RepositoryBase {
     }
 
     @Override
-    public ResponseEntity loginAttempt(Login login) {
+    public ResponseEntity loginAttempt(User login) {
         User user = null;
         String shaPassword = sha1(login.getPassword());
         try (Session session = sessionFactory.openSession()) {
