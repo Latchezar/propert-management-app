@@ -1,7 +1,7 @@
 package com.example.jorexa.landlordapp.diconfig;
 
 import com.example.jorexa.landlordapp.http.HttpRequester;
-import com.example.jorexa.landlordapp.models.SignInUser;
+import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.parsers.base.JsonParser;
 import com.example.jorexa.landlordapp.repositories.HttpRepository;
 import com.example.jorexa.landlordapp.repositories.base.Repository;
@@ -16,10 +16,10 @@ import dagger.Provides;
 public class RepositoriesModule {
     @Provides
     @Singleton
-    public Repository<SignInUser> TestUserRepository(
+    public Repository<LoginUser> TestUserRepository(
             @Named("baseServerUrl") String baseServerUrl,
             HttpRequester httpRequester,
-            JsonParser<SignInUser> jsonParser
+            JsonParser<LoginUser> jsonParser
     ) {
         String url = baseServerUrl + "/";
         return new HttpRepository<>(url, httpRequester, jsonParser);

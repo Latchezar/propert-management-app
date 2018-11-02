@@ -1,5 +1,6 @@
 package com.example.jorexa.landlordapp;
 
+
 import com.example.jorexa.landlordapp.diconfig.DaggerAppComponent;
 
 import dagger.android.AndroidInjector;

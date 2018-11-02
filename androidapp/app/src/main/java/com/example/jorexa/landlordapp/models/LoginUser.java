@@ -12,6 +12,11 @@ public class LoginUser {
     public String lastName;
     public int userType;
     public String email;
+    public String password;
+
+    public String getPassword() {
+        return password;
+    }
 
     public LoginUser() {
 
@@ -66,4 +71,7 @@ public class LoginUser {
     }
 
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

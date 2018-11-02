@@ -1,12 +1,10 @@
 package com.example.jorexa.landlordapp.Login;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.widget.EditText;
 
 import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.models.LoginUser;
-import com.example.jorexa.landlordapp.models.SignInUser;
 import com.example.jorexa.landlordapp.services.base.LoginService;
 import com.example.jorexa.landlordapp.singup.SignUpActivity;
 
@@ -43,10 +41,10 @@ public class LoginPresenter implements LoginContracts.Presenter {
             mAsyncRunner.runInBackground(() -> {
                 try {
 
-                    SignInUser signInUser = new SignInUser();
-                    signInUser.setPassword(password);
-                    signInUser.setEmail(email);
-                    LoginUser loggedUser = mLoginService.signIn(signInUser);
+                    LoginUser user = new LoginUser();
+                    user.setPassword(password);
+                    user.setEmail(email);
+                    LoginUser loggedUser = mLoginService.signIn(user);
                     if (loggedUser != null) {
                         mView.showCustomException("OK!");
                         //create intent
