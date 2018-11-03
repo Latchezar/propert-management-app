@@ -11,11 +11,15 @@ public interface SignUpContracts {
         void showError(Exception e);
 
         Activity getActivity();
+
+        void displayWrongInformation(String error);
     }
 
     interface Presenter {
         void subscribe(View view);
 
         void onSubmit(String firstName, String lastName, String email, String password, String confirmPassword, int typeSelection);
+
+        void endActivity();
     }
 }

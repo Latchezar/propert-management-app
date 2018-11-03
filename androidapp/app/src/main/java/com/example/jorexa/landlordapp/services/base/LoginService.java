@@ -8,5 +8,5 @@ public interface LoginService {
 
     LoginUser signIn(LoginUser sentUser) throws IOException;
 
-    LoginUser createUser(LoginUser mUser) throws IOException;
+    Object createUser(LoginUser mUser) throws IOException;
 }

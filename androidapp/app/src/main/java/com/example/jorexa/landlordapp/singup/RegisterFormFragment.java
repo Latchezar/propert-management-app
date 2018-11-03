@@ -1,17 +1,19 @@
 package com.example.jorexa.landlordapp.singup;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.jorexa.landlordapp.Constants;
 import com.example.jorexa.landlordapp.R;
-import com.example.jorexa.landlordapp.models.LoginUser;
 
 import javax.inject.Inject;
 
@@ -34,6 +36,8 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
     EditText mConfirmPassword;
     @BindView(R.id.sign_up_btn)
     Button mSubmitButton;
+    @BindView(R.id.sign_up_error)
+    TextView mErrorBox;
 
     private int typeSelection;
     private SignUpContracts.Presenter mPresenter;
@@ -72,12 +76,13 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
 
     @Override
     public void showCustomException(String text) {
-
+        runOnUi(()-> Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show());
     }
 
     @Override
     public void showError(Exception e) {
-
+        runOnUi(()-> Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show());
+        throw new RuntimeException(e);
     }
 
     public void onRadioButtonClicked(View view){
@@ -95,5 +100,15 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
                 }
                 break;
         }
+    }
+
+    private void runOnUi(Runnable action){
+        getActivity().runOnUiThread(action);
+    }
+
+    @Override
+    public void displayWrongInformation(String error) {
+        runOnUi(()-> Toast.makeText(getContext(), error, Toast.LENGTH_LONG).show());
+        mErrorBox.setText(error);
     }
 }
