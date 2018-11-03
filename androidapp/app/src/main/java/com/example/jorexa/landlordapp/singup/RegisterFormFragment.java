@@ -76,48 +76,13 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
 
     @Override
     public void showCustomException(String text) {
-
+        runOnUi(()-> Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show());
     }
 
     @Override
     public void showError(Exception e) {
-
-    }
-
-    @Override
-    public void displayWrongFirstName() {
-        String text = Constants.WRONG_FIRST_NAME;
-        displayWrongInformation(text);
-    }
-
-    @Override
-    public void displayWrongLastName() {
-        String text = Constants.WRONG_LAST_NAME;
-        displayWrongInformation(text);
-    }
-
-    @Override
-    public void displayWrongEmail() {
-        String text = Constants.WRONG_EMAIL;
-        displayWrongInformation(text);
-    }
-
-    @Override
-    public void displayWrongPassword() {
-        String text = Constants.WRONG_PASSWORD;
-        displayWrongInformation(text);
-    }
-
-    @Override
-    public void displayMissMatchPassword() {
-        String text = Constants.WRONG_CONFIRM_PASSWORD;
-        displayWrongInformation(text);
-    }
-
-    @Override
-    public void displaySelectType() {
-        String text = Constants.WRONG_TYPE;
-        displayWrongInformation(text);
+        runOnUi(()-> Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show());
+        throw new RuntimeException(e);
     }
 
     public void onRadioButtonClicked(View view){
@@ -141,7 +106,8 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
         getActivity().runOnUiThread(action);
     }
 
-    private void displayWrongInformation(String error) {
+    @Override
+    public void displayWrongInformation(String error) {
         runOnUi(()-> Toast.makeText(getContext(), error, Toast.LENGTH_LONG).show());
         mErrorBox.setText(error);
     }

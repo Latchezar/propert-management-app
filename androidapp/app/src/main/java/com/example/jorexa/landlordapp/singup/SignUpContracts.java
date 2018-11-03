@@ -12,22 +12,14 @@ public interface SignUpContracts {
 
         Activity getActivity();
 
-        void displayWrongFirstName();
-
-        void displayWrongLastName();
-
-        void displayWrongEmail();
-
-        void displayWrongPassword();
-
-        void displayMissMatchPassword();
-
-        void displaySelectType();
+        void displayWrongInformation(String error);
     }
 
     interface Presenter {
         void subscribe(View view);
 
         void onSubmit(String firstName, String lastName, String email, String password, String confirmPassword, int typeSelection);
+
+        void endActivity();
     }
 }

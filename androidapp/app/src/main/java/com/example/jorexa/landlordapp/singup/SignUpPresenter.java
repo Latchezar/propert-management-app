@@ -1,5 +1,6 @@
 package com.example.jorexa.landlordapp.singup;
 
+import com.example.jorexa.landlordapp.Constants;
 import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.services.base.LoginService;
@@ -30,33 +31,30 @@ public class SignUpPresenter implements SignUpContracts.Presenter {
 
     @Override
     public void onSubmit(String firstName, String lastName, String email, String password, String confirmPassword, int typeSelection) {
-        boolean errorExists = false;
+        String text;
         if (firstName.length() < 3){
-            errorExists = true;
-            mView.displayWrongFirstName();
+            text = Constants.WRONG_FIRST_NAME;
+            mView.displayWrongInformation(text);
             //error
         } else if (lastName.length() < 3){
-            errorExists = true;
-            mView.displayWrongLastName();
+            text = Constants.WRONG_LAST_NAME;
+            mView.displayWrongInformation(text);
             //error
         } else if (!isValidEmailAddress(email)){
-            errorExists = true;
-            mView.displayWrongEmail();
+            text = Constants.WRONG_EMAIL;
+            mView.displayWrongInformation(text);
             //error
         } else if (password.length() < 3){
-            errorExists = true;
-            mView.displayWrongPassword();
+            text = Constants.WRONG_PASSWORD;
+            mView.displayWrongInformation(text);
             //error
         } else if (!password.equals(confirmPassword)){
-            errorExists = true;
-            mView.displayMissMatchPassword();
+            text = Constants.WRONG_CONFIRM_PASSWORD;
+            mView.displayWrongInformation(text);
         } else if (typeSelection != 1 && typeSelection != 2) {
-            errorExists = true;
-            mView.displaySelectType();
+            text = Constants.WRONG_TYPE;
+            mView.displayWrongInformation(text);
             //error
-        }
-        if (errorExists){
-            //handle error
         } else {
             mUser = new LoginUser();
             mUser.setFirstName(firstName);
@@ -66,17 +64,25 @@ public class SignUpPresenter implements SignUpContracts.Presenter {
             mUser.setUserType(typeSelection);
             mAsyncRunner.runInBackground(() -> {
                 try {
-                    mUser = mService.createUser(mUser);
+                    Object response = mService.createUser(mUser);
+                    if (response instanceof LoginUser){
+                        mUser = (LoginUser) response;
+                        endActivity();
+                    } else {
+                        mView.displayWrongInformation((String) response);
+                    }
 
                 } catch (IOException e) {
                     mView.showCustomException(e.getMessage());
                     e.printStackTrace();
                 }
             });
-            if (mUser != null) {
-                mView.getActivity().finish();
-            }
         }
+    }
+
+    @Override
+    public void endActivity() {
+        mView.getActivity().finish();
     }
 
 
