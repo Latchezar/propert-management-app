@@ -79,8 +79,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <RadioGroup
+            android:id="@+id/sign_up_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/sign_up_confirm_password_field">
+            <RadioButton
+                android:text="@string/radio_landlord"
+                android:id="@+id/radio_landlord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton
+                android:text="@string/radio_tenant"
+                android:id="@+id/radio_tenant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
+
         <Button
-            android:layout_below="@id/sign_up_confirm_password_field"
+            android:layout_below="@+id/sign_up_radio_group"
             android:id="@+id/sign_up_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

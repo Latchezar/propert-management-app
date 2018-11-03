@@ -48,4 +48,7 @@ dependencies {
     // OKHttp
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
 
+
+    //email
+    implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
 }
