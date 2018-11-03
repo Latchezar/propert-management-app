@@ -61,14 +61,17 @@ public class SignUpPresenter implements SignUpContracts.Presenter {
             mUser.setPassword(password);
             mUser.setUserType(typeSelection);
             mAsyncRunner.runInBackground(() -> {
-            try {
-                mUser = mService.createUser(mUser);
-                mView.getActivity().finish();
-            } catch (IOException e) {
-                mView.showCustomException(e.getMessage());
-            }
+                try {
+                    mUser = mService.createUser(mUser);
 
+                } catch (IOException e) {
+                    mView.showCustomException(e.getMessage());
+                    e.printStackTrace();
+                }
             });
+            if (mUser != null) {
+                mView.getActivity().finish();
+            }
         }
     }
 

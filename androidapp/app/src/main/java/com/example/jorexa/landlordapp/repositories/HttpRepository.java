@@ -43,7 +43,7 @@ public class HttpRepository<T> implements Repository<T> {
         String requestBody = mJsonParser.toJson(mUser);
         Response response = mHttpRequester.post(mServerUrl + "register", requestBody);
         int code = response.code();
-        if (code == 200) {
+        if (code == 201) {
             String responseBody = response.body().string();
             return mJsonParser.fromJson(responseBody);
         }else {
