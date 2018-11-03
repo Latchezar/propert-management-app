@@ -69,9 +69,14 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
     }
 
     @Override
+    public void onResume(){
+        super.onResume();
+        mPresenter.subscribe(this);
+    }
+
+    @Override
     public void setPresenter(SignUpContracts.Presenter presenter) {
         mPresenter = presenter;
-        mPresenter.subscribe(this);
     }
 
     @Override

@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".singup.SignUpActivity" />
-        <activity android:name=".userprofile.UserProfileActivity"></activity>
+        <activity android:name=".userprofile.UserProfileActivity" />
+        <activity android:name=".createProperty.CreatePropertyActivity"></activity>
     </application>
 
 </manifest>

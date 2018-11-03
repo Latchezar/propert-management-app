@@ -59,7 +59,6 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
     @Override
     public void setPresenter(LoginContracts.Presenter presenter) {
         mPresenter = presenter;
-        mPresenter.subscribe(this);
     }
 
     @Override
