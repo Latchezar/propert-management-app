@@ -3,8 +3,7 @@ package com.property.landlordapp.constants;
 public class ResponseText {
     public static final String DATABASE_ERROR = "Database Error";
     public static final String INVALID_DATA = "Invalid Data";
-    public static final String SUCCESS = "Success";
-    public static final String ALREADY_EXIST = "Already Exist";
+    public static final String ALREADY_EXIST = "User Already Exists";
     public static final String EMAIL = "Email ";
     public static final String FIRST_NAME = "First-Name ";
     public static final String LAST_NAME = "Last-Name ";
