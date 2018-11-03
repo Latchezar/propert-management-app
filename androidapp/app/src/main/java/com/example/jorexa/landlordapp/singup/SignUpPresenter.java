@@ -33,22 +33,26 @@ public class SignUpPresenter implements SignUpContracts.Presenter {
         boolean errorExists = false;
         if (firstName.length() < 3){
             errorExists = true;
+            mView.displayWrongFirstName();
             //error
-        }
-        if (lastName.length() < 3){
+        } else if (lastName.length() < 3){
             errorExists = true;
+            mView.displayWrongLastName();
             //error
-        }
-        if (!isValidEmailAddress(email)){
+        } else if (!isValidEmailAddress(email)){
             errorExists = true;
+            mView.displayWrongEmail();
             //error
-        }
-        if (password.length() < 3 || !password.equals(confirmPassword)){
+        } else if (password.length() < 3){
             errorExists = true;
+            mView.displayWrongPassword();
             //error
-        }
-        if (typeSelection != 1 && typeSelection != 2) {
+        } else if (!password.equals(confirmPassword)){
             errorExists = true;
+            mView.displayMissMatchPassword();
+        } else if (typeSelection != 1 && typeSelection != 2) {
+            errorExists = true;
+            mView.displaySelectType();
             //error
         }
         if (errorExists){

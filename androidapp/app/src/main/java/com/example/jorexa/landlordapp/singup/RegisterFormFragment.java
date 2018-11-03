@@ -1,17 +1,19 @@
 package com.example.jorexa.landlordapp.singup;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.jorexa.landlordapp.Constants;
 import com.example.jorexa.landlordapp.R;
-import com.example.jorexa.landlordapp.models.LoginUser;
 
 import javax.inject.Inject;
 
@@ -34,6 +36,8 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
     EditText mConfirmPassword;
     @BindView(R.id.sign_up_btn)
     Button mSubmitButton;
+    @BindView(R.id.sign_up_error)
+    TextView mErrorBox;
 
     private int typeSelection;
     private SignUpContracts.Presenter mPresenter;
@@ -80,6 +84,42 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
 
     }
 
+    @Override
+    public void displayWrongFirstName() {
+        String text = Constants.WRONG_FIRST_NAME;
+        displayWrongInformation(text);
+    }
+
+    @Override
+    public void displayWrongLastName() {
+        String text = Constants.WRONG_LAST_NAME;
+        displayWrongInformation(text);
+    }
+
+    @Override
+    public void displayWrongEmail() {
+        String text = Constants.WRONG_EMAIL;
+        displayWrongInformation(text);
+    }
+
+    @Override
+    public void displayWrongPassword() {
+        String text = Constants.WRONG_PASSWORD;
+        displayWrongInformation(text);
+    }
+
+    @Override
+    public void displayMissMatchPassword() {
+        String text = Constants.WRONG_CONFIRM_PASSWORD;
+        displayWrongInformation(text);
+    }
+
+    @Override
+    public void displaySelectType() {
+        String text = Constants.WRONG_TYPE;
+        displayWrongInformation(text);
+    }
+
     public void onRadioButtonClicked(View view){
         boolean checked = ((RadioButton) view).isChecked();
 
@@ -95,5 +135,14 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
                 }
                 break;
         }
+    }
+
+    private void runOnUi(Runnable action){
+        getActivity().runOnUiThread(action);
+    }
+
+    private void displayWrongInformation(String error) {
+        runOnUi(()-> Toast.makeText(getContext(), error, Toast.LENGTH_LONG).show());
+        mErrorBox.setText(error);
     }
 }

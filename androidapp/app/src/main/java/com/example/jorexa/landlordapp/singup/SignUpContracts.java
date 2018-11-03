@@ -11,6 +11,18 @@ public interface SignUpContracts {
         void showError(Exception e);
 
         Activity getActivity();
+
+        void displayWrongFirstName();
+
+        void displayWrongLastName();
+
+        void displayWrongEmail();
+
+        void displayWrongPassword();
+
+        void displayMissMatchPassword();
+
+        void displaySelectType();
     }
 
     interface Presenter {
