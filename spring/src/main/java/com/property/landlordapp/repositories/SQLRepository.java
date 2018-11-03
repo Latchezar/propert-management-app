@@ -99,7 +99,7 @@ public class SQLRepository implements RepositoryBase {
             session.save(user);
             session.getTransaction().commit();
             session.close();
-            return new ResponseEntity<> (ResponseText.SUCCESS, HttpStatus.CREATED);
+            return new ResponseEntity<> (user, HttpStatus.CREATED);
         } catch (Exception e){
             return new ResponseEntity<> (ResponseText.ALREADY_EXIST, HttpStatus.BAD_REQUEST);
         }
