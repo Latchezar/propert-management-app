@@ -46,4 +46,11 @@ public class Validator {
         }
         return false;
     }
+
+    public static boolean isValidPrice(int price){
+        if (price > 0){
+            return true;
+        }
+        return false;
+    }
 }
