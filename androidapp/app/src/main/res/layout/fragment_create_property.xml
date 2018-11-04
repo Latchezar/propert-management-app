@@ -4,11 +4,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".createProperty.CreatePropertyFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/new_property_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/new_property_header"/>
 
+        <TextView
+            android:id="@+id/new_property_error"
+            android:layout_below="@+id/new_property_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/new_property_name_label"
+            android:layout_below="@id/new_property_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/new_property_name"/>
+
+        <EditText
+            android:id="@+id/new_property_name_field"
+            android:layout_below="@id/new_property_name_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/new_property_price_label"
+            android:layout_below="@id/new_property_name_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/new_property_price" />
+
+        <EditText
+            android:id="@+id/new_property_price_field"
+            android:layout_below="@id/new_property_price_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/new_property_button"
+            android:layout_below="@id/new_property_price_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_property_button"/>
+    </RelativeLayout>
 </FrameLayout>
