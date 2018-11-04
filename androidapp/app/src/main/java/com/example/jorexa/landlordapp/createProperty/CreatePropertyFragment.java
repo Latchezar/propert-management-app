@@ -23,15 +23,15 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CreatePropertyFragment extends Fragment implements CreatePropertyContracts.View{
+public class CreatePropertyFragment extends Fragment implements CreatePropertyContracts.View {
 
     @BindView(R.id.new_property_name_field)
     EditText nameField;
-    @BindView(R.id.new_property_price_label)
+    @BindView(R.id.new_property_price_field)
     EditText priceField;
 
     private CreatePropertyContracts.Presenter mPresenter;
-    private LoginUser mUser;
+    private int mUserID;
 
     @Inject
     public CreatePropertyFragment() {
@@ -76,16 +76,21 @@ public class CreatePropertyFragment extends Fragment implements CreatePropertyCo
     }
 
     @Override
-    public void setUser(LoginUser user) {
-        mUser = user;
+    public void setUser(int user) {
+        mUserID = user;
     }
 
     @OnClick(R.id.new_property_button)
-    public void onSubmit(View view) throws IOException {
+    public void onSubmit(View view) {
         String name = String.valueOf(nameField.getText());
         int price = Integer.parseInt(String.valueOf(priceField.getText()));
-        int landlordID = mUser.getId();
+        int landlordID = mUserID;
 
-        mPresenter.onSubmit(name, price, landlordID);
+        try {
+            mPresenter.onSubmit(name, price, landlordID);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

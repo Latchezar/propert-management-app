@@ -2,6 +2,7 @@ package com.example.jorexa.landlordapp.singup;
 
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.jorexa.landlordapp.Constants;
 import com.example.jorexa.landlordapp.R;
+import com.example.jorexa.landlordapp.createProperty.CreatePropertyActivity;
+import com.example.jorexa.landlordapp.models.LoginUser;
 
 import javax.inject.Inject;
 
@@ -119,5 +122,14 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
     public void displayWrongInformation(String error) {
         runOnUi(()-> Toast.makeText(getContext(), error, Toast.LENGTH_LONG).show());
         mErrorBox.setText(error);
+    }
+
+    @OnClick(R.id.test_button)
+    public void testCreateProperty(View view){
+        LoginUser testUser = new LoginUser();
+        testUser.setId(1);
+        Intent intent = new Intent(this.getActivity(), CreatePropertyActivity.class);
+        intent.putExtra(CreatePropertyActivity.EXTRA_KEY, testUser.getId());
+        this.startActivity(intent);
     }
 }

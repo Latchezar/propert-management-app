@@ -20,7 +20,7 @@ public interface CreatePropertyContracts {
 
         void displayWrongInformation(String error);
 
-        void setUser(LoginUser user);
+        void setUser(int user);
     }
 
     interface Presenter {

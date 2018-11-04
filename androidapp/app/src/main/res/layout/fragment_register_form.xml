@@ -113,5 +113,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sign_up_button"/>
+
+        <Button
+            android:id="@+id/test_button"
+            android:layout_below="@+id/sign_up_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test"/>
     </RelativeLayout>
 </FrameLayout>

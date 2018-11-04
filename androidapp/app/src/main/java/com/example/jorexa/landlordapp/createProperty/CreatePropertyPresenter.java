@@ -29,12 +29,18 @@ public class CreatePropertyPresenter implements CreatePropertyContracts.Presente
     }
 
     @Override
-    public void onSubmit(String name, int price, int LandlordID) throws IOException {
+    public void onSubmit(String name, int price, int LandlordID) {
         mProperty = new Property();
         mProperty.setLandlordID(LandlordID);
         mProperty.setPropertyName(name);
         mProperty.setPropertyPrice(price);
-        mService.create(mProperty);
+        mAsyncRunner.runInBackground(() -> {
+            try {
+                mService.create(mProperty);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     @Override

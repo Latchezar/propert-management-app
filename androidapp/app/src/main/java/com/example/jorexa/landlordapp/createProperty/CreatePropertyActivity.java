@@ -12,7 +12,7 @@ import dagger.android.support.DaggerAppCompatActivity;
 
 public class CreatePropertyActivity extends DaggerAppCompatActivity {
     public static final String EXTRA_KEY = "CREATE_PROPERTY_EXTRA_KEY";
-    private LoginUser mUser;
+    private int mUserId;
 
     @Inject
     CreatePropertyFragment mFragment;
@@ -25,10 +25,10 @@ public class CreatePropertyActivity extends DaggerAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_property);
         Intent intent = getIntent();
-        mUser = (LoginUser) intent.getSerializableExtra(CreatePropertyActivity.EXTRA_KEY);
+        mUserId = (int) intent.getSerializableExtra(EXTRA_KEY);
 
         mFragment.setPresenter(mPresenter);
-        mFragment.setUser(mUser);
+        mFragment.setUser(mUserId);
 
         getFragmentManager()
                 .beginTransaction()

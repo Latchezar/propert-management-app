@@ -2,6 +2,7 @@ package com.example.jorexa.landlordapp.repositories;
 
 import com.example.jorexa.landlordapp.http.HttpRequester;
 import com.example.jorexa.landlordapp.models.LoginUser;
+import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.parsers.GsonJsonParser;
 import com.example.jorexa.landlordapp.parsers.base.JsonParser;
 import com.example.jorexa.landlordapp.repositories.base.Repository;
@@ -28,7 +29,13 @@ public class HttpRepository<T> implements Repository<T> {
     @Override
     public T login(T item) throws IOException {
         String requestBody = mJsonParser.toJson(item);
-        Response response = mHttpRequester.post(mServerUrl + "login", requestBody);
+        String url = mServerUrl;
+        if (item instanceof LoginUser) {
+            url += "login";
+        } else if (item instanceof Property) {
+            url += "property";
+        }
+        Response response = mHttpRequester.post(url, requestBody);
         int code = response.code();
         if (code == 200) {
             String responseBody = response.body().string();
@@ -41,7 +48,13 @@ public class HttpRepository<T> implements Repository<T> {
     @Override
     public Object create(T mUser) throws IOException {
         String requestBody = mJsonParser.toJson(mUser);
-        Response response = mHttpRequester.post(mServerUrl + "register", requestBody);
+        String url = mServerUrl;
+        if (mUser instanceof LoginUser) {
+            url += "register";
+        } else if (mUser instanceof Property) {
+            url += "property";
+        }
+        Response response = mHttpRequester.post(url, requestBody);
         int code = response.code();
         if (code == 201) {
             String responseBody = response.body().string();
