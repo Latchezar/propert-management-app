@@ -8,6 +8,7 @@ import com.example.jorexa.landlordapp.services.base.LoginService;
 import java.io.IOException;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
@@ -19,7 +20,7 @@ public class SignUpPresenter implements SignUpContracts.Presenter {
     private LoginUser mUser;
 
     @Inject
-    public SignUpPresenter(LoginService service, AsyncRunner asyncRunner){
+    public SignUpPresenter(@Named("login")LoginService service, AsyncRunner asyncRunner){
         mService = service;
         mAsyncRunner = asyncRunner;
     }

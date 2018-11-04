@@ -2,6 +2,7 @@ package com.example.jorexa.landlordapp.diconfig;
 
 import com.example.jorexa.landlordapp.http.HttpRequester;
 import com.example.jorexa.landlordapp.models.LoginUser;
+import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.parsers.base.JsonParser;
 import com.example.jorexa.landlordapp.repositories.HttpRepository;
 import com.example.jorexa.landlordapp.repositories.base.Repository;
@@ -20,6 +21,17 @@ public class RepositoriesModule {
             @Named("baseServerUrl") String baseServerUrl,
             HttpRequester httpRequester,
             JsonParser<LoginUser> jsonParser
+    ) {
+        String url = baseServerUrl + "/";
+        return new HttpRepository<>(url, httpRequester, jsonParser);
+    }
+
+    @Provides
+    @Singleton
+    public Repository<Property> propertyRepository(
+            @Named("baseServerUrl") String baseServerUrl,
+            HttpRequester httpRequester,
+            JsonParser<Property> jsonParser
     ) {
         String url = baseServerUrl + "/";
         return new HttpRepository<>(url, httpRequester, jsonParser);

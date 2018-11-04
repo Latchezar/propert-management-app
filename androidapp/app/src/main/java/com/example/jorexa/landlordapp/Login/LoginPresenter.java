@@ -11,6 +11,7 @@ import com.example.jorexa.landlordapp.singup.SignUpActivity;
 import java.io.IOException;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 public class LoginPresenter implements LoginContracts.Presenter {
 
@@ -22,7 +23,7 @@ public class LoginPresenter implements LoginContracts.Presenter {
     private EditText mLoginPassword;
 
     @Inject
-    public LoginPresenter(LoginService loginService, AsyncRunner AsyncRunner) {
+    public LoginPresenter(@Named("login") LoginService loginService, AsyncRunner AsyncRunner) {
         mLoginService = loginService;
         mAsyncRunner = AsyncRunner;
     }
