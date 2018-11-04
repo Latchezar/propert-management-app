@@ -2,6 +2,7 @@ package com.property.landlordapp.repositories;
 
 import com.property.landlordapp.constants.ResponseText;
 import com.property.landlordapp.models.Login;
+import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.utils.Validator;
 import org.hibernate.Session;
@@ -102,6 +103,36 @@ public class SQLRepository implements RepositoryBase {
             return new ResponseEntity<> (user, HttpStatus.CREATED);
         } catch (Exception e){
             return new ResponseEntity<> (ResponseText.ALREADY_EXIST, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Override
+    public ResponseEntity createNewProperty(Property property) {
+        boolean isValidInformation = true;
+        StringBuilder sb = new StringBuilder();
+        sb.append(ResponseText.INVALID_REGISTER_TEXT_START);
+        if (!Validator.isValidName(property.getPropertyName())) {
+            isValidInformation = false;
+            sb.append(ResponseText.INVALID_PROPERTY_NAME);
+        }
+        if (!Validator.isValidPrice(property.getPropertyPrice())) {
+            isValidInformation = false;
+            sb.append(ResponseText.INVALID_PROPERTY_PRICE);
+        }
+        if (property.getLandlordID() < 1 || property.getLandlordID() > 2){
+            isValidInformation = false;
+        }
+        if (!isValidInformation){
+            return new ResponseEntity<> (sb.toString(), HttpStatus.BAD_REQUEST);
+        }
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.save(property);
+            session.getTransaction().commit();;
+            session.close();
+            return new ResponseEntity<> (property, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<> (ResponseText.PROPERTY_ALREADY_EXIST, HttpStatus.BAD_REQUEST);
         }
     }
 }

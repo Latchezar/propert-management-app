@@ -1,5 +1,6 @@
 package com.property.landlordapp.controllers;
 
+import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.services.ServiceBase;
 import org.springframework.http.ResponseEntity;
@@ -25,5 +26,10 @@ public class UserController {
     @PostMapping("/register")
     public ResponseEntity registerNewUser(@RequestBody User user){
         return this.service.registerNewUser(user);
+    }
+
+    @PostMapping("/property")
+    public ResponseEntity createNewProperty(@RequestBody Property property) {
+        return this.service.createNewProperty(property);
     }
 }

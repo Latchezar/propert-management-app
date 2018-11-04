@@ -1,5 +1,6 @@
 package com.property.landlordapp.services;
 
+import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.repositories.RepositoryBase;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,10 @@ public class UserService implements ServiceBase{
     @Override
     public ResponseEntity registerNewUser(User user) {
         return this.repository.registerNewUser(user);
+    }
+
+    @Override
+    public ResponseEntity createNewProperty(Property property) {
+        return this.repository.createNewProperty(property);
     }
 }
