@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.models.LoginUser;
 
+import javax.inject.Inject;
+
 import butterknife.ButterKnife;
 
 /**
@@ -20,6 +22,7 @@ public class CreatePropertyFragment extends Fragment implements CreatePropertyCo
     private CreatePropertyContracts.Presenter mPresenter;
     private LoginUser mUser;
 
+    @Inject
     public CreatePropertyFragment() {
         // Required empty public constructor
     }

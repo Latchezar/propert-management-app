@@ -2,6 +2,7 @@ package com.example.jorexa.landlordapp.diconfig;
 
 import com.example.jorexa.landlordapp.createProperty.CreatePropertyContracts;
 import com.example.jorexa.landlordapp.createProperty.CreatePropertyFragment;
+import com.example.jorexa.landlordapp.createProperty.CreatePropertyPresenter;
 
 import dagger.Binds;
 import dagger.Module;
@@ -15,5 +16,5 @@ public abstract class CreatePropertyModule {
 
     @ActivityScoped
     @Binds
-    abstract CreatePropertyContracts.Presenter createPropertyPresenter(CreatePropertyContracts.Presenter presenter);
+    abstract CreatePropertyContracts.Presenter createPropertyPresenter(CreatePropertyPresenter presenter);
 }
