@@ -20,7 +20,7 @@ public class HttpLoginService implements LoginService {
     }
 
     @Override
-    public Object createUser(LoginUser mUser) throws IOException {
-        return mTestUserRepository.createUser(mUser);
+    public Object create(Object mUser) throws IOException {
+        return mTestUserRepository.create((LoginUser)mUser);
     }
 }

@@ -2,7 +2,10 @@ package com.example.jorexa.landlordapp.createProperty;
 
 import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.models.LoginUser;
+import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.services.base.LoginService;
+
+import java.io.IOException;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -12,6 +15,7 @@ public class CreatePropertyPresenter implements CreatePropertyContracts.Presente
     private CreatePropertyContracts.View mView;
     private AsyncRunner mAsyncRunner;
     private LoginService mService;
+    private Property mProperty;
 
     @Inject
     public CreatePropertyPresenter(AsyncRunner asyncRunner,@Named("property") LoginService loginService){
@@ -25,8 +29,12 @@ public class CreatePropertyPresenter implements CreatePropertyContracts.Presente
     }
 
     @Override
-    public void onSubmit(String firstName, String lastName, String email, String password, String confirmPassword, int typeSelection) {
-
+    public void onSubmit(String name, int price, int LandlordID) throws IOException {
+        mProperty = new Property();
+        mProperty.setLandlordID(LandlordID);
+        mProperty.setPropertyName(name);
+        mProperty.setPropertyPrice(price);
+        mService.create(mProperty);
     }
 
     @Override

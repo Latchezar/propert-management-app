@@ -4,6 +4,8 @@ import android.app.Activity;
 
 import com.example.jorexa.landlordapp.models.LoginUser;
 
+import java.io.IOException;
+
 public interface CreatePropertyContracts {
     interface View {
         void onResume();
@@ -24,7 +26,7 @@ public interface CreatePropertyContracts {
     interface Presenter {
         void subscribe(View view);
 
-        void onSubmit(String firstName, String lastName, String email, String password, String confirmPassword, int typeSelection);
+        void onSubmit(String name, int price, int LandlordID) throws IOException;
 
         void setUser(LoginUser user);
     }

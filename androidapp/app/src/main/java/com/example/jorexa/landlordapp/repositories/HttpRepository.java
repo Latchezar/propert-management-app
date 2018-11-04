@@ -39,7 +39,7 @@ public class HttpRepository<T> implements Repository<T> {
     }
 
     @Override
-    public Object createUser(T mUser) throws IOException {
+    public Object create(T mUser) throws IOException {
         String requestBody = mJsonParser.toJson(mUser);
         Response response = mHttpRequester.post(mServerUrl + "register", requestBody);
         int code = response.code();

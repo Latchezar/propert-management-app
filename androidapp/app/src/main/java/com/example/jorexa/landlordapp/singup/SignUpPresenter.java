@@ -65,7 +65,7 @@ public class SignUpPresenter implements SignUpContracts.Presenter {
             mUser.setUserType(typeSelection);
             mAsyncRunner.runInBackground(() -> {
                 try {
-                    Object response = mService.createUser(mUser);
+                    Object response = mService.create(mUser);
                     if (response instanceof LoginUser){
                         mUser = (LoginUser) response;
                         endActivity();

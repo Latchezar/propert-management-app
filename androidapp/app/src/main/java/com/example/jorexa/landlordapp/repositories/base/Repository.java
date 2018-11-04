@@ -10,7 +10,7 @@ public interface Repository<T> {
 
     T login(T item) throws IOException;
 
-    Object createUser(T mUser) throws IOException;
+    Object create(T mUser) throws IOException;
 
     //T getById(int id) throws IOException;
 }

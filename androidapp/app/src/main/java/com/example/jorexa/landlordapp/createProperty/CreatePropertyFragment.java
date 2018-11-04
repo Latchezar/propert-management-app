@@ -6,18 +6,29 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.models.LoginUser;
+import com.example.jorexa.landlordapp.models.Property;
+
+import java.io.IOException;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CreatePropertyFragment extends Fragment implements CreatePropertyContracts.View{
+
+    @BindView(R.id.new_property_name_field)
+    EditText nameField;
+    @BindView(R.id.new_property_price_label)
+    EditText priceField;
 
     private CreatePropertyContracts.Presenter mPresenter;
     private LoginUser mUser;
@@ -67,5 +78,14 @@ public class CreatePropertyFragment extends Fragment implements CreatePropertyCo
     @Override
     public void setUser(LoginUser user) {
         mUser = user;
+    }
+
+    @OnClick(R.id.new_property_button)
+    public void onSubmit(View view) throws IOException {
+        String name = String.valueOf(nameField.getText());
+        int price = Integer.parseInt(String.valueOf(priceField.getText()));
+        int landlordID = mUser.getId();
+
+        mPresenter.onSubmit(name, price, landlordID);
     }
 }

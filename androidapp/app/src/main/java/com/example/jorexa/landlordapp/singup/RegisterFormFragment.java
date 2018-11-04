@@ -19,6 +19,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,15 +58,18 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
         ButterKnife.bind(this, view);
 
 
-        mSubmitButton.setOnClickListener(view1 -> {
-            String firstName = String.valueOf(mFirstName.getText());
-            String lastName = String.valueOf(mLastName.getText());
-            String email = String.valueOf(mEmail.getText());
-            String password = String.valueOf(mPassword.getText());
-            String confirmPassword = String.valueOf(mConfirmPassword.getText());
-            mPresenter.onSubmit(firstName, lastName, email, password, confirmPassword, typeSelection);
-        });
+
         return view;
+    }
+
+    @OnClick(R.id.sign_up_btn)
+    public void submitRegistration(View view){
+        String firstName = String.valueOf(mFirstName.getText());
+        String lastName = String.valueOf(mLastName.getText());
+        String email = String.valueOf(mEmail.getText());
+        String password = String.valueOf(mPassword.getText());
+        String confirmPassword = String.valueOf(mConfirmPassword.getText());
+        mPresenter.onSubmit(firstName, lastName, email, password, confirmPassword, typeSelection);
     }
 
     @Override

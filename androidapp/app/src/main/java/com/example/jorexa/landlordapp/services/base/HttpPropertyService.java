@@ -20,7 +20,7 @@ public class HttpPropertyService implements LoginService {
     }
 
     @Override
-    public Object createUser(LoginUser mUser) throws IOException {
-        return null;
+    public Object create(Object mUser) throws IOException {
+        return mRepository.create((Property)mUser);
     }
 }
