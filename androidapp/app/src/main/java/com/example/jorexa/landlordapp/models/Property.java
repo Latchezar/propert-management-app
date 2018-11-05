@@ -1,57 +1,57 @@
 package com.example.jorexa.landlordapp.models;
 
 public class Property {
-    public int PropertyID, PropertyPrice, LandlordID, TenantID;
-    public String PropertyName;
+    public int propertyID, propertyPrice, landlordID, tenantID;
+    public String propertyName;
 
     public Property() {
     }
 
     public Property(int propertyID, int propertyPrice, int landlordID, int tenantID, String propertyName) {
-        PropertyID = propertyID;
-        PropertyPrice = propertyPrice;
-        LandlordID = landlordID;
-        TenantID = tenantID;
-        PropertyName = propertyName;
+        propertyID = propertyID;
+        propertyPrice = propertyPrice;
+        landlordID = landlordID;
+        tenantID = tenantID;
+        propertyName = propertyName;
     }
 
     public int getPropertyID() {
-        return PropertyID;
+        return propertyID;
     }
 
     public void setPropertyID(int propertyID) {
-        PropertyID = propertyID;
+        propertyID = propertyID;
     }
 
     public int getPropertyPrice() {
-        return PropertyPrice;
+        return propertyPrice;
     }
 
     public void setPropertyPrice(int propertyPrice) {
-        PropertyPrice = propertyPrice;
+        propertyPrice = propertyPrice;
     }
 
     public int getLandlordID() {
-        return LandlordID;
+        return landlordID;
     }
 
     public void setLandlordID(int landlordID) {
-        LandlordID = landlordID;
+        landlordID = landlordID;
     }
 
     public int getTenantID() {
-        return TenantID;
+        return tenantID;
     }
 
     public void setTenantID(int tenantID) {
-        TenantID = tenantID;
+        tenantID = tenantID;
     }
 
     public String getPropertyName() {
-        return PropertyName;
+        return propertyName;
     }
 
     public void setPropertyName(String propertyName) {
-        PropertyName = propertyName;
+        propertyName = propertyName;
     }
 }

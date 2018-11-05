@@ -7,6 +7,7 @@ import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.services.base.LoginService;
 import com.example.jorexa.landlordapp.singup.SignUpActivity;
+import com.example.jorexa.landlordapp.userprofile.UserProfileActivity;
 
 import java.io.IOException;
 
@@ -47,7 +48,11 @@ public class LoginPresenter implements LoginContracts.Presenter {
                     user.setEmail(email);
                     LoginUser loggedUser = mLoginService.signIn(user);
                     if (loggedUser != null) {
-                        mView.showCustomException("OK!");
+                        mView.showCustomException("OK!"+loggedUser.userType);
+                        Intent intent = new Intent(mView.getActivity(), UserProfileActivity.class);
+                        intent.putExtra(UserProfileActivity.EXTRA_KEY, loggedUser);
+                        //intent.putExtra("userType", loggedUser.userType);
+                        mView.startActivity(intent);
                         //create intent
                         //put extra object
                         //mView.startNext(intent);

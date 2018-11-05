@@ -36,7 +36,7 @@ public class CreatePropertyPresenter implements CreatePropertyContracts.Presente
         mProperty.setPropertyPrice(price);
         mAsyncRunner.runInBackground(() -> {
             try {
-                mService.create(mProperty);
+                String response = (String) mService.create(mProperty);
             } catch (IOException e) {
                 e.printStackTrace();
             }

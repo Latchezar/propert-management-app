@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.models.LoginUser;
@@ -62,7 +63,11 @@ public class CreatePropertyFragment extends Fragment implements CreatePropertyCo
 
     @Override
     public void showCustomException(String text) {
+        runOnUi(()-> Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show());
+    }
 
+    private void runOnUi(Runnable action){
+        getActivity().runOnUiThread(action);
     }
 
     @Override
