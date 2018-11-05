@@ -13,4 +13,5 @@ public class ResponseText {
     public static final String INVALID_PROPERTY_NAME = "Property name ";
     public static final String INVALID_PROPERTY_PRICE = "Property price ";
     public static final String PROPERTY_ALREADY_EXIST = "Property Already Exist";
+    public static final String PROPERTY_CREATED_SUCCESSFUL = "Property Create Successful";
 }

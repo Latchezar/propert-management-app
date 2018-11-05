@@ -111,7 +111,7 @@ public class SQLRepository implements RepositoryBase {
         boolean isValidInformation = true;
         StringBuilder sb = new StringBuilder();
         sb.append(ResponseText.INVALID_REGISTER_TEXT_START);
-        if (!Validator.isValidName(property.getPropertyName())) {
+        if (!Validator.isValidPropertyName(property.getPropertyName())) {
             isValidInformation = false;
             sb.append(ResponseText.INVALID_PROPERTY_NAME);
         }
@@ -119,7 +119,7 @@ public class SQLRepository implements RepositoryBase {
             isValidInformation = false;
             sb.append(ResponseText.INVALID_PROPERTY_PRICE);
         }
-        if (property.getLandlordID() < 1 || property.getLandlordID() > 2){
+        if (property.getLandlordID() < 1 && property.getLandlordID() > 2){
             isValidInformation = false;
         }
         if (!isValidInformation){
@@ -128,9 +128,9 @@ public class SQLRepository implements RepositoryBase {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
             session.save(property);
-            session.getTransaction().commit();;
+            session.getTransaction().commit();
             session.close();
-            return new ResponseEntity<> (property, HttpStatus.CREATED);
+            return new ResponseEntity<> (ResponseText.PROPERTY_CREATED_SUCCESSFUL, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<> (ResponseText.PROPERTY_ALREADY_EXIST, HttpStatus.BAD_REQUEST);
         }

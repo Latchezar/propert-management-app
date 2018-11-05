@@ -19,6 +19,18 @@ public class Validator {
         return result;
     }
 
+    public static boolean isValidPropertyName(String name) {
+        if (name == null){
+            return false;
+        }
+
+        if (name.length() > 65 || name.length() < 3){
+            return false;
+        }
+
+        return true;
+    }
+
     public static boolean isValidName(String name){
         if (name == null){
             return false;
