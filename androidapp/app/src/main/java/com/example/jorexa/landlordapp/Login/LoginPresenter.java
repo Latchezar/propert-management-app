@@ -50,6 +50,8 @@ public class LoginPresenter implements LoginContracts.Presenter {
                     if (loggedUser != null) {
                         mView.showCustomException("OK!"+loggedUser.userType);
                         Intent intent = new Intent(mView.getActivity(), UserProfileActivity.class);
+                        intent.putExtra(UserProfileActivity.EXTRA_KEY, loggedUser);
+                        //intent.putExtra("userType", loggedUser.userType);
                         mView.startActivity(intent);
                         //create intent
                         //put extra object

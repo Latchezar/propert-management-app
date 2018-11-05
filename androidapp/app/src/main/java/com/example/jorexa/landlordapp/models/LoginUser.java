@@ -1,6 +1,8 @@
 package com.example.jorexa.landlordapp.models;
 
-public class LoginUser {
+import java.io.Serializable;
+
+public class LoginUser implements Serializable {
         //"id": 1,
         //"firstName": "Latchezar",
         //"lastName": "Nikolov",
