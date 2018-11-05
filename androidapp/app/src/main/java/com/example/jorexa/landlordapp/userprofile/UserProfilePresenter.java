@@ -1,4 +1,13 @@
 package com.example.jorexa.landlordapp.userprofile;
 
-public class UserProfilePresenter {
+import com.example.jorexa.landlordapp.Login.LoginContracts;
+
+public class UserProfilePresenter implements UserProfileContracts.Presenter {
+
+    private UserProfileContracts.View mView;
+
+    @Override
+    public void subscribe(UserProfileContracts.View view) {
+        mView = view;
+    }
 }
