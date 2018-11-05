@@ -125,6 +125,9 @@ public class SQLRepository implements RepositoryBase {
         if (!isValidInformation){
             return new ResponseEntity<> (sb.toString(), HttpStatus.BAD_REQUEST);
         }
+        if (property.getTenantID() == 0) {
+            property.setTenantID(property.getLandlordID());
+        }
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
             session.save(property);
@@ -132,6 +135,7 @@ public class SQLRepository implements RepositoryBase {
             session.close();
             return new ResponseEntity<> (ResponseText.PROPERTY_CREATED_SUCCESSFUL, HttpStatus.CREATED);
         } catch (Exception e) {
+            e.printStackTrace();
             return new ResponseEntity<> (ResponseText.PROPERTY_ALREADY_EXIST, HttpStatus.BAD_REQUEST);
         }
     }

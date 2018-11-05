@@ -3,13 +3,13 @@ package com.property.landlordapp.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "properties", uniqueConstraints = {
+@Table(name = "Properties", uniqueConstraints = {
         @UniqueConstraint(columnNames = "PropertyID")
 })
 public class Property {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PropertyID")
     private int propertyID;
 
