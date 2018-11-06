@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jorexa.landlordapp.R;
@@ -27,11 +28,13 @@ import butterknife.OnClick;
 public class CreatePropertyFragment extends Fragment implements CreatePropertyContracts.View {
 
     @BindView(R.id.new_property_name_field)
-    EditText nameField;
+    EditText mNameField;
     @BindView(R.id.new_property_price_field)
-    EditText priceField;
+    EditText mPriceField;
     @BindView(R.id.new_property_address_field)
-    EditText addressField;
+    EditText mAddressField;
+    @BindView(R.id.new_property_error)
+    TextView mErrorBox;
 
     private CreatePropertyContracts.Presenter mPresenter;
     private int mUserID;
@@ -74,12 +77,13 @@ public class CreatePropertyFragment extends Fragment implements CreatePropertyCo
 
     @Override
     public void showError(Exception e) {
-
+        runOnUi(()-> Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show());
     }
 
     @Override
     public void displayWrongInformation(String error) {
-
+        runOnUi(()-> Toast.makeText(getContext(), error, Toast.LENGTH_LONG).show());
+        mErrorBox.setText(error);
     }
 
     @Override
@@ -89,10 +93,15 @@ public class CreatePropertyFragment extends Fragment implements CreatePropertyCo
 
     @OnClick(R.id.new_property_button)
     public void onSubmit(View view) {
-        String name = String.valueOf(nameField.getText());
-        int price = Integer.parseInt(String.valueOf(priceField.getText()));
+        String name = String.valueOf(mNameField.getText());
+        int price;
+        try {
+            price = Integer.parseInt(String.valueOf(mPriceField.getText()));
+        } catch (NumberFormatException e) {
+            price = -1;
+        }
         int landlordID = mUserID;
-        String address = String.valueOf(addressField.getText());
+        String address = String.valueOf(mAddressField.getText());
         try {
             mPresenter.onSubmit(name, address, price, landlordID);
         } catch (IOException e) {
