@@ -18,7 +18,11 @@ public abstract class UserProfileModule {
     @ContributesAndroidInjector
     abstract TenantFragment tenantFragment();
 
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract LandlordFragment landlordFragment();
+
     @ActivityScoped
     @Binds
-    abstract UserProfileContracts.Presenter taskPresenter(UserProfilePresenter presenter);
+    abstract UserProfileContracts.Presenter userProfilePresenter(UserProfilePresenter presenter);
 }

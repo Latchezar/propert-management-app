@@ -12,19 +12,23 @@ import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.diconfig.AppComponent;
 import com.example.jorexa.landlordapp.models.LoginUser;
 
+import java.io.IOException;
+
 import javax.inject.Inject;
 
-public class UserProfileActivity extends Activity {
+import dagger.android.support.DaggerAppCompatActivity;
+
+public class UserProfileActivity extends DaggerAppCompatActivity {
     public static final String EXTRA_KEY = "USERPROFILE_EXTRA_KEY";
 
-    //@Inject
-    //LoginFragment mTenantFragment;
+    @Inject
+    TenantFragment mTenantFragment;
 
-    //@Inject
-    //LoginFragment mLandlordFragment;
+    @Inject
+    LandlordFragment mLandlordFragment;
 
-    //@Inject
-    //LoginContracts.Presenter mUserProfilePresenter;
+    @Inject
+    UserProfileContracts.Presenter mUserProfilePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +38,30 @@ public class UserProfileActivity extends Activity {
         Intent intent = getIntent();
         LoginUser loginUser = (LoginUser) intent.getSerializableExtra(UserProfileActivity.EXTRA_KEY);
 
-        ///mTenantFragment.setPresenter(mUserProfilePresenter);
+        //mTenantFragment.setPresenter(mUserProfilePresenter);
+        //  mLandlordFragment.setPresenter(mUserProfilePresenter);
 
-        //FragmentTransaction transaction = getFragmentManager()
-        //        .beginTransaction();
+        try {
+            mUserProfilePresenter.setUserProfile(loginUser);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        //transaction.replace(R.id.content, mTenantFragment);
+        FragmentTransaction transaction = getFragmentManager()
+                .beginTransaction();
+
+        //transaction.replace(R.id.userProfile, mLandlordFragment);
         //transaction.commit();
 
-        int a = 5;
+        if (loginUser.userType == 1) {
+            mLandlordFragment.setPresenter(mUserProfilePresenter);
+            transaction.replace(R.id.userProfile, mLandlordFragment);
+
+        } else if (loginUser.userType == 2) {
+            mTenantFragment.setPresenter(mUserProfilePresenter);
+            transaction.replace(R.id.userProfile, mTenantFragment);
+        }
+        transaction.commit();
 
     }
 }

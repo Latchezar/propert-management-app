@@ -2,15 +2,20 @@ package com.example.jorexa.landlordapp.userprofile;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.jorexa.landlordapp.Login.LoginContracts;
 import com.example.jorexa.landlordapp.R;
+import com.example.jorexa.landlordapp.models.Property;
+
+import java.util.List;
 
 import javax.inject.Inject;
+
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +35,16 @@ public class TenantFragment extends Fragment implements UserProfileContracts.Vie
     }
 
     @Override
+    public void setTitle(String title) {
+
+    }
+
+    @Override
+    public void showProperties(List<Property> properties) {
+
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         mPresenter.subscribe(this);
@@ -40,7 +55,11 @@ public class TenantFragment extends Fragment implements UserProfileContracts.Vie
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tenant, container, false);
+        View view = inflater.inflate(R.layout.fragment_tenant, container, false);
+
+        ButterKnife.bind(this, view);
+
+        return view;
     }
 
 

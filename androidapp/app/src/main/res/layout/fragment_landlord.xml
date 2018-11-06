@@ -6,9 +6,31 @@
     tools:context=".userprofile.LandlordFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/loginBackground">
+
+    <TextView
+        android:id="@+id/tv_landlord_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Landlord profile" />
+
+        <TextView
+            android:id="@+id/tv_landlord_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tv_landlord_profile"
+            android:text="..." />
+
+        <ListView
+            android:id="@+id/lv_properties"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_landlord_title"
+            android:visibility="gone" />
+
+    </RelativeLayout>
 
 </FrameLayout>

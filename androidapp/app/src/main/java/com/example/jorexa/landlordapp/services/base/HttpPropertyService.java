@@ -5,6 +5,7 @@ import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.repositories.base.Repository;
 
 import java.io.IOException;
+import java.util.List;
 
 public class HttpPropertyService implements LoginService {
 
@@ -12,6 +13,11 @@ public class HttpPropertyService implements LoginService {
 
     public HttpPropertyService(Repository<Property> repository){
         mRepository = repository;
+    }
+
+    @Override
+    public List<Property> getAllProperties(int propertyID) throws IOException {
+        return mRepository.getAll(propertyID);
     }
 
     @Override

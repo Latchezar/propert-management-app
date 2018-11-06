@@ -25,4 +25,5 @@ public class ServicesModule {
     public LoginService httpPropertyService(Repository<Property> repository){
         return new HttpPropertyService(repository);
     }
+
 }

@@ -1,9 +1,11 @@
 package com.example.jorexa.landlordapp.services.base;
 
 import com.example.jorexa.landlordapp.models.LoginUser;
+import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.repositories.base.Repository;
 
 import java.io.IOException;
+import java.util.List;
 
 public class HttpLoginService implements LoginService {
 
@@ -17,6 +19,11 @@ public class HttpLoginService implements LoginService {
     public LoginUser signIn(LoginUser sentUser) throws IOException {
         return mTestUserRepository.login(sentUser);
         //return null;
+    }
+
+    @Override
+    public List<Property> getAllProperties(int propertyID) throws IOException {
+        return null;
     }
 
     @Override
