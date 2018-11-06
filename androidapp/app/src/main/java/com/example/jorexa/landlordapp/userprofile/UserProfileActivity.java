@@ -37,15 +37,23 @@ public class UserProfileActivity extends DaggerAppCompatActivity {
         LoginUser loginUser = (LoginUser) intent.getSerializableExtra(UserProfileActivity.EXTRA_KEY);
 
         //mTenantFragment.setPresenter(mUserProfilePresenter);
-          mLandlordFragment.setPresenter(mUserProfilePresenter);
+        //  mLandlordFragment.setPresenter(mUserProfilePresenter);
 
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction();
 
-        transaction.replace(R.id.userProfile, mLandlordFragment);
-        transaction.commit();
+        //transaction.replace(R.id.userProfile, mLandlordFragment);
+        //transaction.commit();
 
-        int a = 5;
+        if (loginUser.userType == 1) {
+            mLandlordFragment.setPresenter(mUserProfilePresenter);
+            transaction.replace(R.id.userProfile, mLandlordFragment);
+
+        } else if (loginUser.userType == 2) {
+            mTenantFragment.setPresenter(mUserProfilePresenter);
+            transaction.replace(R.id.userProfile, mTenantFragment);
+        }
+        transaction.commit();
 
     }
 }
