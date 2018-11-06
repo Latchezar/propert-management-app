@@ -3,10 +3,12 @@ package com.example.jorexa.landlordapp.userprofile;
 import com.example.jorexa.landlordapp.Login.LoginContracts;
 import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.models.LoginUser;
+import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.services.base.HttpPropertyService;
 import com.example.jorexa.landlordapp.services.base.LoginService;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -34,7 +36,19 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
         mUserProfile = loginUser;
         //mView.setTitle(test);
 
-        mService.getAllProperties();
+        //mService.getAllProperties();
+
+        mAsyncRunner.runInBackground(() -> {
+            try {
+                List<Property> properties = mService.getAllProperties(loginUser.getId());
+                int a = 5;
+                //presentSuperheroesToView(superheroes);
+            } catch (IOException e) {
+                e.printStackTrace();
+                //mView.showError(e);
+                int t = 3;
+            }
+        });
 
     }
 

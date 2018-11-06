@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface Repository<T> {
-    List<T> getAll() throws IOException;
+    List<T> getAll(int propertyID) throws IOException;
 
     T login(T item) throws IOException;
 

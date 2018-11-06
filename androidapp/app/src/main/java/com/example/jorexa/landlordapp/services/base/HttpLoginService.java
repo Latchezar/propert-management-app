@@ -22,7 +22,7 @@ public class HttpLoginService implements LoginService {
     }
 
     @Override
-    public List<Property> getAllProperties() throws IOException {
+    public List<Property> getAllProperties(int propertyID) throws IOException {
         return null;
     }
 

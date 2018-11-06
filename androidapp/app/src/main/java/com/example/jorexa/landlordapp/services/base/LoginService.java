@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface LoginService {
 
-    List<Property> getAllProperties() throws IOException;
+    List<Property> getAllProperties(int propertyID) throws IOException;
 
     LoginUser signIn(LoginUser sentUser) throws IOException;
 

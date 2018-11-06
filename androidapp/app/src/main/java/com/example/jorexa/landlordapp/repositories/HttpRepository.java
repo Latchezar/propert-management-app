@@ -47,9 +47,9 @@ public class HttpRepository<T> implements Repository<T> {
     }
 
     @Override
-    public List<T> getAll() throws IOException {
+    public List<T> getAll(int propertyID) throws IOException {
         String jsonArray = null;
-        String url = mServerUrl+"/landlord/1";
+        String url = mServerUrl+"/landlord/"+propertyID;
         jsonArray = mHttpRequester.get(url);
         return mJsonParser.fromJsonArray(jsonArray);
     }
