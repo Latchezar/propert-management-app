@@ -20,6 +20,8 @@ public interface UserProfileContracts {
         void showProperties(List<Property> properties);
         //void showError(Exception e);
 
+        void showPropertyDetails(Property property);
+
         //Activity getActivity();
 
         //void startActivity(Intent intent);
@@ -32,6 +34,12 @@ public interface UserProfileContracts {
 
         void loadUser();
 
+        void selectProperty(Property property);
+
         void presentPropertiesToView(List<Property> properties);
+    }
+
+    interface Navigator {
+        void navigateWith(Property property);
     }
 }

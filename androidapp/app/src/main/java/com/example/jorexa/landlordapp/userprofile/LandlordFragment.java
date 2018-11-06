@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -21,11 +22,14 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class LandlordFragment extends Fragment implements UserProfileContracts.View {
+
+    private UserProfileContracts.Navigator mNavigator;
 
     @BindView(R.id.lv_properties)
     ListView mPropertiesListView;
@@ -52,6 +56,12 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
         super.onResume();
         mPresenter.subscribe(this);
         mPresenter.loadUser();
+    }
+
+    @OnItemClick(R.id.lv_properties)
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Property property = mPropertiesAdapter.getItem(position);
+        mPresenter.selectProperty(property);
     }
 
     @Override
@@ -94,13 +104,16 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
             //mTitle.setText(names.get(0));
             mPropertiesAdapter.clear();
             mPropertiesAdapter.addAll(properties);
-            //mPropertiesAdapter.addAll(properties);
-            //mPropertiesAdapter.add
-            //mProperties2Adapter.clear();
-            //mProperties2Adapter.addAll(names);
-            //mProperties2Adapter.addAll(names);
-            //int t = 5;
         });
+    }
+
+    @Override
+    public void showPropertyDetails(Property property) {
+        runOnUi(() -> mNavigator.navigateWith(property));
+    }
+
+    void setNavigator(UserProfileContracts.Navigator navigator) {
+        mNavigator = navigator;
     }
 
     private void runOnUi(Runnable action) {

@@ -66,5 +66,9 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
         mView.setTitle(mUserProfile.firstName);
     }
 
+    @Override
+    public void selectProperty(Property property) {
+        mView.showPropertyDetails(property);
+    }
 
 }
