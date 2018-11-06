@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".singup.SignUpActivity" />
         <activity android:name=".userprofile.UserProfileActivity" />
-        <activity android:name=".createProperty.CreatePropertyActivity"></activity>
+        <activity android:name=".createProperty.CreatePropertyActivity" />
+        <activity android:name=".propertyDetails.propertyDetailsActivity"></activity>
     </application>
 
 </manifest>
