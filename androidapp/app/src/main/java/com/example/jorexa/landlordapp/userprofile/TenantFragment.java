@@ -12,6 +12,8 @@ import com.example.jorexa.landlordapp.R;
 
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -45,7 +47,11 @@ public class TenantFragment extends Fragment implements UserProfileContracts.Vie
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tenant, container, false);
+        View view = inflater.inflate(R.layout.fragment_tenant, container, false);
+
+        ButterKnife.bind(this, view);
+
+        return view;
     }
 
 
