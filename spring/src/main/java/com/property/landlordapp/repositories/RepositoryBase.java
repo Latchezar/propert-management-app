@@ -10,4 +10,6 @@ public interface RepositoryBase {
     ResponseEntity registerNewUser(User user);
 
     ResponseEntity createNewProperty(Property property);
+
+    ResponseEntity getPropertiesByLandlordID(int id);
 }

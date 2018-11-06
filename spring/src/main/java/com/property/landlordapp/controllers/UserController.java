@@ -4,10 +4,7 @@ import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.services.ServiceBase;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -31,5 +28,10 @@ public class UserController {
     @PostMapping("/property")
     public ResponseEntity createNewProperty(@RequestBody Property property) {
         return this.service.createNewProperty(property);
+    }
+
+    @GetMapping("landlord/{id}")
+    public ResponseEntity getPropertiesByLandlordID(@PathVariable int id){
+        return this.service.getPropertiesByLandlordID(id);
     }
 }

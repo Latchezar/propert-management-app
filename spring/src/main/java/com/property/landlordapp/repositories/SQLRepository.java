@@ -5,6 +5,7 @@ import com.property.landlordapp.models.Login;
 import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.utils.Validator;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import javax.xml.bind.DatatypeConverter;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class SQLRepository implements RepositoryBase {
@@ -138,5 +141,19 @@ public class SQLRepository implements RepositoryBase {
             e.printStackTrace();
             return new ResponseEntity<> (ResponseText.PROPERTY_ALREADY_EXIST, HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @Override
+    public ResponseEntity getPropertiesByLandlordID(int id){
+        List<Property> properties = new ArrayList<>();
+        try (Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            properties = (List<Property>) session.createSQLQuery("select * from propertymanagement.properties where LandlordID = " + id + ";").addEntity(Property.class).list();
+            return new ResponseEntity<> (properties, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+            //return new ResponseEntity<>(ResponseText.INVALID_DATA, HttpStatus.BAD_REQUEST);
+        }
+
     }
 }

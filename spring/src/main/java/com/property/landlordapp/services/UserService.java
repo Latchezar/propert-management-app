@@ -30,4 +30,9 @@ public class UserService implements ServiceBase{
     public ResponseEntity createNewProperty(Property property) {
         return this.repository.createNewProperty(property);
     }
+
+    @Override
+    public ResponseEntity getPropertiesByLandlordID(int id) {
+        return this.repository.getPropertiesByLandlordID(id);
+    }
 }
