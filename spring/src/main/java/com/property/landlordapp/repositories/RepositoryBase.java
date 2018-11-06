@@ -12,4 +12,6 @@ public interface RepositoryBase {
     ResponseEntity createNewProperty(Property property);
 
     ResponseEntity getPropertiesByLandlordID(int id);
+
+    ResponseEntity getPropertiesByTenantID(int id);
 }
