@@ -41,8 +41,7 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
         mAsyncRunner.runInBackground(() -> {
             try {
                 List<Property> properties = mService.getAllProperties(loginUser.getId());
-                int a = 5;
-                //presentSuperheroesToView(superheroes);
+                presentPropertiesToView(properties);
             } catch (IOException e) {
                 e.printStackTrace();
                 //mView.showError(e);
@@ -50,6 +49,15 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
             }
         });
 
+    }
+
+    @Override
+    public void presentPropertiesToView(List<Property> properties) {
+        if (properties.isEmpty()) {
+            //mView.showEmptySuperheroesList();
+        } else {
+            mView.showProperties(properties);
+        }
     }
 
     @Override

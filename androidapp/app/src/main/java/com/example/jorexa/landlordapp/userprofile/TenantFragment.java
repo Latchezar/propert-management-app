@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 
 import com.example.jorexa.landlordapp.Login.LoginContracts;
 import com.example.jorexa.landlordapp.R;
+import com.example.jorexa.landlordapp.models.Property;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -33,6 +36,11 @@ public class TenantFragment extends Fragment implements UserProfileContracts.Vie
 
     @Override
     public void setTitle(String title) {
+
+    }
+
+    @Override
+    public void showProperties(List<Property> properties) {
 
     }
 

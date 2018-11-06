@@ -32,7 +32,8 @@ import javax.inject.Singleton;
         AsyncModule.class,
         AppModule.class,
         ActivityBindingModule.class,
-        AndroidSupportInjectionModule.class})
+        AndroidSupportInjectionModule.class,
+        ViewsModule.class})
 public interface AppComponent extends AndroidInjector<AndroidApplication> {
     @Component.Builder
     interface Builder {

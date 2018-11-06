@@ -6,10 +6,14 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.jorexa.landlordapp.R;
+import com.example.jorexa.landlordapp.models.Property;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -23,6 +27,9 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
 
     @BindView(R.id.tv_landlord_title)
     TextView mTitle;
+
+    @Inject
+    ArrayAdapter<Property> mPropertiesAdapter;
 
     private UserProfileContracts.Presenter mPresenter;
 
@@ -58,6 +65,11 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
     public void setTitle(String title) {
        String t = title;
        mTitle.setText(title);
+    }
+
+    @Override
+    public void showProperties(List<Property> properties) {
+
     }
 
 
