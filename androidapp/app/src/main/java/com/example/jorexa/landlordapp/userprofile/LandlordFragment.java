@@ -57,6 +57,8 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
 
         ButterKnife.bind(this, view);
 
+        mPropertiesListView.setAdapter(mPropertiesAdapter);
+
         return view;
     }
 
@@ -73,10 +75,12 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
 
     @Override
     public void showProperties(List<Property> properties) {
+
+       int a = 5;
         runOnUi(() -> {
-            //mSuperheroesAdapter.clear();
-            //mSuperheroesAdapter.addAll(superheroes);
-            //mSuperheroesAdapter.add
+            mPropertiesAdapter.clear();
+            //mPropertiesAdapter.addAll(properties.get);
+            //mPropertiesAdapter.add
         });
     }
 

@@ -28,18 +28,18 @@ public class PropertiesListAdapter extends ArrayAdapter<Property> {
                 (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View view = layoutInflater.inflate(
-                R.layout.fragment_login,
+                R.layout.property_item,
                 parent,
                 false
         );
 
-        //TextView nameTextView = view.findViewById(R.id.tv_name);
-        //TextView secretIdentityTextView = view.findViewById(R.id.tv_secret_identity);
+        TextView nameTextView = view.findViewById(R.id.tv_property_name);
+        TextView secretIdentityTextView = view.findViewById(R.id.tv_property_addresss);
 
         Property property = getItem(position);
 
-        //nameTextView.setText(property.getPropertyName());
-        //secretIdentityTextView.setText(property.getLandlordID());
+        nameTextView.setText(property.getPropertyName());
+        secretIdentityTextView.setText(property.getLandlordID());
 
         return view;
     }
