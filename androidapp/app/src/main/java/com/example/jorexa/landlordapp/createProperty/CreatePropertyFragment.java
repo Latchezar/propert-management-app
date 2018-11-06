@@ -30,6 +30,8 @@ public class CreatePropertyFragment extends Fragment implements CreatePropertyCo
     EditText nameField;
     @BindView(R.id.new_property_price_field)
     EditText priceField;
+    @BindView(R.id.new_property_address_field)
+    EditText addressField;
 
     private CreatePropertyContracts.Presenter mPresenter;
     private int mUserID;
@@ -90,9 +92,9 @@ public class CreatePropertyFragment extends Fragment implements CreatePropertyCo
         String name = String.valueOf(nameField.getText());
         int price = Integer.parseInt(String.valueOf(priceField.getText()));
         int landlordID = mUserID;
-
+        String address = String.valueOf(addressField.getText());
         try {
-            mPresenter.onSubmit(name, price, landlordID);
+            mPresenter.onSubmit(name, address, price, landlordID);
         } catch (IOException e) {
             e.printStackTrace();
         }
