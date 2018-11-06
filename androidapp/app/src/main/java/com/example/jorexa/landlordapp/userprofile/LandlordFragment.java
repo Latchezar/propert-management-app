@@ -27,7 +27,7 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
     public void onResume() {
         super.onResume();
         mPresenter.subscribe(this);
-        //mPresenter.loadLogin();
+        mPresenter.loadUser();
     }
 
     @Override
@@ -41,5 +41,12 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
     public void setPresenter(UserProfileContracts.Presenter presenter) {
         mPresenter = presenter;
     }
+
+    @Override
+    public void setTitle(String title) {
+       String t = title;
+       int a = 5;
+    }
+
 
 }

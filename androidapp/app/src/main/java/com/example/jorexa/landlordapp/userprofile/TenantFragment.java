@@ -30,6 +30,11 @@ public class TenantFragment extends Fragment implements UserProfileContracts.Vie
     }
 
     @Override
+    public void setTitle(String title) {
+
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         mPresenter.subscribe(this);

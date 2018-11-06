@@ -39,6 +39,8 @@ public class UserProfileActivity extends DaggerAppCompatActivity {
         //mTenantFragment.setPresenter(mUserProfilePresenter);
         //  mLandlordFragment.setPresenter(mUserProfilePresenter);
 
+        mUserProfilePresenter.setUserProfile(loginUser);
+
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction();
 

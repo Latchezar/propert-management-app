@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 
 import com.example.jorexa.landlordapp.Login.LoginContracts;
+import com.example.jorexa.landlordapp.models.LoginUser;
 
 public interface UserProfileContracts {
     interface View {
         void setPresenter(UserProfileContracts.Presenter presenter);
 
+        void setTitle(String title);
         //void showCustomException(String text);
 
         //void showError(Exception e);
@@ -20,5 +22,9 @@ public interface UserProfileContracts {
 
     interface Presenter {
         void subscribe(UserProfileContracts.View view);
+
+        void setUserProfile(LoginUser loginUser);
+
+        void loadUser();
     }
 }
