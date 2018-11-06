@@ -94,7 +94,12 @@ public class CreatePropertyFragment extends Fragment implements CreatePropertyCo
     @OnClick(R.id.new_property_button)
     public void onSubmit(View view) {
         String name = String.valueOf(mNameField.getText());
-        int price = Integer.parseInt(String.valueOf(mPriceField.getText()));
+        int price;
+        try {
+            price = Integer.parseInt(String.valueOf(mPriceField.getText()));
+        } catch (NumberFormatException e) {
+            price = -1;
+        }
         int landlordID = mUserID;
         String address = String.valueOf(mAddressField.getText());
         try {

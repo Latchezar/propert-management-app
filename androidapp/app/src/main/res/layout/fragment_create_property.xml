@@ -24,7 +24,8 @@
             android:id="@+id/new_property_error"
             android:layout_below="@+id/new_property_header"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_dark" />
 
         <TextView
             android:id="@+id/new_property_name_label"
