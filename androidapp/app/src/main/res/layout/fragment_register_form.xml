@@ -4,121 +4,228 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".singup.RegisterFormFragment">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/loginBackground">
 
         <TextView
             android:id="@+id/sign_up_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sign_up" />
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="8sp"
+            android:text="@string/sign_up"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/sign_up_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/sign_up_header"
-            android:textColor="@android:color/holo_red_dark" />
+            android:textColor="@android:color/holo_red_dark"
+            android:textAlignment="center"/>
 
         <TextView
-            android:layout_below="@id/sign_up_error"
             android:id="@+id/sign_up_first_name_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/first_name_register" />
+            android:layout_below="@id/sign_up_error"
+            android:layout_marginEnd="35dp"
+            android:layout_marginStart="35dp"
+            android:text="@string/first_name_register"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
 
         <EditText
-            android:layout_below="@+id/sign_up_first_name_label"
             android:id="@+id/sign_up_first_name_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sign_up_first_name_label"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounder_edittext"
+            android:hint="@string/first_name_register"
+            android:paddingBottom="10dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:paddingTop="10dp"
+            android:textSize="16sp" />
 
         <TextView
-            android:layout_below="@+id/sign_up_first_name_field"
             android:id="@+id/sign_up_last_name_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/last_name_register" />
+            android:layout_below="@+id/sign_up_first_name_field"
+            android:layout_marginEnd="35dp"
+            android:layout_marginStart="35dp"
+            android:text="@string/last_name_register"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAlignment="center" />
 
         <EditText
-            android:layout_below="@+id/sign_up_last_name_label"
             android:id="@+id/sign_up_last_name_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sign_up_last_name_label"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounder_edittext"
+            android:hint="@string/last_name_register"
+            android:paddingBottom="10dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:paddingTop="10dp"
+            android:textSize="16sp" />
 
         <TextView
-            android:layout_below="@+id/sign_up_last_name_field"
             android:id="@+id/sign_up_email_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/email_register" />
+            android:layout_below="@+id/sign_up_last_name_field"
+            android:layout_marginEnd="35dp"
+            android:layout_marginStart="35dp"
+            android:text="@string/email_register"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAlignment="center" />
 
         <EditText
-            android:layout_below="@+id/sign_up_email_label"
             android:id="@+id/sign_up_email_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sign_up_email_label"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounder_edittext"
+            android:hint="@string/login_email_hint"
+            android:paddingBottom="10dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:paddingTop="10dp"
+            android:textSize="16sp" />
 
         <TextView
-            android:layout_below="@+id/sign_up_email_field"
             android:id="@+id/sign_up_password_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/password_register" />
+            android:layout_below="@+id/sign_up_email_field"
+            android:layout_marginEnd="35dp"
+            android:layout_marginStart="35dp"
+            android:text="@string/password_register"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
 
         <EditText
-            android:layout_below="@+id/sign_up_password_label"
             android:id="@+id/sign_up_password_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sign_up_password_label"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounder_edittext"
+            android:hint="@string/password_register"
+            android:paddingBottom="10dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:paddingTop="10dp"
+            android:textSize="16sp" />
 
         <TextView
-            android:layout_below="@+id/sign_up_password_field"
             android:id="@+id/sign_up_confirm_password_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/confirm_password_register" />
+            android:layout_below="@+id/sign_up_password_field"
+            android:layout_marginEnd="35dp"
+            android:layout_marginStart="35dp"
+            android:text="@string/confirm_password_register"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
 
         <EditText
-            android:layout_below="@+id/sign_up_confirm_password_label"
             android:id="@+id/sign_up_confirm_password_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sign_up_confirm_password_label"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounder_edittext"
+            android:hint="@string/confirm_password_register"
+            android:paddingBottom="10dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:paddingTop="10dp"
+            android:textSize="16sp" />
 
         <RadioGroup
             android:id="@+id/sign_up_radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/sign_up_confirm_password_field"
             android:orientation="horizontal"
-            android:layout_below="@id/sign_up_confirm_password_field">
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+
             <RadioButton
-                android:text="@string/radio_landlord"
                 android:id="@+id/radio_landlord"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="onRadioButtonClicked"/>
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/radio_landlord"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textAlignment="center" />
 
             <RadioButton
-                android:text="@string/radio_tenant"
                 android:id="@+id/radio_tenant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="onRadioButtonClicked"/>
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/radio_tenant"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textAlignment="center" />
         </RadioGroup>
 
         <Button
-            android:layout_below="@+id/sign_up_radio_group"
             android:id="@+id/sign_up_btn"
+            android:background="@drawable/rounded_button"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sign_up_button"/>
+            android:layout_below="@+id/sign_up_radio_group"
+            android:text="@string/sign_up_button" />
 
         <Button
             android:id="@+id/test_button"
-            android:layout_below="@+id/sign_up_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="test"/>
+            android:layout_below="@+id/sign_up_btn"
+            android:text="test" />
     </RelativeLayout>
 </FrameLayout>
