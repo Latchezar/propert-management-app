@@ -25,6 +25,9 @@ public class Property {
     @Column(name = "TenantID")
     private int tenantID;
 
+    @Column(name = "Address")
+    private String address;
+
     public Property() {
     }
 
@@ -66,5 +69,13 @@ public class Property {
 
     public void setTenantID(int tenantID) {
         this.tenantID = tenantID;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
