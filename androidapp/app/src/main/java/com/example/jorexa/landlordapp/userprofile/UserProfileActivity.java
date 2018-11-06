@@ -14,17 +14,19 @@ import com.example.jorexa.landlordapp.models.LoginUser;
 
 import javax.inject.Inject;
 
-public class UserProfileActivity extends Activity {
+import dagger.android.support.DaggerAppCompatActivity;
+
+public class UserProfileActivity extends DaggerAppCompatActivity {
     public static final String EXTRA_KEY = "USERPROFILE_EXTRA_KEY";
 
-    //@Inject
-    //LoginFragment mTenantFragment;
+    @Inject
+    TenantFragment mTenantFragment;
 
     //@Inject
     //LoginFragment mLandlordFragment;
 
-    //@Inject
-    //LoginContracts.Presenter mUserProfilePresenter;
+    @Inject
+    UserProfileContracts.Presenter mUserProfilePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +36,13 @@ public class UserProfileActivity extends Activity {
         Intent intent = getIntent();
         LoginUser loginUser = (LoginUser) intent.getSerializableExtra(UserProfileActivity.EXTRA_KEY);
 
-        ///mTenantFragment.setPresenter(mUserProfilePresenter);
+        mTenantFragment.setPresenter(mUserProfilePresenter);
 
-        //FragmentTransaction transaction = getFragmentManager()
-        //        .beginTransaction();
+        FragmentTransaction transaction = getFragmentManager()
+                .beginTransaction();
 
-        //transaction.replace(R.id.content, mTenantFragment);
-        //transaction.commit();
+        transaction.replace(R.id.userProfile, mTenantFragment);
+        transaction.commit();
 
         int a = 5;
 

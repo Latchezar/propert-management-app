@@ -20,5 +20,5 @@ public abstract class UserProfileModule {
 
     @ActivityScoped
     @Binds
-    abstract UserProfileContracts.Presenter taskPresenter(UserProfilePresenter presenter);
+    abstract UserProfileContracts.Presenter userProfilePresenter(UserProfilePresenter presenter);
 }

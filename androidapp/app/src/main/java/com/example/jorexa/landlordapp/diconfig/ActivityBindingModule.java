@@ -6,6 +6,7 @@ import com.example.jorexa.landlordapp.Login.MainActivity;
 import com.example.jorexa.landlordapp.createProperty.CreatePropertyActivity;
 import com.example.jorexa.landlordapp.singup.SignUpActivity;
 import com.example.jorexa.landlordapp.singup.SignUpContracts;
+import com.example.jorexa.landlordapp.userprofile.UserProfileActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -25,6 +26,12 @@ public abstract class ActivityBindingModule {
             modules = SignUpModule.class
     )
     abstract SignUpActivity signUpActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(
+            modules = UserProfileModule.class
+    )
+    abstract UserProfileActivity userProfileActivity();
 
     @ActivityScoped
     @ContributesAndroidInjector(

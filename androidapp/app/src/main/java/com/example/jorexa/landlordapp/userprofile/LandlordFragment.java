@@ -9,11 +9,12 @@ import android.view.ViewGroup;
 
 import com.example.jorexa.landlordapp.R;
 
+import javax.inject.Inject;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class LandlordFragment extends Fragment {
-
 
     public LandlordFragment() {
         // Required empty public constructor
