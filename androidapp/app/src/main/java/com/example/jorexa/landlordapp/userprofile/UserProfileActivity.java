@@ -22,8 +22,8 @@ public class UserProfileActivity extends DaggerAppCompatActivity {
     @Inject
     TenantFragment mTenantFragment;
 
-    //@Inject
-    //LoginFragment mLandlordFragment;
+    @Inject
+    LandlordFragment mLandlordFragment;
 
     @Inject
     UserProfileContracts.Presenter mUserProfilePresenter;
@@ -36,12 +36,13 @@ public class UserProfileActivity extends DaggerAppCompatActivity {
         Intent intent = getIntent();
         LoginUser loginUser = (LoginUser) intent.getSerializableExtra(UserProfileActivity.EXTRA_KEY);
 
-        mTenantFragment.setPresenter(mUserProfilePresenter);
+        //mTenantFragment.setPresenter(mUserProfilePresenter);
+          mLandlordFragment.setPresenter(mUserProfilePresenter);
 
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction();
 
-        transaction.replace(R.id.userProfile, mTenantFragment);
+        transaction.replace(R.id.userProfile, mLandlordFragment);
         transaction.commit();
 
         int a = 5;
