@@ -26,7 +26,7 @@ public interface CreatePropertyContracts {
     interface Presenter {
         void subscribe(View view);
 
-        void onSubmit(String name, int price, int LandlordID) throws IOException;
+        void onSubmit(String name, String address, int price, int LandlordID) throws IOException;
 
         void setUser(LoginUser user);
     }
