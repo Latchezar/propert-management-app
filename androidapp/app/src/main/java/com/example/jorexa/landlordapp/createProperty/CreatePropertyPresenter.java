@@ -1,5 +1,6 @@
 package com.example.jorexa.landlordapp.createProperty;
 
+import com.example.jorexa.landlordapp.Constants;
 import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
@@ -30,19 +31,31 @@ public class CreatePropertyPresenter implements CreatePropertyContracts.Presente
 
     @Override
     public void onSubmit(String name, String address, int price, int LandlordID) {
-        mAsyncRunner.runInBackground(() -> {
-            try {
+        if (name.length() < 3 || name.length() > 64){
+            mView.displayWrongInformation(Constants.WRONG_PROPERTY_NAME);
+        } else if (address.length() < 3 || address.length() > 255){
+            mView.displayWrongInformation(Constants.WRONG_PROPERTY_ADDRESS);
+        } else if (price < 1) {
+            mView.displayWrongInformation(Constants.WRONG_PROPERTY_PRICE);
+        } else if (LandlordID < 1) {
+            mView.displayWrongInformation(Constants.WRONG_LANDLORDID);
+        } else {
+            mAsyncRunner.runInBackground(() -> {
                 mProperty = new Property();
                 mProperty.setLandlordID(LandlordID);
                 mProperty.setAddress(address);
                 mProperty.setPropertyName(name);
                 mProperty.setPropertyPrice(price);
-                String response = (String) mService.create(mProperty);
-                mView.showCustomException(response);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+                try {
+
+                    String response = (String) mService.create(mProperty);
+                    mView.showCustomException(response);
+                } catch (IOException e) {
+                    mView.showError(e);
+                    throw new RuntimeException(e);
+                }
+            });
+        }
     }
 
     @Override
