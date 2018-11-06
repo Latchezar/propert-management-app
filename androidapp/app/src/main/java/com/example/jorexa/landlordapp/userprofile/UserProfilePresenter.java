@@ -57,6 +57,7 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
             //mView.showEmptySuperheroesList();
         } else {
             mView.showProperties(properties);
+            int g = 4;
         }
     }
 

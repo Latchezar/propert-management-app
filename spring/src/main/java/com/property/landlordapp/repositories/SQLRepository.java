@@ -145,15 +145,18 @@ public class SQLRepository implements RepositoryBase {
 
     @Override
     public ResponseEntity getPropertiesByLandlordID(int id){
-        List<Property> properties;
-        try (Session session = sessionFactory.openSession()){
-            session.beginTransaction();
-            properties = (List<Property>) session.createSQLQuery("select * from propertymanagement.properties where LandlordID = " + id + ";").addEntity(Property.class).list();
-            return new ResponseEntity<> (properties, HttpStatus.OK);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-            //return new ResponseEntity<>(ResponseText.INVALID_DATA, HttpStatus.BAD_REQUEST);
-        }
+        String query = "select * from propertymanagement.properties where LandlordID = " + id + ";";
+        return new ResponseEntity<>(getPropertyList(query), HttpStatus.CREATED);
+    }
 
+    @Override
+    public ResponseEntity getPropertiesByTenantID(int id){
+        String query = "select * from propertymanagement.properties where TenantID = " + id + ";";
+        return new ResponseEntity<>(getPropertyList(query), HttpStatus.CREATED);
+    }
+
+    private List<Property> getPropertyList(String query){
+        Session session = sessionFactory.openSession();
+        return (List<Property>) session.createSQLQuery(query).addEntity(Property.class).list();
     }
 }

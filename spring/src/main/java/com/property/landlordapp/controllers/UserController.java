@@ -34,4 +34,9 @@ public class UserController {
     public ResponseEntity getPropertiesByLandlordID(@PathVariable int id){
         return this.service.getPropertiesByLandlordID(id);
     }
+
+    @GetMapping("tenant/{id}")
+    public ResponseEntity getPropertiesByTenantID(@PathVariable int id){
+        return this.service.getPropertiesByTenantID(id);
+    }
 }
