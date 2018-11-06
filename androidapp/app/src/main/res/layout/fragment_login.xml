@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login.LoginFragment">
-
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,6 +24,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:inputType="textEmailAddress"
             android:id="@+id/et_email"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
@@ -32,10 +32,12 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:layout_centerInParent="true"
-            android:background="@color/white"
+            android:background="@drawable/rounder_edittext"
             android:hint="@string/login_email_hint"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:textSize="20sp" />
 
         <EditText
@@ -46,12 +48,15 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:layout_centerInParent="true"
-            android:background="@color/white"
+            android:background="@drawable/rounder_edittext"
             android:hint="@string/login_password_hint"
             android:inputType="textPassword"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="20sp" />
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textSize="20sp"
+            />
 
         <TextView
             android:id="@+id/tv_message"
@@ -62,19 +67,29 @@
             android:textSize="20sp" />
 
         <Button
+            android:background="@drawable/rounded_button"
             android:id="@+id/btn_login"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_message"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:text="@string/login_button" />
 
         <Button
+            android:background="@drawable/rounded_button"
             android:id="@+id/btn_signUp"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_login"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:text="@string/login_signUp_button" />
 
     </RelativeLayout>
