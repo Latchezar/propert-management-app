@@ -57,8 +57,12 @@ public class HttpRepository<T> implements Repository<T> {
         Response response = mHttpRequester.post(url, requestBody);
         int code = response.code();
         if (code == 201) {
-            String responseBody = response.body().string();
-            return mJsonParser.fromJson(responseBody);
+            if (mUser instanceof LoginUser) {
+                String responseBody = response.body().string();
+                return mJsonParser.fromJson(responseBody);
+            } else {
+                return response.body().string();
+            }
         } else if (code == 400){
             return response.body().string();
         } else {

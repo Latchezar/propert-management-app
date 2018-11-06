@@ -31,7 +31,7 @@ public class Property {
     }
 
     public void setPropertyID(int propertyID) {
-        propertyID = propertyID;
+        this.propertyID = propertyID;
     }
 
     public int getPropertyPrice() {
@@ -39,7 +39,7 @@ public class Property {
     }
 
     public void setPropertyPrice(int propertyPrice) {
-        propertyPrice = propertyPrice;
+        this.propertyPrice = propertyPrice;
     }
 
     public int getLandlordID() {
@@ -47,7 +47,7 @@ public class Property {
     }
 
     public void setLandlordID(int landlordID) {
-        landlordID = landlordID;
+        this.landlordID = landlordID;
     }
 
     public int getTenantID() {
@@ -55,7 +55,7 @@ public class Property {
     }
 
     public void setTenantID(int tenantID) {
-        tenantID = tenantID;
+        this.tenantID = tenantID;
     }
 
     public String getPropertyName() {
@@ -63,6 +63,6 @@ public class Property {
     }
 
     public void setPropertyName(String propertyName) {
-        propertyName = propertyName;
+        this.propertyName = propertyName;
     }
 }
