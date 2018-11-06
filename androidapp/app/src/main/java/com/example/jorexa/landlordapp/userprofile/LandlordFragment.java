@@ -15,6 +15,7 @@ import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.models.Property;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -29,11 +30,15 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
     @BindView(R.id.lv_properties)
     ListView mPropertiesListView;
 
+    ListView mTestLV;
+
     @BindView(R.id.tv_landlord_title)
     TextView mTitle;
 
     @Inject
     ArrayAdapter<Property> mPropertiesAdapter;
+
+    public ArrayAdapter<String> mProperties2Adapter;
 
     private UserProfileContracts.Presenter mPresenter;
 
@@ -57,6 +62,10 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
 
         ButterKnife.bind(this, view);
 
+        //mTestLV = (ListView) view.findViewById(R.id.lv_properties);
+        //mProperties2Adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1);
+
+        //mTestLV.setAdapter(mProperties2Adapter);
         mPropertiesListView.setAdapter(mPropertiesAdapter);
 
         return view;
@@ -76,17 +85,26 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
     @Override
     public void showProperties(List<Property> properties) {
 
+        List<String> names = properties.stream()
+                .map(Property::getPropertyName)
+                .collect(Collectors.toList());
+
        int a = 5;
         runOnUi(() -> {
+            //mTitle.setText(names.get(0));
             mPropertiesAdapter.clear();
-            //mPropertiesAdapter.addAll(properties.get);
+            mPropertiesAdapter.addAll(properties);
+            //mPropertiesAdapter.addAll(properties);
             //mPropertiesAdapter.add
+            //mProperties2Adapter.clear();
+            //mProperties2Adapter.addAll(names);
+            //mProperties2Adapter.addAll(names);
+            //int t = 5;
         });
     }
 
     private void runOnUi(Runnable action) {
-        getActivity()
-                .runOnUiThread(action);
+        getActivity().runOnUiThread(action);
     }
 
 }

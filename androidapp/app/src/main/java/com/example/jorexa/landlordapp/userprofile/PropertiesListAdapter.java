@@ -39,7 +39,7 @@ public class PropertiesListAdapter extends ArrayAdapter<Property> {
         Property property = getItem(position);
 
         nameTextView.setText(property.getPropertyName());
-        secretIdentityTextView.setText(property.getLandlordID());
+        secretIdentityTextView.setText(property.getAddress());
 
         return view;
     }
