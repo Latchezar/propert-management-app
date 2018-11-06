@@ -145,7 +145,7 @@ public class SQLRepository implements RepositoryBase {
 
     @Override
     public ResponseEntity getPropertiesByLandlordID(int id){
-        List<Property> properties = new ArrayList<>();
+        List<Property> properties;
         try (Session session = sessionFactory.openSession()){
             session.beginTransaction();
             properties = (List<Property>) session.createSQLQuery("select * from propertymanagement.properties where LandlordID = " + id + ";").addEntity(Property.class).list();
