@@ -21,4 +21,5 @@
     <string name="login_button">Login</string>
     <string name="login_signUp_button">Sign Up</string>
     <string name="login_header">Login</string>
+    <string name="new_property_address">Address</string>
 </resources>

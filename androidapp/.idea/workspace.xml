@@ -66,8 +66,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="228" column="30" lean-forward="true" selection-start-line="228" selection-start-column="30" selection-end-line="228" selection-end-column="30" />
+            <state relative-caret-position="357">
+              <caret line="218" column="46" lean-forward="false" selection-start-line="218" selection-start-column="46" selection-end-line="218" selection-end-column="46" />
               <folding>
                 <element signature="e#729#746#0" expanded="true" />
                 <element signature="e#1570#1599#0" expanded="true" />
@@ -88,16 +88,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Property.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/models/Property.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+      <file leaf-file-name="fragment_create_property.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_create_property.xml">
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="120" column="42" lean-forward="true" selection-start-line="120" selection-start-column="42" selection-end-line="120" selection-end-column="42" />
               <folding>
-                <element signature="e#200#201#0" expanded="true" />
-                <element signature="e#230#231#0" expanded="true" />
-                <element signature="e#276#277#0" expanded="true" />
-                <element signature="e#314#315#0" expanded="true" />
+                <element signature="e#655#684#0" expanded="true" />
+                <element signature="e#1319#1346#0" expanded="true" />
+                <element signature="e#1858#1885#0" expanded="true" />
+                <element signature="e#2531#2561#0" expanded="true" />
+                <element signature="e#3079#3109#0" expanded="true" />
+                <element signature="e#3756#3784#0" expanded="true" />
+                <element signature="e#4338#4366#0" expanded="true" />
+                <element signature="e#5101#5130#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,39 +125,6 @@
                 <element signature="e#3203#3225#0" expanded="true" />
                 <element signature="e#3732#3761#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rounded_button.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/rounded_button.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rounder_edittext.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/rounder_edittext.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="9" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -2235,6 +2209,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_register_form.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/models/Property.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_create_property.xml" />
       </list>
     </option>
   </component>
@@ -2311,7 +2286,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="landlordapp" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="createProperty" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="androidapp" type="b2602c69:ProjectViewProjectNode" />
@@ -2590,10 +2565,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/Login/LoginFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        <state relative-caret-position="0">
+          <caret line="0" column="45" lean-forward="false" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/models/Property.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+          <folding>
+            <element signature="e#200#201#0" expanded="false" />
+            <element signature="e#230#231#0" expanded="false" />
+            <element signature="e#276#277#0" expanded="false" />
+            <element signature="e#314#315#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/rounded_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -2609,10 +2605,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/rounded_button.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        <state relative-caret-position="119">
+          <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -2634,21 +2630,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/Login/LoginFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="45" lean-forward="false" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_register_form.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="228" column="30" lean-forward="true" selection-start-line="228" selection-start-column="30" selection-end-line="228" selection-end-column="30" />
+        <state relative-caret-position="357">
+          <caret line="218" column="46" lean-forward="false" selection-start-line="218" selection-start-column="46" selection-end-line="218" selection-end-column="46" />
           <folding>
             <element signature="e#729#746#0" expanded="true" />
             <element signature="e#1570#1599#0" expanded="true" />
@@ -2668,15 +2656,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/models/Property.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_create_property.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="120" column="42" lean-forward="true" selection-start-line="120" selection-start-column="42" selection-end-line="120" selection-end-column="42" />
           <folding>
-            <element signature="e#200#201#0" expanded="true" />
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#276#277#0" expanded="true" />
-            <element signature="e#314#315#0" expanded="true" />
+            <element signature="e#655#684#0" expanded="true" />
+            <element signature="e#1319#1346#0" expanded="true" />
+            <element signature="e#1858#1885#0" expanded="true" />
+            <element signature="e#2531#2561#0" expanded="true" />
+            <element signature="e#3079#3109#0" expanded="true" />
+            <element signature="e#3756#3784#0" expanded="true" />
+            <element signature="e#4338#4366#0" expanded="true" />
+            <element signature="e#5101#5130#0" expanded="true" />
           </folding>
         </state>
       </provider>
