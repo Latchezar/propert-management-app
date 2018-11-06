@@ -8,6 +8,7 @@ import com.example.jorexa.landlordapp.parsers.base.JsonParser;
 import com.example.jorexa.landlordapp.repositories.base.Repository;
 
 import java.io.IOException;
+import java.util.List;
 
 import okhttp3.Response;
 
@@ -43,6 +44,14 @@ public class HttpRepository<T> implements Repository<T> {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public List<T> getAll() throws IOException {
+        String jsonArray = null;
+        String url = mServerUrl+"/landlord/1";
+        jsonArray = mHttpRequester.get(url);
+        return mJsonParser.fromJsonArray(jsonArray);
     }
 
     @Override

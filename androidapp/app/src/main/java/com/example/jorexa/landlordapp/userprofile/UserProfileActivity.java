@@ -12,6 +12,8 @@ import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.diconfig.AppComponent;
 import com.example.jorexa.landlordapp.models.LoginUser;
 
+import java.io.IOException;
+
 import javax.inject.Inject;
 
 import dagger.android.support.DaggerAppCompatActivity;
@@ -39,7 +41,11 @@ public class UserProfileActivity extends DaggerAppCompatActivity {
         //mTenantFragment.setPresenter(mUserProfilePresenter);
         //  mLandlordFragment.setPresenter(mUserProfilePresenter);
 
-        mUserProfilePresenter.setUserProfile(loginUser);
+        try {
+            mUserProfilePresenter.setUserProfile(loginUser);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction();
