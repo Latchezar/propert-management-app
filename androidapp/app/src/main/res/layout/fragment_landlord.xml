@@ -24,6 +24,13 @@
             android:layout_below="@+id/tv_landlord_profile"
             android:text="..." />
 
+        <ListView
+            android:id="@+id/lv_properties"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_landlord_title"
+            android:visibility="gone" />
+
     </RelativeLayout>
 
 </FrameLayout>

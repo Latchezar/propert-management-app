@@ -33,7 +33,8 @@ import javax.inject.Singleton;
         AppModule.class,
         ActivityBindingModule.class,
         AndroidSupportInjectionModule.class,
-        ViewsModule.class})
+        ViewsModule.class
+})
 public interface AppComponent extends AndroidInjector<AndroidApplication> {
     @Component.Builder
     interface Builder {

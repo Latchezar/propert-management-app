@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.jorexa.landlordapp.R;
@@ -24,6 +25,9 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class LandlordFragment extends Fragment implements UserProfileContracts.View {
+
+    @BindView(R.id.lv_properties)
+    ListView mPropertiesListView;
 
     @BindView(R.id.tv_landlord_title)
     TextView mTitle;
@@ -69,8 +73,16 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
 
     @Override
     public void showProperties(List<Property> properties) {
-
+        runOnUi(() -> {
+            //mSuperheroesAdapter.clear();
+            //mSuperheroesAdapter.addAll(superheroes);
+            //mSuperheroesAdapter.add
+        });
     }
 
+    private void runOnUi(Runnable action) {
+        getActivity()
+                .runOnUiThread(action);
+    }
 
 }
