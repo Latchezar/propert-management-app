@@ -2,23 +2,34 @@ package com.example.jorexa.landlordapp.propertyDetails;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.jorexa.landlordapp.R;
+import com.example.jorexa.landlordapp.userprofile.UserProfileContracts;
+
+import javax.inject.Inject;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class propertyDetailsFragment extends Fragment {
+public class propertyDetailsFragment extends Fragment implements propertyDetailsContracts.View {
 
+    private propertyDetailsContracts.Presenter mPresenter;
 
+    @Inject
     public propertyDetailsFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.subscribe(this);
+        //mPresenter.loadUser();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,4 +38,12 @@ public class propertyDetailsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_property_details, container, false);
     }
 
+    @Override
+    public void setPresenter(propertyDetailsContracts.Presenter presenter) {
+        mPresenter = presenter;
+    }
+
+    private void runOnUi(Runnable action) {
+        getActivity().runOnUiThread(action);
+    }
 }
