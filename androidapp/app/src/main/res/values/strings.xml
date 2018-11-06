@@ -16,4 +16,9 @@
     <string name="new_property_button">Add Property</string>
     <string name="new_property_price">Set Price</string>
     <string name="new_property_name">Property Name</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="login_signUp_button">Sign Up</string>
+    <string name="login_header">Login</string>
 </resources>
