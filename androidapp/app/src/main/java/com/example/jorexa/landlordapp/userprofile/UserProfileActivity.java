@@ -11,6 +11,8 @@ import com.example.jorexa.landlordapp.Login.LoginFragment;
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.diconfig.AppComponent;
 import com.example.jorexa.landlordapp.models.LoginUser;
+import com.example.jorexa.landlordapp.models.Property;
+import com.example.jorexa.landlordapp.singup.SignUpActivity;
 
 import java.io.IOException;
 
@@ -18,7 +20,7 @@ import javax.inject.Inject;
 
 import dagger.android.support.DaggerAppCompatActivity;
 
-public class UserProfileActivity extends DaggerAppCompatActivity {
+public class UserProfileActivity extends DaggerAppCompatActivity implements UserProfileContracts.Navigator {
     public static final String EXTRA_KEY = "USERPROFILE_EXTRA_KEY";
 
     @Inject
@@ -53,6 +55,8 @@ public class UserProfileActivity extends DaggerAppCompatActivity {
         //transaction.replace(R.id.userProfile, mLandlordFragment);
         //transaction.commit();
 
+        mLandlordFragment.setNavigator(this);
+
         if (loginUser.userType == 1) {
             mLandlordFragment.setPresenter(mUserProfilePresenter);
             transaction.replace(R.id.userProfile, mLandlordFragment);
@@ -63,5 +67,17 @@ public class UserProfileActivity extends DaggerAppCompatActivity {
         }
         transaction.commit();
 
+    }
+
+    @Override
+    public void navigateWith(Property property) {
+        Intent intent = new Intent(
+                this,
+                SignUpActivity.class
+        );
+
+        //intent.putExtra(SuperheroDetailsActivity.EXTRA_KEY, superhero);
+
+        startActivity(intent);
     }
 }
