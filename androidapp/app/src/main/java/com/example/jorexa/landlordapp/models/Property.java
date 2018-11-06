@@ -4,15 +4,26 @@ public class Property {
     public int propertyID, propertyPrice, landlordID, tenantID;
     public String propertyName;
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String address;
+
     public Property() {
     }
 
-    public Property(int propertyID, int propertyPrice, int landlordID, int tenantID, String propertyName) {
-        propertyID = propertyID;
-        propertyPrice = propertyPrice;
-        landlordID = landlordID;
-        tenantID = tenantID;
-        propertyName = propertyName;
+    public Property(int propertyID, int propertyPrice, int landlordID, int tenantID, String propertyName, String address) {
+        this.propertyID = propertyID;
+        this.propertyPrice = propertyPrice;
+        this.landlordID = landlordID;
+        this.tenantID = tenantID;
+        this.propertyName = propertyName;
+        this.address = address;
     }
 
     public int getPropertyID() {
