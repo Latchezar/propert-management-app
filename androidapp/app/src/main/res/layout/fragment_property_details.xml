@@ -5,10 +5,34 @@
     android:layout_height="match_parent"
     tools:context=".propertyDetails.propertyDetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        >
+
+        <TextView
+            android:id="@+id/tv_property_details_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Jorexa" />
+
+        <TextView
+            android:id="@+id/tv_property_details_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_property_details_name"
+            android:textSize="20dp"
+            android:text="Sofiq, ul. Tsar Ivan Shishman N:3" />
+
+        <TextView
+            android:id="@+id/tv_property_details_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_property_details_address"
+            android:textSize="20dp"
+            android:text="30lv." />
+
+    </RelativeLayout>
 
 </FrameLayout>
