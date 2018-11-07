@@ -34,14 +34,18 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
     }
 
     @Override
-    public void loadProperty(Property property)
+    public void loadProperty(LoginUser userlogin, Property property)
     {
         mPropertyDetails = property;
 
         mAsyncRunner.runInBackground(() -> {
             try {
                 LoginUser user;
-                user = mService.getUser(property.getTenantID());
+                if (userlogin.getUserType() == 1) {
+                    user = mService.getUser(property.getTenantID());
+                } else {
+                    user = mService.getUser(property.getLandlordID());
+                }
                 mView.setTenantOrLandlord(user);
                 int g = 5;
             } catch (IOException e) {

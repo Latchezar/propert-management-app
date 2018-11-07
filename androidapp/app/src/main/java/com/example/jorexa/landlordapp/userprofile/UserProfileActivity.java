@@ -33,6 +33,8 @@ public class UserProfileActivity extends DaggerAppCompatActivity implements User
     @Inject
     UserProfileContracts.Presenter mUserProfilePresenter;
 
+    public LoginUser mLoginUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +42,7 @@ public class UserProfileActivity extends DaggerAppCompatActivity implements User
 
         Intent intent = getIntent();
         LoginUser loginUser = (LoginUser) intent.getSerializableExtra(UserProfileActivity.EXTRA_KEY);
-
+        mLoginUser = loginUser;
         //mTenantFragment.setPresenter(mUserProfilePresenter);
         //  mLandlordFragment.setPresenter(mUserProfilePresenter);
 
@@ -80,6 +82,7 @@ public class UserProfileActivity extends DaggerAppCompatActivity implements User
         );
 
         intent.putExtra(propertyDetailsActivity.EXTRA_KEY, property);
+        intent.putExtra(propertyDetailsActivity.EXTRA_LOGINUSER, mLoginUser);
 
         startActivity(intent);
     }

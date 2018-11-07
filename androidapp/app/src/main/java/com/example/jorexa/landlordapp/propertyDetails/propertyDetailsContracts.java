@@ -32,7 +32,7 @@ public interface propertyDetailsContracts {
     interface Presenter {
         void subscribe(propertyDetailsContracts.View view);
 
-        void loadProperty(Property property);
+        void loadProperty(LoginUser user, Property property);
 
         void getProperty();
     }

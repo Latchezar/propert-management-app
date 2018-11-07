@@ -17,6 +17,7 @@ import dagger.android.support.DaggerAppCompatActivity;
 
 public class propertyDetailsActivity extends DaggerAppCompatActivity {
     public static final String EXTRA_KEY = "PROPERTY_EXTRA_KEY";
+    public static final String EXTRA_LOGINUSER = "LOGINUSER_EXTRA_KEY";
 
     @Inject
     propertyDetailsFragment mPropertyDetailsFragment;
@@ -31,12 +32,13 @@ public class propertyDetailsActivity extends DaggerAppCompatActivity {
 
         Intent intent = getIntent();
         Property property = (Property) intent.getSerializableExtra(propertyDetailsActivity.EXTRA_KEY);
+        LoginUser user = (LoginUser) intent.getSerializableExtra(propertyDetailsActivity.EXTRA_LOGINUSER);
 
         int f = 5;
 
         mPropertyDetailsFragment.setPresenter(mPropertyDetailsPresenter);
 
-        mPropertyDetailsPresenter.loadProperty(property);
+        mPropertyDetailsPresenter.loadProperty(user, property);
 
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction();
