@@ -4,6 +4,7 @@ package com.example.jorexa.landlordapp.diconfig;
 
 import com.example.jorexa.landlordapp.Login.MainActivity;
 import com.example.jorexa.landlordapp.createProperty.CreatePropertyActivity;
+import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsActivity;
 import com.example.jorexa.landlordapp.singup.SignUpActivity;
 import com.example.jorexa.landlordapp.singup.SignUpContracts;
 import com.example.jorexa.landlordapp.userprofile.UserProfileActivity;
@@ -38,4 +39,11 @@ public abstract class ActivityBindingModule {
             modules = CreatePropertyModule.class
     )
     abstract CreatePropertyActivity createPropertyActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(
+            modules = PropertyDetailsModule.class
+    )
+    abstract propertyDetailsActivity propertyDetailsActivity();
+
 }
