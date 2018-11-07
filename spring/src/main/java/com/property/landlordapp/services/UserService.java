@@ -40,4 +40,9 @@ public class UserService implements ServiceBase{
     public ResponseEntity getPropertiesByTenantID(int id) {
         return this.repository.getPropertiesByTenantID(id);
     }
+
+    @Override
+    public ResponseEntity getUserByID(int id) {
+        return this.repository.getUserByID(id);
+    }
 }

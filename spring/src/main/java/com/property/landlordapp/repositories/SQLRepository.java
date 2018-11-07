@@ -5,9 +5,11 @@ import com.property.landlordapp.models.Login;
 import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.utils.Validator;
+import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -153,6 +155,22 @@ public class SQLRepository implements RepositoryBase {
     public ResponseEntity getPropertiesByTenantID(int id){
         String query = "select * from propertymanagement.properties where TenantID = " + id + ";";
         return new ResponseEntity<>(getPropertyList(query), HttpStatus.CREATED);
+    }
+
+    @Override
+    public ResponseEntity getUserByID(int id) {
+        User user;
+        try(Session session = sessionFactory.openSession()){
+            Criteria criteria = session.createCriteria(User.class);
+            user = (User) criteria.add(Restrictions.eq("id", id)).uniqueResult();
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        if (user == null) {
+            return new ResponseEntity<> (ResponseText.USER_NOT_FOUND, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<> (user, HttpStatus.OK);
+
     }
 
     private List<Property> getPropertyList(String query){
