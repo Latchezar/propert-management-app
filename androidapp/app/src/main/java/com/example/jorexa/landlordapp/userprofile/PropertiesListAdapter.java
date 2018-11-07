@@ -34,12 +34,12 @@ public class PropertiesListAdapter extends ArrayAdapter<Property> {
         );
 
         TextView nameTextView = view.findViewById(R.id.tv_property_name);
-        TextView secretIdentityTextView = view.findViewById(R.id.tv_property_addresss);
+        //TextView addressTextView = view.findViewById(R.id.tv_property_addresss);
 
         Property property = getItem(position);
 
         nameTextView.setText(property.getPropertyName());
-        secretIdentityTextView.setText(property.getAddress());
+        //addressTextView.setText(property.getAddress());
 
         return view;
     }
