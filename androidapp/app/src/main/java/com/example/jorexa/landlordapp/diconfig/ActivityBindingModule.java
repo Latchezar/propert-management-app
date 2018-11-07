@@ -3,6 +3,7 @@ package com.example.jorexa.landlordapp.diconfig;
 //package com.example.android.architecture.blueprints.todoapp.di;
 
 import com.example.jorexa.landlordapp.Login.MainActivity;
+import com.example.jorexa.landlordapp.chat.chatActivity;
 import com.example.jorexa.landlordapp.createProperty.CreatePropertyActivity;
 import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsActivity;
 import com.example.jorexa.landlordapp.singup.SignUpActivity;
@@ -45,5 +46,11 @@ public abstract class ActivityBindingModule {
             modules = PropertyDetailsModule.class
     )
     abstract propertyDetailsActivity propertyDetailsActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(
+            modules = ChatModule.class
+    )
+    abstract chatActivity chatActivity();
 
 }
