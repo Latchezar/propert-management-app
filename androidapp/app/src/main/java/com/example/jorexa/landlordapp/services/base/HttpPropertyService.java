@@ -16,9 +16,10 @@ public class HttpPropertyService implements LoginService {
     }
 
     @Override
-    public List<Property> getAllProperties(int propertyID) throws IOException {
-        return mRepository.getAll(propertyID);
+    public List<Property> getAllProperties(int userType, int propertyID) throws IOException {
+        return mRepository.getAll(userType, propertyID);
     }
+
 
     @Override
     public LoginUser signIn(LoginUser sentUser) throws IOException {
