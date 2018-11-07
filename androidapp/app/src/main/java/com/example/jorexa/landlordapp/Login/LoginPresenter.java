@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.widget.EditText;
 
 import com.example.jorexa.landlordapp.async.AsyncRunner;
+import com.example.jorexa.landlordapp.chat.chatActivity;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.services.base.LoginService;
 import com.example.jorexa.landlordapp.singup.SignUpActivity;
@@ -72,6 +73,12 @@ public class LoginPresenter implements LoginContracts.Presenter {
     @Override
     public void signUp(){
         Intent intent = new Intent(mView.getActivity(), SignUpActivity.class);
+        mView.startActivity(intent);
+    }
+
+    @Override
+    public void testOpenChat() {
+        Intent intent = new Intent(mView.getActivity(), chatActivity.class);
         mView.startActivity(intent);
     }
 

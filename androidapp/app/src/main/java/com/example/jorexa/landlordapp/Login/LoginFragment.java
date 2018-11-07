@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jorexa.landlordapp.R;
+import com.example.jorexa.landlordapp.chat.chatActivity;
+import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsActivity;
 
 import javax.inject.Inject;
 
@@ -84,6 +86,12 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
     @OnClick(R.id.btn_signUp)
     public void signUp(View view) {
         mPresenter.signUp();
+    }
+
+    @OnClick(R.id.btn_testChat)
+    public void testOpenChatActivity(View view)
+    {
+        mPresenter.testOpenChat();
     }
 
     @Override
