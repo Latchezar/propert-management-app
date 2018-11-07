@@ -1,6 +1,7 @@
 package com.example.jorexa.landlordapp.diconfig;
 
 import com.example.jorexa.landlordapp.http.HttpRequester;
+import com.example.jorexa.landlordapp.models.ChatMessage;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.parsers.base.JsonParser;
@@ -36,4 +37,16 @@ public class RepositoriesModule {
         String url = baseServerUrl + "/";
         return new HttpRepository<>(url, httpRequester, jsonParser);
     }
+
+    @Provides
+    @Singleton
+    public Repository<ChatMessage> chatMessageRepository(
+            @Named("baseServerUrl") String baseServerUrl,
+            HttpRequester httpRequester,
+            JsonParser<ChatMessage> jsonParser
+    ) {
+        String url = baseServerUrl + "/";
+        return new HttpRepository<>(url, httpRequester, jsonParser);
+    }
+
 }

@@ -1,8 +1,10 @@
 package com.example.jorexa.landlordapp.diconfig;
 
+import com.example.jorexa.landlordapp.models.ChatMessage;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.repositories.base.Repository;
+import com.example.jorexa.landlordapp.services.base.HttpChatService;
 import com.example.jorexa.landlordapp.services.base.HttpLoginService;
 import com.example.jorexa.landlordapp.services.base.HttpPropertyService;
 import com.example.jorexa.landlordapp.services.base.LoginService;
@@ -24,6 +26,12 @@ public class ServicesModule {
     @Named("property")
     public LoginService httpPropertyService(Repository<Property> repository){
         return new HttpPropertyService(repository);
+    }
+
+    @Provides
+    @Named("chatMessage")
+    public HttpChatService httpChatService(Repository<ChatMessage> repository){
+        return new HttpChatService(repository);
     }
 
 }
