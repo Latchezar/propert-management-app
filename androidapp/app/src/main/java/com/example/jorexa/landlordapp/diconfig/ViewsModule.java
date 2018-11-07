@@ -20,7 +20,7 @@ public class ViewsModule {
 
     @Provides
     public ArrayAdapter<LoginUser> chatArrayAdapter(Context context) {
-        //return new chatListAdapter(context);
-        return null;
+        return new chatListAdapter(context);
+        //return null;
     }
 }
