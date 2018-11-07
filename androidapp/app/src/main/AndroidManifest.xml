@@ -22,7 +22,8 @@
         <activity android:name=".singup.SignUpActivity" />
         <activity android:name=".userprofile.UserProfileActivity" />
         <activity android:name=".createProperty.CreatePropertyActivity" />
-        <activity android:name=".propertyDetails.propertyDetailsActivity"></activity>
+        <activity android:name=".propertyDetails.propertyDetailsActivity" />
+        <activity android:name=".chat.chatActivity"></activity>
     </application>
 
 </manifest>
