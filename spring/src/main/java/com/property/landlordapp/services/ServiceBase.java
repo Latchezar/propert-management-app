@@ -15,4 +15,6 @@ public interface ServiceBase {
     ResponseEntity getPropertiesByLandlordID(int id);
 
     ResponseEntity getPropertiesByTenantID(int id);
+
+    ResponseEntity getUserByID(int id);
 }
