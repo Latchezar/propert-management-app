@@ -16,14 +16,14 @@ public class HttpLoginService implements LoginService {
     }
 
     @Override
-    public LoginUser signIn(LoginUser sentUser) throws IOException {
-        return mTestUserRepository.login(sentUser);
-        //return null;
+    public List<Property> getAllProperties(int userType, int propertyID) throws IOException {
+        return null;
     }
 
     @Override
-    public List<Property> getAllProperties(int propertyID) throws IOException {
-        return null;
+    public LoginUser signIn(LoginUser sentUser) throws IOException {
+        return mTestUserRepository.login(sentUser);
+        //return null;
     }
 
     @Override

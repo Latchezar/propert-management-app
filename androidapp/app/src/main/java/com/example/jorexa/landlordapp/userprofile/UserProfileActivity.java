@@ -63,8 +63,10 @@ public class UserProfileActivity extends DaggerAppCompatActivity implements User
             transaction.replace(R.id.userProfile, mLandlordFragment);
 
         } else if (loginUser.userType == 2) {
-            mTenantFragment.setPresenter(mUserProfilePresenter);
-            transaction.replace(R.id.userProfile, mTenantFragment);
+            //mTenantFragment.setPresenter(mUserProfilePresenter);
+            //transaction.replace(R.id.userProfile, mTenantFragment);
+            mLandlordFragment.setPresenter(mUserProfilePresenter);
+            transaction.replace(R.id.userProfile, mLandlordFragment);
         }
         transaction.commit();
 

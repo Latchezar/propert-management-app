@@ -40,7 +40,8 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
 
         mAsyncRunner.runInBackground(() -> {
             try {
-                List<Property> properties = mService.getAllProperties(loginUser.getId());
+                List<Property> properties;
+                    properties = mService.getAllProperties(loginUser.getUserType(), loginUser.getId());
                 presentPropertiesToView(properties);
             } catch (IOException e) {
                 e.printStackTrace();
