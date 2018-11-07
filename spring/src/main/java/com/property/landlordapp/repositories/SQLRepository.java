@@ -1,6 +1,7 @@
 package com.property.landlordapp.repositories;
 
 import com.property.landlordapp.constants.ResponseText;
+import com.property.landlordapp.models.ChatMessage;
 import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.utils.Validator;
@@ -18,6 +19,10 @@ import javax.xml.bind.DatatypeConverter;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -144,14 +149,12 @@ public class SQLRepository implements RepositoryBase {
 
     @Override
     public ResponseEntity getPropertiesByLandlordID(int id){
-        String query = "select * from propertymanagement.properties where LandlordID = " + id + ";";
-        return new ResponseEntity<>(getPropertyList(query), HttpStatus.CREATED);
+        return new ResponseEntity<>(getPropertyList("landlordID", id), HttpStatus.CREATED);
     }
 
     @Override
     public ResponseEntity getPropertiesByTenantID(int id){
-        String query = "select * from propertymanagement.properties where TenantID = " + id + ";";
-        return new ResponseEntity<>(getPropertyList(query), HttpStatus.CREATED);
+        return new ResponseEntity<>(getPropertyList("tenantID", id), HttpStatus.CREATED);
     }
 
     @Override
@@ -170,8 +173,62 @@ public class SQLRepository implements RepositoryBase {
 
     }
 
-    private List<Property> getPropertyList(String query){
+    @Override
+    public ResponseEntity getChatMessagesByPropertyID(int id) {
         Session session = sessionFactory.openSession();
-        return (List<Property>) session.createSQLQuery(query).addEntity(Property.class).list();
+        List messages = session.createCriteria(ChatMessage.class)
+                .add(Restrictions.eq("propertyID", id))
+                .addOrder(org.hibernate.criterion.Property.forName("messageID").asc()).list();
+        if (messages == null || messages.size() == 0){
+            return new ResponseEntity<> (ResponseText.NO_MESSAGES_FOUND, HttpStatus.OK);
+        }
+        session.close();
+        return  new ResponseEntity<> (messages, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity sendMessage(ChatMessage chatMessage) {
+        Timestamp timestamp = new Timestamp(new Date().getTime());
+        chatMessage.setMessageID(timestamp);
+        try (Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            session.save(chatMessage);
+            session.getTransaction().commit();
+            session.close();
+        } catch (Exception e) {
+            return new ResponseEntity<> (e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<> ("Success", HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity getNewMessages(ChatMessage chatMessage) {
+        Session session = sessionFactory.openSession();
+        List newMessages = session.createCriteria(ChatMessage.class)
+                .add(Restrictions.eq("propertyID", chatMessage.getPropertyID()))
+                .addOrder(org.hibernate.criterion.Property.forName("messageID").desc()).list();
+        session.close();
+        List<ChatMessage> result = new ArrayList<>();
+        Timestamp base = chatMessage.getMessageID();
+        for (ChatMessage message:
+                (List<ChatMessage>) newMessages) {
+            if (message.getMessageID().after(base)) {
+                result.add(message);
+            } else {
+                break;
+            }
+        }
+        if (result.size() < 1){
+            return new ResponseEntity<>(ResponseText.NO_NEW_MESSAGES, HttpStatus.OK);
+        }
+        Collections.reverse(result);
+        return new ResponseEntity<> (result, HttpStatus.OK);
+    }
+
+    private List getPropertyList(String columns, int id){
+        Session session = sessionFactory.openSession();
+        List result = session.createCriteria(Property.class).add(Restrictions.eq(columns, id)).list();
+        session.close();
+        return result;
     }
 }

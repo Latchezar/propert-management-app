@@ -1,5 +1,6 @@
 package com.property.landlordapp.services;
 
+import com.property.landlordapp.models.ChatMessage;
 import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.repositories.RepositoryBase;
@@ -44,5 +45,20 @@ public class UserService implements ServiceBase{
     @Override
     public ResponseEntity getUserByID(int id) {
         return this.repository.getUserByID(id);
+    }
+
+    @Override
+    public ResponseEntity getChatMessagesByPropertyID(int id) {
+        return this.repository.getChatMessagesByPropertyID(id);
+    }
+
+    @Override
+    public ResponseEntity sendMessage(ChatMessage chatMessage) {
+        return this.repository.sendMessage(chatMessage);
+    }
+
+    @Override
+    public ResponseEntity getNewMessages(ChatMessage chatMessage) {
+        return this.repository.getNewMessages(chatMessage);
     }
 }

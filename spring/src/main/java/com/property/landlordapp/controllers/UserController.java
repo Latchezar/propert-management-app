@@ -1,5 +1,6 @@
 package com.property.landlordapp.controllers;
 
+import com.property.landlordapp.models.ChatMessage;
 import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.services.ServiceBase;
@@ -43,5 +44,20 @@ public class UserController {
     @GetMapping("/user/{id}")
     public ResponseEntity getUserByID(@PathVariable int id){
         return this.service.getUserByID(id);
+    }
+
+    @GetMapping("chat/{id}")
+    public ResponseEntity getChatMessagesByPropertyID(@PathVariable int id){
+        return this.service.getChatMessagesByPropertyID(id);
+    }
+
+    @PostMapping("/chat")
+    public ResponseEntity sendMessage(@RequestBody ChatMessage chatMessage){
+        return this.service.sendMessage(chatMessage);
+    }
+
+    @PostMapping("/newchat")
+    public ResponseEntity getNewMessages(@RequestBody ChatMessage chatMessage){
+        return this.service.getNewMessages(chatMessage);
     }
 }

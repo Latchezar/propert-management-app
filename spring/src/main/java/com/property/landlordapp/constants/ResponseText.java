@@ -15,4 +15,6 @@ public class ResponseText {
     public static final String PROPERTY_ALREADY_EXIST = "Property Already Exist";
     public static final String PROPERTY_CREATED_SUCCESSFUL = "Property Create Successful";
     public static final String USER_NOT_FOUND = "User not found";
+    public static final String NO_MESSAGES_FOUND = "No messages found for this property";
+    public static final String NO_NEW_MESSAGES = "No new messages found";
 }

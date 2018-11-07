@@ -1,5 +1,6 @@
 package com.property.landlordapp.repositories;
 
+import com.property.landlordapp.models.ChatMessage;
 import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import org.springframework.http.ResponseEntity;
@@ -16,4 +17,10 @@ public interface RepositoryBase {
     ResponseEntity getPropertiesByTenantID(int id);
 
     ResponseEntity getUserByID(int id);
+
+    ResponseEntity getChatMessagesByPropertyID(int id);
+
+    ResponseEntity sendMessage(ChatMessage chatMessage);
+
+    ResponseEntity getNewMessages(ChatMessage chatMessage);
 }

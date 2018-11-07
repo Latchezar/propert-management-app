@@ -1,5 +1,6 @@
 package com.property.landlordapp;
 
+import com.property.landlordapp.models.ChatMessage;
 import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import org.hibernate.SessionFactory;
@@ -21,6 +22,7 @@ public class LandlordappApplication {
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Property.class)
+                .addAnnotatedClass(ChatMessage.class)
                 .buildSessionFactory();
     }
 }
