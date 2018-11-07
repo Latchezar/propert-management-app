@@ -20,7 +20,6 @@ public class chatActivity extends DaggerAppCompatActivity {
     @Inject
     chatContracts.Presenter mChatPresenter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +33,7 @@ public class chatActivity extends DaggerAppCompatActivity {
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction();
 
-        transaction.replace(R.id.property_details_content, mChatFragment);
+        transaction.replace(R.id.chat_content, mChatFragment);
         transaction.commit();
     }
 }
