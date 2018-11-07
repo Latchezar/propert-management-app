@@ -7,6 +7,8 @@ import com.property.landlordapp.services.ServiceBase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -56,8 +58,8 @@ public class UserController {
         return this.service.sendMessage(chatMessage);
     }
 
-    @PostMapping("/newchat")
-    public ResponseEntity getNewMessages(@RequestBody ChatMessage chatMessage){
-        return this.service.getNewMessages(chatMessage);
+    @GetMapping("/newchat/{id}/{miliseconds}")
+    public ResponseEntity getNewMessages(@PathVariable int id, @PathVariable long miliseconds){
+        return this.service.getNewMessages(id, miliseconds);
     }
 }

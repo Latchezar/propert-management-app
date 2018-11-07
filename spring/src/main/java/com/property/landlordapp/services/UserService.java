@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+
 @Service
 public class UserService implements ServiceBase{
     private RepositoryBase repository;
@@ -58,7 +60,7 @@ public class UserService implements ServiceBase{
     }
 
     @Override
-    public ResponseEntity getNewMessages(ChatMessage chatMessage) {
-        return this.repository.getNewMessages(chatMessage);
+    public ResponseEntity getNewMessages(int id, long miliseconds) {
+        return this.repository.getNewMessages(id, miliseconds);
     }
 }

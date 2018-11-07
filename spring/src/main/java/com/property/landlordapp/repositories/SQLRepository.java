@@ -200,17 +200,17 @@ public class SQLRepository implements RepositoryBase {
     }
 
     @Override
-    public ResponseEntity getNewMessages(ChatMessage chatMessage) {
+    public ResponseEntity getNewMessages(int id, long miliseconds) {
+        Timestamp timestamp = new Timestamp(miliseconds);
         Session session = sessionFactory.openSession();
         List newMessages = session.createCriteria(ChatMessage.class)
-                .add(Restrictions.eq("propertyID", chatMessage.getPropertyID()))
+                .add(Restrictions.eq("propertyID", id))
                 .addOrder(org.hibernate.criterion.Property.forName("messageID").desc()).list();
         session.close();
         List<ChatMessage> result = new ArrayList<>();
-        Timestamp base = chatMessage.getMessageID();
         for (ChatMessage message:
                 (List<ChatMessage>) newMessages) {
-            if (message.getMessageID().after(base)) {
+            if (message.getMessageID().after(timestamp)) {
                 result.add(message);
             } else {
                 break;

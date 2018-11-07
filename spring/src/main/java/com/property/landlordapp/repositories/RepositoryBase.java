@@ -5,6 +5,8 @@ import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import org.springframework.http.ResponseEntity;
 
+import java.sql.Timestamp;
+
 public interface RepositoryBase {
     ResponseEntity loginAttempt(User login);
 
@@ -22,5 +24,5 @@ public interface RepositoryBase {
 
     ResponseEntity sendMessage(ChatMessage chatMessage);
 
-    ResponseEntity getNewMessages(ChatMessage chatMessage);
+    ResponseEntity getNewMessages(int id, long miliseconds);
 }
