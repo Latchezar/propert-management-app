@@ -27,6 +27,12 @@ public class HttpLoginService implements LoginService {
     }
 
     @Override
+    public LoginUser getUser(int id) throws IOException {
+        return mTestUserRepository.getById(id);
+        //return null;
+    }
+
+    @Override
     public Object create(Object mUser) throws IOException {
         return mTestUserRepository.create((LoginUser)mUser);
     }

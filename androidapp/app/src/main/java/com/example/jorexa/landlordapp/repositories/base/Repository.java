@@ -12,5 +12,5 @@ public interface Repository<T> {
 
     Object create(T mUser) throws IOException;
 
-    //T getById(int id) throws IOException;
+    T getById(int id) throws IOException;
 }

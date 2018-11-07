@@ -12,5 +12,7 @@ public interface LoginService {
 
     LoginUser signIn(LoginUser sentUser) throws IOException;
 
+    LoginUser getUser(int id) throws IOException;
+
     Object create(Object mUser) throws IOException;
 }

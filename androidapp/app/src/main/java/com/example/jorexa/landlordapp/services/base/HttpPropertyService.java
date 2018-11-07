@@ -27,6 +27,11 @@ public class HttpPropertyService implements LoginService {
     }
 
     @Override
+    public LoginUser getUser(int id) throws IOException {
+        return null;
+    }
+
+    @Override
     public Object create(Object mUser) throws IOException {
         return mRepository.create((Property)mUser);
     }
