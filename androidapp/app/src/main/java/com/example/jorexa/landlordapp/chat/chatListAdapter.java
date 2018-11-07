@@ -10,11 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.jorexa.landlordapp.R;
+import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 
 import javax.inject.Inject;
 
-public class chatListAdapter extends ArrayAdapter<Property> {
+public class chatListAdapter extends ArrayAdapter<LoginUser> {
     @Inject
     public chatListAdapter(@NonNull Context context) {
         super(context, -1);
@@ -35,9 +36,9 @@ public class chatListAdapter extends ArrayAdapter<Property> {
         TextView nameTextView = view.findViewById(R.id.tv_property_name);
         //TextView addressTextView = view.findViewById(R.id.tv_property_addresss);
 
-        Property property = getItem(position);
+        LoginUser property = getItem(position);
 
-        nameTextView.setText(property.getPropertyName());
+        //nameTextView.setText(property.getPropertyName());
         //addressTextView.setText(property.getAddress());
 
         return view;
