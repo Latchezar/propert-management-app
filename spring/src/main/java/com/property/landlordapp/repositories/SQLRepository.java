@@ -188,8 +188,6 @@ public class SQLRepository implements RepositoryBase {
 
     @Override
     public ResponseEntity sendMessage(ChatMessage chatMessage) {
-        Timestamp timestamp = new Timestamp(new Date().getTime());
-        chatMessage.setMessageID(timestamp);
         try (Session session = sessionFactory.openSession()){
             session.beginTransaction();
             session.save(chatMessage);
