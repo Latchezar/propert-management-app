@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.jorexa.landlordapp.R;
+import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.userprofile.UserProfileContracts;
 
 import javax.inject.Inject;
@@ -28,7 +29,12 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
     public void onResume() {
         super.onResume();
         mPresenter.subscribe(this);
-        //mPresenter.loadUser();
+        mPresenter.getProperty();
+    }
+
+    @Override
+    public void setPropertyInformation(Property property) {
+        int a = 5;
     }
 
     @Override

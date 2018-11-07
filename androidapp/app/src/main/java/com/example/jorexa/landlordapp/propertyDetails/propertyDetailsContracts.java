@@ -16,6 +16,7 @@ public interface propertyDetailsContracts {
 
         void onResume();
 
+        void setPropertyInformation(Property property);
         //void showProperties(List<Property> properties);
         //void showError(Exception e);
 
@@ -29,7 +30,8 @@ public interface propertyDetailsContracts {
     interface Presenter {
         void subscribe(propertyDetailsContracts.View view);
 
-        void loadUser();
+        void loadProperty(Property property);
 
+        void getProperty();
     }
 }

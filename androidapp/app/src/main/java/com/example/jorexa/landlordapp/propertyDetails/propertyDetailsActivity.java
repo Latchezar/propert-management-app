@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.jorexa.landlordapp.R;
+import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.singup.RegisterFormFragment;
 import com.example.jorexa.landlordapp.singup.SignUpContracts;
@@ -34,6 +35,8 @@ public class propertyDetailsActivity extends DaggerAppCompatActivity {
         int f = 5;
 
         mPropertyDetailsFragment.setPresenter(mPropertyDetailsPresenter);
+
+        mPropertyDetailsPresenter.loadProperty(property);
 
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction();
