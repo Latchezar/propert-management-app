@@ -42,7 +42,7 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
             try {
                 LoginUser user;
                 user = mService.getUser(property.getTenantID());
-                //mView.setTenantOrLandlord(user);
+                mView.setTenantOrLandlord(user);
                 int g = 5;
             } catch (IOException e) {
                 e.printStackTrace();

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.jorexa.landlordapp.R;
+import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.userprofile.UserProfileContracts;
 
@@ -32,6 +33,9 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
     @BindView(R.id.tv_property_details_price)
     TextView mPropertyPrice;
 
+    @BindView(R.id.tv_tenant_or_landlord)
+    TextView mTenantOrLandlord;
+
     private propertyDetailsContracts.Presenter mPresenter;
 
     @Inject
@@ -51,6 +55,20 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
         mPropertyName.setText(property.getPropertyName());
         mPropertyAddress.setText(property.getAddress());
         mPropertyPrice.setText(property.getPropertyPrice()+"");
+    }
+
+    @Override
+    public void setTenantOrLandlord(LoginUser user) {
+        runOnUi(() -> {
+            String setText = "";
+            if(user.getUserType() == 1) {
+             setText += "Landlord: ";
+            } else {
+             setText += "Tenant: ";
+            }
+            setText += user.firstName+ " "+user.lastName;
+            mTenantOrLandlord.setText(setText);
+        });
     }
 
     @Override

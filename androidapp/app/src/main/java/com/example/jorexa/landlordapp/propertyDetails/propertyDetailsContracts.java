@@ -20,6 +20,8 @@ public interface propertyDetailsContracts {
         //void showProperties(List<Property> properties);
         //void showError(Exception e);
 
+        void setTenantOrLandlord(LoginUser user);
+
         //void showPropertyDetails(Property property);
 
         //Activity getActivity();

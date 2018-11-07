@@ -31,7 +31,15 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_property_details_address"
             android:textSize="20dp"
-            android:text="30lv." />
+            android:text="..." />
+
+        <TextView
+            android:id="@+id/tv_tenant_or_landlord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_property_details_price"
+            android:textSize="20dp"
+            android:text="..." />
 
     </RelativeLayout>
 
