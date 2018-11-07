@@ -1,6 +1,8 @@
 package com.example.jorexa.landlordapp.models;
 
-public class Property {
+import java.io.Serializable;
+
+public class Property implements Serializable {
     public int propertyID, propertyPrice, landlordID, tenantID;
     public String propertyName;
 

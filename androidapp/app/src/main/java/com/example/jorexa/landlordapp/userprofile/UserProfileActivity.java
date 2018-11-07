@@ -12,6 +12,7 @@ import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.diconfig.AppComponent;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
+import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsActivity;
 import com.example.jorexa.landlordapp.singup.SignUpActivity;
 
 import java.io.IOException;
@@ -73,10 +74,10 @@ public class UserProfileActivity extends DaggerAppCompatActivity implements User
     public void navigateWith(Property property) {
         Intent intent = new Intent(
                 this,
-                SignUpActivity.class
+               propertyDetailsActivity.class
         );
 
-        //intent.putExtra(SuperheroDetailsActivity.EXTRA_KEY, superhero);
+        intent.putExtra(propertyDetailsActivity.EXTRA_KEY, property);
 
         startActivity(intent);
     }
