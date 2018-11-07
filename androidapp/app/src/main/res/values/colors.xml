@@ -6,4 +6,5 @@
     <color name="loginBackground">#9e9eaf</color>
     <color name="white">#FFFFFFFF</color>
     <color name="button">#4d4d4d</color>
+    <color name="profileBackground">#FFC6CFFF</color>
 </resources>

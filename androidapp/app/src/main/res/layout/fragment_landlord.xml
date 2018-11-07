@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:background="@color/profileBackground" >
 
     <TextView
         android:id="@+id/tv_landlord_profile"
@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_landlord_title"
+            android:background="@drawable/rounded_listview"
             />
 
     </RelativeLayout>
