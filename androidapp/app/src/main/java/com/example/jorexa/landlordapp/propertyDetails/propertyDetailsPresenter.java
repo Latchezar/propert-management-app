@@ -4,11 +4,8 @@ import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.services.base.LoginService;
-import com.example.jorexa.landlordapp.singup.SignUpContracts;
-import com.example.jorexa.landlordapp.userprofile.UserProfileContracts;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -47,11 +44,9 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
                     user = mService.getUser(property.getLandlordID());
                 }
                 mView.setTenantOrLandlord(user);
-                int g = 5;
             } catch (IOException e) {
                 e.printStackTrace();
-                //mView.showError(e);
-                int t = 3;
+                mView.showError(e);
             }
         });
 
