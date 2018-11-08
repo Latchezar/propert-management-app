@@ -14,6 +14,8 @@ import com.example.jorexa.landlordapp.models.ChatMessage;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsContracts;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -57,11 +59,11 @@ public class chatFragment extends Fragment implements chatContracts.View {
     }
 
     @Override
-    public void showMessages(ChatMessage chat) {
+    public void showMessages(List<ChatMessage> chat) {
         runOnUi(() -> {
             //mTitle.setText(names.get(0));
             mChatAdapter.clear();
-            mChatAdapter.add(chat);
+            mChatAdapter.addAll(chat);
         });
     }
 

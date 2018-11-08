@@ -5,13 +5,15 @@ import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsContracts;
 
+import java.util.List;
+
 public interface chatContracts {
     interface View {
         void setPresenter(chatContracts.Presenter presenter);
 
         //void showCustomException(String text);
 
-        void showMessages(ChatMessage chat);
+        void showMessages(List<ChatMessage> chat);
 
         void onResume();
 

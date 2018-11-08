@@ -3,8 +3,9 @@ package com.example.jorexa.landlordapp.models;
 import java.io.Serializable;
 import java.security.Timestamp;
 
+
 public class ChatMessage implements Serializable {
-    public Timestamp messageID;
+    public long messageID;
     public int messageType, propertyID, senderID;
     public String messageText;
 
@@ -12,7 +13,7 @@ public class ChatMessage implements Serializable {
 
     }
 
-    public ChatMessage(Timestamp messageID, int messageType, int propertyID, int senderID, String messageText) {
+    public ChatMessage(long messageID, int messageType, int propertyID, int senderID, String messageText) {
         this.messageID = messageID;
         this.messageType = messageType;
         this.propertyID = propertyID;
@@ -21,11 +22,11 @@ public class ChatMessage implements Serializable {
     }
 
 
-    public Timestamp getMessageID() {
+    public long getMessageID() {
         return messageID;
     }
 
-    public void setMessageID(Timestamp messageID) {
+    public void setMessageID(long messageID) {
         this.messageID = messageID;
     }
 

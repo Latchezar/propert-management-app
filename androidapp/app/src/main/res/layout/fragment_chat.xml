@@ -15,15 +15,30 @@
             android:id="@+id/tv_chat_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chat profile"
-            android:visibility="gone" />
+            android:text="Chat with tenant" />
 
         <ListView
             android:id="@+id/lv_chatMessages"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:layout_below="@id/tv_chat_test"
             android:background="@drawable/rounded_listview"
+            />
+
+        <EditText
+           android:id="@+id/ed_message"
+           android:layout_width="match_parent"
+           android:textSize="20dp"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/lv_chatMessages"
+          />
+
+        <Button
+            android:id="@+id/btn_send_messsage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:layout_below="@+id/ed_message"
             />
 
     </RelativeLayout>
