@@ -24,8 +24,8 @@ public class chatFragment extends Fragment implements chatContracts.View {
 
     private chatContracts.Presenter mPresenter;
 
-    ///@Inject
-    //ArrayAdapter<ChatMessage> mChatAdapter;
+    @Inject
+    ArrayAdapter<ChatMessage> mChatAdapter;
 
     @Inject
     public chatFragment() {
