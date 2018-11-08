@@ -29,18 +29,18 @@ public class chatListAdapter extends ArrayAdapter<ChatMessage> {
                 (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View view = layoutInflater.inflate(
-                R.layout.property_item,
+                R.layout.messages,
                 parent,
                 false
         );
 
-        TextView nameTextView = view.findViewById(R.id.tv_property_name);
-        //TextView addressTextView = view.findViewById(R.id.tv_property_addresss);
+        TextView senderName = view.findViewById(R.id.tv_chat_name);
+        TextView timeStamp = view.findViewById(R.id.tv_chat_timestamp);
 
-        //LoginUser property = getItem(position);
+        ChatMessage message = getItem(position);
 
-        //nameTextView.setText(property.getPropertyName());
-        //addressTextView.setText(property.getAddress());
+        senderName.setText(message.getMessageText());
+        //timeStamp.setText(message.getMessageID().toString());
 
         return view;
     }
