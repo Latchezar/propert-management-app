@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.models.LoginUser;
@@ -58,6 +59,12 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
     }
 
     @Override
+    public void showError(Exception e) {
+        runOnUi(()-> Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show());
+        throw new RuntimeException(e);
+    }
+
+    @Override
     public void setTenantOrLandlord(LoginUser user) {
         runOnUi(() -> {
             String setText = "";
@@ -85,6 +92,11 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
     @Override
     public void setPresenter(propertyDetailsContracts.Presenter presenter) {
         mPresenter = presenter;
+    }
+
+    @Override
+    public void showCustomException(String text) {
+        runOnUi(()-> Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show());
     }
 
     private void runOnUi(Runnable action) {

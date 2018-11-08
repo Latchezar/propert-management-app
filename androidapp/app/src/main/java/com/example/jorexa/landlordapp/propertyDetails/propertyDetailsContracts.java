@@ -1,5 +1,8 @@
 package com.example.jorexa.landlordapp.propertyDetails;
 
+import android.app.Activity;
+import android.content.Intent;
+
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.userprofile.UserProfileContracts;
@@ -11,22 +14,17 @@ public interface propertyDetailsContracts {
     interface View {
         void setPresenter(propertyDetailsContracts.Presenter presenter);
 
-        //void setTitle(String title);
-        //void showCustomException(String text);
+        void showCustomException(String text);
 
         void onResume();
 
         void setPropertyInformation(Property property);
-        //void showProperties(List<Property> properties);
-        //void showError(Exception e);
 
-        void setTenantOrLandlord(LoginUser user);
+        void showError(Exception e);
 
-        //void showPropertyDetails(Property property);
+        void setTenantOrLandlord(LoginUser user);;
 
-        //Activity getActivity();
-
-        //void startActivity(Intent intent);
+        Activity getActivity();
     }
 
     interface Presenter {
