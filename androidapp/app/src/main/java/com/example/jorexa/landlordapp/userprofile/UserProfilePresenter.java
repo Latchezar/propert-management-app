@@ -54,8 +54,8 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
 
     @Override
     public void presentPropertiesToView(List<Property> properties) {
-        if (properties.isEmpty()) {
-            //mView.showEmptyPropertiesList();
+        if (properties == null || properties.isEmpty()) {
+            mView.showEmptyPropertiesList();
         } else {
             mView.showProperties(properties);
             int g = 4;

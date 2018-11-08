@@ -15,16 +15,20 @@ public interface UserProfileContracts {
         void setPresenter(UserProfileContracts.Presenter presenter);
 
         void setTitle(String title);
-        //void showCustomException(String text);
+
+        void showCustomException(String text);
 
         void showProperties(List<Property> properties);
-        //void showError(Exception e);
+
+        void showError(Exception e);
 
         void showPropertyDetails(Property property);
 
-        //Activity getActivity();
+        Activity getActivity();
 
-        //void startActivity(Intent intent);
+        void startActivity(Intent intent);
+
+        void showEmptyPropertiesList();
     }
 
     interface Presenter {

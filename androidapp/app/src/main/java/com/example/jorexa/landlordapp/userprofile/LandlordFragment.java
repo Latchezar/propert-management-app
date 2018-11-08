@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.models.Property;
@@ -88,8 +89,12 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
 
     @Override
     public void setTitle(String title) {
-       String t = title;
        mTitle.setText(title);
+    }
+
+    @Override
+    public void showCustomException(String text) {
+        runOnUi(()-> Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show());
     }
 
     @Override
@@ -99,17 +104,25 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
                 .map(Property::getPropertyName)
                 .collect(Collectors.toList());
 
-       int a = 5;
         runOnUi(() -> {
-            //mTitle.setText(names.get(0));
             mPropertiesAdapter.clear();
             mPropertiesAdapter.addAll(properties);
         });
     }
 
     @Override
+    public void showError(Exception e) {
+        runOnUi(()-> Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show());
+    }
+
+    @Override
     public void showPropertyDetails(Property property) {
         runOnUi(() -> mNavigator.navigateWith(property));
+    }
+
+    @Override
+    public void showEmptyPropertiesList() {
+
     }
 
     void setNavigator(UserProfileContracts.Navigator navigator) {
