@@ -8,6 +8,8 @@ import java.util.List;
 public interface Repository<T> {
     List<T> getAll(int userType, int propertyID) throws IOException;
 
+    List<T> getAllMessages() throws IOException;
+
     T login(T item) throws IOException;
 
     Object create(T mUser) throws IOException;

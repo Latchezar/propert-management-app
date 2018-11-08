@@ -1,5 +1,6 @@
 package com.example.jorexa.landlordapp.chat;
 
+import com.example.jorexa.landlordapp.models.ChatMessage;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsContracts;
@@ -9,6 +10,8 @@ public interface chatContracts {
         void setPresenter(chatContracts.Presenter presenter);
 
         //void showCustomException(String text);
+
+        void showMessages(ChatMessage chat);
 
         void onResume();
 
@@ -27,5 +30,6 @@ public interface chatContracts {
 
         void loadChat(int propertyID);
 
+        void showMessages();
     }
 }
