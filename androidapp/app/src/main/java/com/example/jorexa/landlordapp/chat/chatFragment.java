@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.models.ChatMessage;
@@ -20,6 +22,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +30,9 @@ import butterknife.ButterKnife;
 public class chatFragment extends Fragment implements chatContracts.View {
 
     private chatContracts.Presenter mPresenter;
+
+    @BindView(R.id.tv_chat_test)
+    TextView textTest;
 
     @BindView(R.id.lv_chatMessages)
     ListView mChatListView;
@@ -72,6 +78,14 @@ public class chatFragment extends Fragment implements chatContracts.View {
         super.onResume();
         mPresenter.subscribe(this);
         mPresenter.showMessages();
+    }
+
+    @OnClick(R.id.btn_send_messsage)
+    public void testButton(View view) {
+        //mPresenter.showMessages();
+        textTest.setText("123456");
+        //mPresenter.showMessages();
+
     }
 
     private void runOnUi(Runnable action) {

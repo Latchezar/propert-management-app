@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.security.Timestamp;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -46,15 +47,25 @@ public class chatPresenter implements chatContracts.Presenter {
         //chat.setMessageID();
 
         mAsyncRunner.runInBackground(() -> {
-            try {
-                List<ChatMessage> messages;
-                messages = mService.getAllMessages();
-                mView.showMessages(messages);
-                int a = 5;
-            } catch (IOException e) {
-                e.printStackTrace();
-                //mView.showError(e);
-                int t = 3;
+            for(;;) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    //List<ChatMessage> messages;
+                    List<ChatMessage> newMessages;
+                    //messages = mService.getAllMessages();
+                    newMessages = mService.getNewMessages();
+                    newMessages.get(0).setMessageText(new Random() + "");
+                    mView.showMessages(newMessages);
+                    int a = 5;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    //mView.showError(e);
+                    int t = 3;
+                }
             }
         });
 

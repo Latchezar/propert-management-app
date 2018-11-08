@@ -10,6 +10,8 @@ public interface Repository<T> {
 
     List<T> getAllMessages() throws IOException;
 
+    List<T> getNewMessages() throws IOException;
+
     T login(T item) throws IOException;
 
     Object create(T mUser) throws IOException;
