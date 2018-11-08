@@ -6,9 +6,26 @@
     tools:context=".chat.chatFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/profileBackground" >
+
+        <TextView
+            android:id="@+id/tv_chat_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chat profile"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/lv_chatMessages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_chat_test"
+            android:background="@drawable/rounded_listview"
+            />
+
+    </RelativeLayout>
 
 </FrameLayout>

@@ -61,6 +61,16 @@ public class HttpRepository<T> implements Repository<T> {
     }
 
     @Override
+    public List<T> getAllMessages() throws IOException {
+        String jsonArray = null;
+        String url = mServerUrl;
+            url += "/chat/2";
+        //url += 2;
+        jsonArray = mHttpRequester.get(url);
+        return mJsonParser.fromJsonArray(jsonArray);
+    }
+
+    @Override
     public T getById(int id) throws IOException {
         String url = mServerUrl + "/user/" + id;
         String json = mHttpRequester.get(url);

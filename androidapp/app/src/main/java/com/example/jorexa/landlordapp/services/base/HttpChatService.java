@@ -8,7 +8,7 @@ import com.example.jorexa.landlordapp.repositories.base.Repository;
 import java.io.IOException;
 import java.util.List;
 
-public class HttpChatService implements LoginService {
+public class HttpChatService implements ChatService {
 
     public final Repository<ChatMessage> mChatMessageRepository;
 
@@ -16,23 +16,9 @@ public class HttpChatService implements LoginService {
         mChatMessageRepository = repository;
     }
 
-    @Override
-    public List<Property> getAllProperties(int userType, int propertyID) throws IOException {
-        return null;
-    }
 
     @Override
-    public LoginUser signIn(LoginUser sentUser) throws IOException {
-        return null;
-    }
-
-    @Override
-    public LoginUser getUser(int id) throws IOException {
-        return null;
-    }
-
-    @Override
-    public Object create(Object mUser) throws IOException {
-        return null;
+    public List<ChatMessage> getAllMessages() throws IOException {
+        return mChatMessageRepository.getAllMessages();
     }
 }
