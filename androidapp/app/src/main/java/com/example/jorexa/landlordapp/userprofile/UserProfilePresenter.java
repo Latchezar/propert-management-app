@@ -32,9 +32,6 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
     @Override
     public void setUserProfile(LoginUser loginUser) {
         mUserProfile = loginUser;
-        //mView.setTitle(test);
-
-        //mService.getAllProperties();
 
         mAsyncRunner.runInBackground(() -> {
             try {
