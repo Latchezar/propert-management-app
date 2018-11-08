@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.models.ChatMessage;
@@ -15,6 +16,7 @@ import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsContracts;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -23,6 +25,9 @@ import butterknife.ButterKnife;
 public class chatFragment extends Fragment implements chatContracts.View {
 
     private chatContracts.Presenter mPresenter;
+
+    @BindView(R.id.lv_chatMessages)
+    ListView mChatListView;
 
     @Inject
     ArrayAdapter<ChatMessage> mChatAdapter;
@@ -41,6 +46,8 @@ public class chatFragment extends Fragment implements chatContracts.View {
 
         ButterKnife.bind(this, view);
 
+        mChatListView.setAdapter(mChatAdapter);
+
         return view;
     }
 
@@ -53,8 +60,8 @@ public class chatFragment extends Fragment implements chatContracts.View {
     public void showMessages(ChatMessage chat) {
         runOnUi(() -> {
             //mTitle.setText(names.get(0));
-            //mChatAdapter.clear();
-            //mChatAdapter.add(chat);
+            mChatAdapter.clear();
+            mChatAdapter.add(chat);
         });
     }
 
