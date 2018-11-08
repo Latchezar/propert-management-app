@@ -49,6 +49,7 @@ public class chatPresenter implements chatContracts.Presenter {
             try {
                 List<ChatMessage> messages;
                 messages = mService.getAllMessages();
+                mView.showMessages(messages);
                 int a = 5;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -57,7 +58,7 @@ public class chatPresenter implements chatContracts.Presenter {
             }
         });
 
-        chat.setMessageText("Test Message 123");
-        mView.showMessages(chat);
+        //chat.setMessageText("Test Message 123");
+        //mView.showMessages(chat);
     }
 }
