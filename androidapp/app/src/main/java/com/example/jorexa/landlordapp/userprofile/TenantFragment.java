@@ -40,12 +40,27 @@ public class TenantFragment extends Fragment implements UserProfileContracts.Vie
     }
 
     @Override
+    public void showCustomException(String text) {
+
+    }
+
+    @Override
     public void showProperties(List<Property> properties) {
 
     }
 
     @Override
+    public void showError(Exception e) {
+
+    }
+
+    @Override
     public void showPropertyDetails(Property property) {
+
+    }
+
+    @Override
+    public void showEmptyPropertiesList(String message) {
 
     }
 

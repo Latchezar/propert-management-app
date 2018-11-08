@@ -1,5 +1,8 @@
 package com.property.landlordapp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -11,7 +14,7 @@ public class ChatMessage {
 
     @Id
     @Column(name = "MessageID")
-    private Timestamp messageID;
+    private Timestamp timestamp;
 
     @Column(name = "MessageType")
     private int messageType;
@@ -23,25 +26,30 @@ public class ChatMessage {
     private int senderID;
 
     @Column(name = "MessageText")
-    String messageText;
+    private String messageText;
+
+    private long messageID;
 
     public ChatMessage() {
     }
 
-    public ChatMessage(Timestamp messageID, int messageType, int propertyID, int senderID, String messageText) {
-        this.messageID = messageID;
+    public ChatMessage(Timestamp timestamp, int messageType, int propertyID, int senderID, String messageText) {
+        this.timestamp = timestamp;
         this.messageType = messageType;
         this.propertyID = propertyID;
         this.senderID = senderID;
         this.messageText = messageText;
     }
 
-    public Timestamp getMessageID() {
-        return this.messageID;
+    @JsonIgnore
+    @JsonProperty(value = "timestamp")
+    public Timestamp getTimestamp() {
+        return this.timestamp;
     }
 
-    public void setMessageID(Timestamp messageID) {
-        this.messageID = messageID;
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+        setMessageID(timestamp.getTime());
     }
 
     public int getMessageType() {
@@ -74,5 +82,13 @@ public class ChatMessage {
 
     public void setMessageText(String messageText) {
         this.messageText = messageText;
+    }
+
+    public long getMessageID() {
+        return messageID;
+    }
+
+    public void setMessageID(long messageID) {
+        this.messageID = messageID;
     }
 }

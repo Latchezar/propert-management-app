@@ -22,7 +22,6 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -176,13 +175,15 @@ public class SQLRepository implements RepositoryBase {
     @Override
     public ResponseEntity getChatMessagesByPropertyID(int id) {
         Session session = sessionFactory.openSession();
-        List messages = session.createCriteria(ChatMessage.class)
+        List<ChatMessage> messages = (List<ChatMessage>) session.createCriteria(ChatMessage.class)
                 .add(Restrictions.eq("propertyID", id))
-                .addOrder(org.hibernate.criterion.Property.forName("messageID").asc()).list();
+                .addOrder(org.hibernate.criterion.Property.forName("timestamp").asc()).list();
         if (messages == null || messages.size() == 0){
+
             return new ResponseEntity<> (ResponseText.NO_MESSAGES_FOUND, HttpStatus.OK);
         }
         session.close();
+        normalizeChat(messages);
         return  new ResponseEntity<> (messages, HttpStatus.OK);
     }
 
@@ -203,14 +204,14 @@ public class SQLRepository implements RepositoryBase {
     public ResponseEntity getNewMessages(int id, long miliseconds) {
         Timestamp timestamp = new Timestamp(miliseconds);
         Session session = sessionFactory.openSession();
-        List newMessages = session.createCriteria(ChatMessage.class)
+        List<ChatMessage> newMessages = (List<ChatMessage>) session.createCriteria(ChatMessage.class)
                 .add(Restrictions.eq("propertyID", id))
-                .addOrder(org.hibernate.criterion.Property.forName("messageID").desc()).list();
+                .addOrder(org.hibernate.criterion.Property.forName("timestamp").desc()).list();
         session.close();
         List<ChatMessage> result = new ArrayList<>();
         for (ChatMessage message:
-                (List<ChatMessage>) newMessages) {
-            if (message.getMessageID().after(timestamp)) {
+                newMessages) {
+            if (message.getTimestamp().after(timestamp)) {
                 result.add(message);
             } else {
                 break;
@@ -220,6 +221,7 @@ public class SQLRepository implements RepositoryBase {
             return new ResponseEntity<>(ResponseText.NO_NEW_MESSAGES, HttpStatus.OK);
         }
         Collections.reverse(result);
+        normalizeChat(result);
         return new ResponseEntity<> (result, HttpStatus.OK);
     }
 
@@ -228,5 +230,13 @@ public class SQLRepository implements RepositoryBase {
         List result = session.createCriteria(Property.class).add(Restrictions.eq(columns, id)).list();
         session.close();
         return result;
+    }
+
+    private List<ChatMessage> normalizeChat(List<ChatMessage> messages){
+        for (ChatMessage cm :
+                messages) {
+            cm.setMessageID(cm.getTimestamp().getTime());
+        }
+        return messages;
     }
 }

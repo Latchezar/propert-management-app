@@ -11,26 +11,32 @@
         android:layout_height="match_parent"
         android:background="@color/profileBackground" >
 
-    <TextView
-        android:id="@+id/tv_landlord_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Landlord profile"
-        android:visibility="gone" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:id="@+id/tv_user_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
 
         <TextView
-            android:id="@+id/tv_landlord_title"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            android:id="@+id/tv_user_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/tv_landlord_profile"
-            android:visibility="gone"
-            android:text="..." />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_user_profile"
+            android:textSize="14sp"
+            android:visibility="gone"/>
 
         <ListView
             android:id="@+id/lv_properties"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_landlord_title"
+            android:layout_below="@id/tv_user_title"
             android:background="@drawable/rounded_listview"
             />
 
