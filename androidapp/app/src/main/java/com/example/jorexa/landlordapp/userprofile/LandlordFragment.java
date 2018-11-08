@@ -35,10 +35,11 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
     @BindView(R.id.lv_properties)
     ListView mPropertiesListView;
 
-    ListView mTestLV;
-
-    @BindView(R.id.tv_landlord_title)
+    @BindView(R.id.tv_user_profile)
     TextView mTitle;
+
+    @BindView(R.id.tv_user_title)
+    TextView mNoPropertiesMessage;
 
     @Inject
     ArrayAdapter<Property> mPropertiesAdapter;
@@ -121,7 +122,10 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
     }
 
     @Override
-    public void showEmptyPropertiesList() {
+    public void showEmptyPropertiesList(String message) {
+        mPropertiesListView.setVisibility(View.GONE);
+        mNoPropertiesMessage.setText(message);
+        runOnUi(() -> mNoPropertiesMessage.setVisibility(View.VISIBLE));
 
     }
 

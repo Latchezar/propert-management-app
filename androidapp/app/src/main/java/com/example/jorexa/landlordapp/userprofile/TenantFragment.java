@@ -60,7 +60,7 @@ public class TenantFragment extends Fragment implements UserProfileContracts.Vie
     }
 
     @Override
-    public void showEmptyPropertiesList() {
+    public void showEmptyPropertiesList(String message) {
 
     }
 

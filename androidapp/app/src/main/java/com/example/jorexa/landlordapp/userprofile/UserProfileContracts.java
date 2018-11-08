@@ -28,7 +28,7 @@ public interface UserProfileContracts {
 
         void startActivity(Intent intent);
 
-        void showEmptyPropertiesList();
+        void showEmptyPropertiesList(String message);
     }
 
     interface Presenter {

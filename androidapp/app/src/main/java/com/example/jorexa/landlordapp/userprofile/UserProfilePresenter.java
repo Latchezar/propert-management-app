@@ -1,10 +1,8 @@
 package com.example.jorexa.landlordapp.userprofile;
 
-import com.example.jorexa.landlordapp.Login.LoginContracts;
 import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
-import com.example.jorexa.landlordapp.services.base.HttpPropertyService;
 import com.example.jorexa.landlordapp.services.base.LoginService;
 
 import java.io.IOException;
@@ -32,7 +30,7 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
     }
 
     @Override
-    public void setUserProfile(LoginUser loginUser) throws IOException {
+    public void setUserProfile(LoginUser loginUser) {
         mUserProfile = loginUser;
         //mView.setTitle(test);
 
@@ -45,8 +43,7 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
                 presentPropertiesToView(properties);
             } catch (IOException e) {
                 e.printStackTrace();
-                //mView.showError(e);
-                int t = 3;
+                mView.showError(e);
             }
         });
 
@@ -55,16 +52,27 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
     @Override
     public void presentPropertiesToView(List<Property> properties) {
         if (properties == null || properties.isEmpty()) {
-            mView.showEmptyPropertiesList();
+            String message;
+            if (mUserProfile.getUserType() == 1){
+                message = "You don't have any properties yet.";
+            } else {
+                message = "You don;t rent any properties";
+            }
+            mView.showEmptyPropertiesList(message);
         } else {
             mView.showProperties(properties);
-            int g = 4;
         }
     }
 
     @Override
     public void loadUser() {
-        mView.setTitle(mUserProfile.firstName);
+        String title = "Hello " + mUserProfile.getFirstName() + ", you are logged in as ";
+        if (mUserProfile.getUserType() == 1){
+            title += "landlord";
+        } else if (mUserProfile.getUserType() == 2){
+            title += "tenant";
+        }
+        mView.setTitle(title);
     }
 
     @Override
