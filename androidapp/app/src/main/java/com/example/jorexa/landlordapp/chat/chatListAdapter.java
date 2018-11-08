@@ -3,6 +3,7 @@ package com.example.jorexa.landlordapp.chat;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,9 +41,15 @@ public class chatListAdapter extends ArrayAdapter<ChatMessage> {
         ChatMessage message = getItem(position);
 
         senderName.setText(message.getMessageText());
-        //timeStamp.setText(message.getMessageID().toString());
+        String dateTime = message.getMessageID()+"";
+        dateTime = convertDate(dateTime,"dd/MM/yyyy hh:mm:ss");
+        timeStamp.setText(dateTime);
 
         return view;
+     }
+
+    public static String convertDate(String dateInMilliseconds,String dateFormat) {
+        return DateFormat.format(dateFormat, Long.parseLong(dateInMilliseconds)).toString();
     }
 }
 
