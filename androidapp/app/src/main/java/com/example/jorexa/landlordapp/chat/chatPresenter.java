@@ -54,16 +54,17 @@ public class chatPresenter implements chatContracts.Presenter {
                 newMessageObj.setMessageText(newMessage);
 
                 long datetime = System.currentTimeMillis();
-                newMessageObj.setMessageID(datetime);
+                //newMessageObj.setMessageID(datetime);
                 newMessageObj.setPropertyID(2);
                 newMessageObj.setMessageType(1);
                 newMessageObj.setSenderID(1);
 
-            //try {
-            //    Object response = mService.sendNewMessage(newMessageObj);
-            //} catch (IOException e) {
-            //    e.printStackTrace();
-            //}
+            try {
+                Object response = mService.sendNewMessage(newMessageObj);
+                int gg = 453;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             int f = 63;
 
         });
@@ -74,9 +75,35 @@ public class chatPresenter implements chatContracts.Presenter {
     @Override
     public void showMessages() {
         ChatMessage chat = new ChatMessage();
+        ChatMessage newMessageObj = new ChatMessage();
         //chat.setMessageID();
 
         mAsyncRunner.runInBackground(() -> {
+
+
+
+
+            newMessageObj.setMessageText("test 11092018");
+
+            long datetime = System.currentTimeMillis();
+            newMessageObj.setMessageID(null);
+            newMessageObj.setMilliseconds(datetime);
+            newMessageObj.setPropertyID(2);
+            newMessageObj.setMessageType(1);
+            newMessageObj.setSenderID(1);
+
+            try {
+                Object response = mService.sendNewMessage(newMessageObj);
+                int gg = 453;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            int f = 63;
+
+
+
+
+
             for(;;) {
                 try {
                     Thread.sleep(1000);
