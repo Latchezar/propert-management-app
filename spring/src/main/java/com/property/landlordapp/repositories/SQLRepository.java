@@ -177,7 +177,7 @@ public class SQLRepository implements RepositoryBase {
         Session session = sessionFactory.openSession();
         List<ChatMessage> messages = (List<ChatMessage>) session.createCriteria(ChatMessage.class)
                 .add(Restrictions.eq("propertyID", id))
-                .addOrder(org.hibernate.criterion.Property.forName("timestamp").asc()).list();
+                .addOrder(org.hibernate.criterion.Property.forName("messageID").asc()).list();
         if (messages == null || messages.size() == 0){
 
             return new ResponseEntity<> (ResponseText.NO_MESSAGES_FOUND, HttpStatus.OK);
@@ -189,12 +189,14 @@ public class SQLRepository implements RepositoryBase {
 
     @Override
     public ResponseEntity sendMessage(ChatMessage chatMessage) {
+        chatMessage.setMessageIDByMilliseconds(chatMessage.getMilliseconds());
         try (Session session = sessionFactory.openSession()){
             session.beginTransaction();
             session.save(chatMessage);
             session.getTransaction().commit();
             session.close();
         } catch (Exception e) {
+            e.printStackTrace();
             return new ResponseEntity<> (e.getMessage(), HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<> ("Success", HttpStatus.OK);
@@ -206,12 +208,12 @@ public class SQLRepository implements RepositoryBase {
         Session session = sessionFactory.openSession();
         List<ChatMessage> newMessages = (List<ChatMessage>) session.createCriteria(ChatMessage.class)
                 .add(Restrictions.eq("propertyID", id))
-                .addOrder(org.hibernate.criterion.Property.forName("timestamp").desc()).list();
+                .addOrder(org.hibernate.criterion.Property.forName("messageID").desc()).list();
         session.close();
         List<ChatMessage> result = new ArrayList<>();
         for (ChatMessage message:
                 newMessages) {
-            if (message.getTimestamp().after(timestamp)) {
+            if (message.getMessageID().after(timestamp)) {
                 result.add(message);
             } else {
                 break;
@@ -235,7 +237,7 @@ public class SQLRepository implements RepositoryBase {
     private List<ChatMessage> normalizeChat(List<ChatMessage> messages){
         for (ChatMessage cm :
                 messages) {
-            cm.setMessageID(cm.getTimestamp().getTime());
+            cm.setMilliseconds(cm.getMessageID().getTime());
         }
         return messages;
     }

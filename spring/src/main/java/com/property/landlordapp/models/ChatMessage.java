@@ -14,7 +14,7 @@ public class ChatMessage {
 
     @Id
     @Column(name = "MessageID")
-    private Timestamp timestamp;
+    private Timestamp messageID;
 
     @Column(name = "MessageType")
     private int messageType;
@@ -28,13 +28,14 @@ public class ChatMessage {
     @Column(name = "MessageText")
     private String messageText;
 
-    private long messageID;
+    @Transient
+    private long milliseconds;
 
     public ChatMessage() {
     }
 
     public ChatMessage(Timestamp timestamp, int messageType, int propertyID, int senderID, String messageText) {
-        this.timestamp = timestamp;
+        this.messageID = timestamp;
         this.messageType = messageType;
         this.propertyID = propertyID;
         this.senderID = senderID;
@@ -42,14 +43,18 @@ public class ChatMessage {
     }
 
     @JsonIgnore
-    @JsonProperty(value = "timestamp")
-    public Timestamp getTimestamp() {
-        return this.timestamp;
+    @JsonProperty(value = "messageID")
+    public Timestamp getMessageID() {
+        return this.messageID;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
-        setMessageID(timestamp.getTime());
+    public void setMessageID(Timestamp timestamp) {
+        this.messageID = timestamp;
+        setMilliseconds(timestamp.getTime());
+    }
+
+    public void setMessageIDByMilliseconds(Long milliseconds){
+        this.messageID = new Timestamp(milliseconds);
     }
 
     public int getMessageType() {
@@ -84,11 +89,11 @@ public class ChatMessage {
         this.messageText = messageText;
     }
 
-    public long getMessageID() {
-        return messageID;
+    public long getMilliseconds() {
+        return milliseconds;
     }
 
-    public void setMessageID(long messageID) {
-        this.messageID = messageID;
+    public void setMilliseconds(long milliseconds) {
+        this.milliseconds = milliseconds;
     }
 }
