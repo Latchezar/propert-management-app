@@ -43,11 +43,9 @@ public class chatListAdapter extends ArrayAdapter<ChatMessage> {
         //dd/MM/yyyy hh:mm:ss
 
         senderName.setText(message.getMessageText());
-        String dateTime = message.getMessageID()+"";
+        String dateTime = message.getMilliseconds()+"";
         dateTime = convertDate(dateTime,"hh:mm:ss");
         timeStamp.setText(dateTime);
-
-
 
         return view;
      }

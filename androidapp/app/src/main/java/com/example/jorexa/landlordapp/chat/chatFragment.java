@@ -89,7 +89,13 @@ public class chatFragment extends Fragment implements chatContracts.View {
     public void onResume(){
         super.onResume();
         mPresenter.subscribe(this);
-        mPresenter.showMessages();
+        mPresenter.showMessages(0);
+        //mPresenter.testFunc();
+    }
+
+    @Override
+    public void startAgain() {
+        mPresenter.showMessages(0);
     }
 
     @Override
@@ -98,11 +104,12 @@ public class chatFragment extends Fragment implements chatContracts.View {
     }
 
     @OnClick(R.id.btn_send_messsage)
-    public void testButton(View view) {
+    public void testButton() {
         //mPresenter.showMessages();
         String newMessage = mNewMessage.getText().toString();
         mPresenter.sendMessage(newMessage);
-
+        //mPresenter.showMessages(1);
+        //mPresenter.testFunc();
         //textTest.setText("123456");
         //mPresenter.showMessages();
 

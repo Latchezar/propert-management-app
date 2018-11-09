@@ -17,6 +17,7 @@ public class AsyncRunnerImpl implements AsyncRunner {
         runInBackgroundStatic(action);
     }
 
+
     private static void runInBackgroundStatic(final Runnable action) {
         //Handler handler = new Handler();
         //handler.postDelayed(() -> {

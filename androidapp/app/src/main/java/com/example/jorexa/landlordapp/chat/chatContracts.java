@@ -18,6 +18,8 @@ public interface chatContracts {
 
         void onResume();
 
+        void startAgain();
+
         void showError(Exception e);
 
         //void
@@ -35,6 +37,8 @@ public interface chatContracts {
 
         void sendMessage(String newMessage);
 
-        void showMessages();
+        void showMessages(int value);
+
+        void testFunc();
     }
 }
