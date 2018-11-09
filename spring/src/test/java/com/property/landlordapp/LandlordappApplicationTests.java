@@ -11,6 +11,15 @@ public class LandlordappApplicationTests {
 
     @Test
     public void contextLoads() {
+
+    }
+
+    @Test
+    public void applicationTest(){
+        LandlordappApplication.main(new String[]{
+                "--spring.main.web-environment=false",
+                "--spring.autoconfigure.exclude=blahblahblah"
+        });
     }
 
 }
