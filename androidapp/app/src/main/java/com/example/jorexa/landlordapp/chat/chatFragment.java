@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,6 +34,9 @@ public class chatFragment extends Fragment implements chatContracts.View {
 
     @BindView(R.id.tv_chat_test)
     TextView textTest;
+
+    @BindView(R.id.ed_message)
+    EditText mNewMessage;
 
     @BindView(R.id.lv_chatMessages)
     ListView mChatListView;
@@ -85,7 +89,9 @@ public class chatFragment extends Fragment implements chatContracts.View {
     @OnClick(R.id.btn_send_messsage)
     public void testButton(View view) {
         //mPresenter.showMessages();
-        textTest.setText("123456");
+        String newMessage = mNewMessage.getText().toString();
+        mPresenter.sendMessage(newMessage);
+        //textTest.setText("123456");
         //mPresenter.showMessages();
 
     }

@@ -42,6 +42,11 @@ public class chatPresenter implements chatContracts.Presenter {
     }
 
     @Override
+    public void sendMessage(String newMessage) {
+
+    }
+
+    @Override
     public void showMessages() {
         ChatMessage chat = new ChatMessage();
         //chat.setMessageID();

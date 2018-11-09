@@ -32,6 +32,8 @@ public interface chatContracts {
 
         void loadChat(int propertyID);
 
+        void sendMessage(String newMessage);
+
         void showMessages();
     }
 }
