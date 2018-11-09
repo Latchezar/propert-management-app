@@ -68,8 +68,9 @@ public class chatFragment extends Fragment implements chatContracts.View {
     public void showMessages(List<ChatMessage> chat) {
         runOnUi(() -> {
             //mTitle.setText(names.get(0));
-            mChatAdapter.clear();
+            //mChatAdapter.clear();
             mChatAdapter.addAll(chat);
+            //Test
         });
     }
 
