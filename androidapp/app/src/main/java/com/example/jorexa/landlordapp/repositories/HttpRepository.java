@@ -71,10 +71,30 @@ public class HttpRepository<T> implements Repository<T> {
     }
 
     @Override
+    public List<T> getNewMessages() throws IOException {
+        String jsonArray = null;
+        String url = mServerUrl;
+        url += "/newchat/2/1541601918000";
+        //url += 2;
+        jsonArray = mHttpRequester.get(url);
+        return mJsonParser.fromJsonArray(jsonArray);
+    }
+
+    @Override
     public T getById(int id) throws IOException {
         String url = mServerUrl + "/user/" + id;
         String json = mHttpRequester.get(url);
         return mJsonParser.fromJson(json);
+    }
+
+    @Override
+    public Object sendNewMessage(T newMessage) throws IOException {
+        String requestBody = mJsonParser.toJson(newMessage);
+        String url = mServerUrl;
+        url += "chat/";
+        Response response = mHttpRequester.post(url, requestBody);
+        int code = response.code();
+        return response;
     }
 
     @Override

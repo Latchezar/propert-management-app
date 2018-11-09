@@ -7,19 +7,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.models.ChatMessage;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsContracts;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +32,12 @@ import butterknife.ButterKnife;
 public class chatFragment extends Fragment implements chatContracts.View {
 
     private chatContracts.Presenter mPresenter;
+
+    @BindView(R.id.tv_chat_test)
+    TextView textTest;
+
+    @BindView(R.id.ed_message)
+    EditText mNewMessage;
 
     @BindView(R.id.lv_chatMessages)
     ListView mChatListView;
@@ -59,11 +70,18 @@ public class chatFragment extends Fragment implements chatContracts.View {
     }
 
     @Override
+    public void showCustomException(String text) {
+
+    }
+
+    @Override
     public void showMessages(List<ChatMessage> chat) {
         runOnUi(() -> {
             //mTitle.setText(names.get(0));
-            mChatAdapter.clear();
+            //mChatAdapter.clear();
             mChatAdapter.addAll(chat);
+            mChatListView.setSelection(mChatListView.getCount() - 1);
+            //Test
         });
     }
 
@@ -72,6 +90,22 @@ public class chatFragment extends Fragment implements chatContracts.View {
         super.onResume();
         mPresenter.subscribe(this);
         mPresenter.showMessages();
+    }
+
+    @Override
+    public void showError(Exception e) {
+
+    }
+
+    @OnClick(R.id.btn_send_messsage)
+    public void testButton(View view) {
+        //mPresenter.showMessages();
+        String newMessage = mNewMessage.getText().toString();
+        mPresenter.sendMessage(newMessage);
+
+        //textTest.setText("123456");
+        //mPresenter.showMessages();
+
     }
 
     private void runOnUi(Runnable action) {

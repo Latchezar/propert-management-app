@@ -18,7 +18,8 @@
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_chat_timestamp" />
+            android:layout_below="@id/tv_chat_timestamp"
+            />
 
         <TextView
             android:id="@+id/tv_chat_message"

@@ -5,28 +5,31 @@ import java.security.Timestamp;
 
 
 public class ChatMessage implements Serializable {
-    public long messageID;
+
+    public Timestamp messageID;
     public int messageType, propertyID, senderID;
     public String messageText;
+    long milliseconds;
 
     public ChatMessage() {
 
     }
 
-    public ChatMessage(long messageID, int messageType, int propertyID, int senderID, String messageText) {
+    public ChatMessage(Timestamp messageID, int messageType, int propertyID, int senderID, String messageText, long milliseconds) {
         this.messageID = messageID;
         this.messageType = messageType;
         this.propertyID = propertyID;
         this.senderID = senderID;
         this.messageText = messageText;
+        this.milliseconds = milliseconds;
     }
 
 
-    public long getMessageID() {
+    public Timestamp getMessageID() {
         return messageID;
     }
 
-    public void setMessageID(long messageID) {
+    public void setMessageID(Timestamp messageID) {
         this.messageID = messageID;
     }
 
@@ -62,4 +65,11 @@ public class ChatMessage implements Serializable {
         this.messageText = messageText;
     }
 
+    public long getMilliseconds() {
+        return milliseconds;
+    }
+
+    public void setMilliseconds(long milliseconds) {
+        this.milliseconds = milliseconds;
+    }
 }

@@ -21,4 +21,15 @@ public class HttpChatService implements ChatService {
     public List<ChatMessage> getAllMessages() throws IOException {
         return mChatMessageRepository.getAllMessages();
     }
+
+    @Override
+    public List<ChatMessage> getNewMessages() throws IOException {
+        return mChatMessageRepository.getNewMessages();
+    }
+
+    @Override
+    public Object sendNewMessage(Object newMessage) throws IOException {
+        return mChatMessageRepository.sendNewMessage((ChatMessage)newMessage);
+    }
+
 }
