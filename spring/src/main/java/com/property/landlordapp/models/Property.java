@@ -7,6 +7,13 @@ import javax.persistence.*;
         @UniqueConstraint(columnNames = "PropertyID")
 })
 public class Property {
+    public Property(String propertyName, int propertyPrice, int landlordID, int tenantID, String address) {
+        this.propertyName = propertyName;
+        this.propertyPrice = propertyPrice;
+        this.landlordID = landlordID;
+        this.tenantID = tenantID;
+        this.address = address;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

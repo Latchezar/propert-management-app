@@ -34,12 +34,13 @@ public class ChatMessage {
     public ChatMessage() {
     }
 
-    public ChatMessage(Timestamp timestamp, int messageType, int propertyID, int senderID, String messageText) {
-        this.messageID = timestamp;
+    public ChatMessage(Timestamp messageID, int messageType, int propertyID, int senderID, String messageText, long milliseconds) {
+        this.messageID = messageID;
         this.messageType = messageType;
         this.propertyID = propertyID;
         this.senderID = senderID;
         this.messageText = messageText;
+        this.milliseconds = milliseconds;
     }
 
     @JsonIgnore
