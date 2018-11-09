@@ -130,4 +130,24 @@ public class UserControllerTests {
         Assert.assertTrue(isValid1);
         Assert.assertFalse(isValid2);
     }
+
+    @Test
+    public void newPropertyCreate_ShouldReturnTrueIfNotNull(){
+        Property property = propertyMap.get(1);
+        Mockito.when(mockService.createNewProperty(property))
+                .thenReturn(new ResponseEntity<>(true, HttpStatus.OK));
+        boolean isValid = (boolean) mockService.createNewProperty(property).getBody();
+        Assert.assertTrue(isValid);
+        Mockito.when(mockService.createNewProperty(null))
+                .thenReturn(new ResponseEntity<>(false, HttpStatus.BAD_REQUEST));
+        isValid = (boolean) mockService.createNewProperty(property).getBody();
+        Assert.assertFalse(isValid);
+    }
+
+    @Test
+    public void getPropertiesByLandlordID_ShouldReturnListIfNotNull(){
+        Mockito.when(mockService.getPropertiesByLandlordID(1))
+                .thenReturn(new ResponseEntity<> (landlordProperties.get(1), HttpStatus.OK));
+        List<Property> list = 
+    }
 }
