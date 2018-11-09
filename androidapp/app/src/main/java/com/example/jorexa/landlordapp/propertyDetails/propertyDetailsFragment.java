@@ -58,6 +58,8 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
         mPropertyPrice.setText(property.getPropertyPrice()+"");
     }
 
+    
+
     @Override
     public void showError(Exception e) {
         runOnUi(()-> Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show());
