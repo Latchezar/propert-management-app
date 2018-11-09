@@ -70,6 +70,7 @@ public class chatFragment extends Fragment implements chatContracts.View {
             //mTitle.setText(names.get(0));
             //mChatAdapter.clear();
             mChatAdapter.addAll(chat);
+            mChatListView.setSelection(mChatListView.getCount() - 1);
             //Test
         });
     }

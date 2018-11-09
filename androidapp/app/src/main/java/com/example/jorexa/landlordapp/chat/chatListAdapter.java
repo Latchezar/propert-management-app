@@ -47,6 +47,8 @@ public class chatListAdapter extends ArrayAdapter<ChatMessage> {
         dateTime = convertDate(dateTime,"hh:mm:ss");
         timeStamp.setText(dateTime);
 
+
+
         return view;
      }
 
