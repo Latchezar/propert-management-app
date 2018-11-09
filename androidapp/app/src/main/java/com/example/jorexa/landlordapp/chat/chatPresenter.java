@@ -11,6 +11,7 @@ import com.example.jorexa.landlordapp.userprofile.UserProfileContracts;
 
 import java.io.IOException;
 import java.security.Timestamp;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -43,6 +44,18 @@ public class chatPresenter implements chatContracts.Presenter {
 
     @Override
     public void sendMessage(String newMessage) {
+        ChatMessage newMessageObj = new ChatMessage();
+        newMessage += "s";
+        //"messageType":1,"propertyID":2,"senderID":1,"messageText":"Hello, I am Latcho","messageID":1541600377000
+        newMessageObj.setMessageText(newMessage);
+
+        long datetime = System.currentTimeMillis();
+        newMessageObj.setMessageID(datetime);
+        newMessageObj.setPropertyID(2);
+        newMessageObj.setMessageType(1);
+        newMessageObj.setSenderID(1);
+
+        int g = 5;
 
     }
 
