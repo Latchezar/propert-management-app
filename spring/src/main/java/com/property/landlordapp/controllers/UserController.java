@@ -7,8 +7,6 @@ import com.property.landlordapp.services.ServiceBase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Timestamp;
-
 @RestController
 @RequestMapping("/api")
 public class UserController {

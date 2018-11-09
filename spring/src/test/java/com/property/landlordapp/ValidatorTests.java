@@ -148,4 +148,53 @@ public class ValidatorTests {
         boolean isValid = Validator.isValidPassword(password);
         Assert.assertFalse(isValid);
     }
+
+    @Test
+    public void nullPropertyName_ShouldReturnFalse(){
+        String name = null;
+        boolean isValid = Validator.isValidPropertyName(name);
+        Assert.assertFalse(isValid);
+    }
+
+    @Test
+    public void goodPropertyName_ShouldReturnTrue(){
+        String name = "Apartment 123";
+        boolean isValid = Validator.isValidPropertyName(name);
+        Assert.assertTrue(isValid);
+    }
+
+    @Test
+    public void shorPropertyName_ShouldReturnFalse(){
+        String name = "sm";
+        boolean isValid = Validator.isValidPropertyName(name);
+        Assert.assertFalse(isValid);
+    }
+
+    @Test
+    public void longPropertyName_ShouldReturnFalse(){
+        String name = "verylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongnameverylongname";
+        boolean isValid = Validator.isValidPropertyName(name);
+        Assert.assertFalse(isValid);
+    }
+
+    @Test
+    public void validPropertyPrice_ShouldReturnTrue(){
+        int price = 1000;
+        boolean isValid = Validator.isValidPrice(price);
+        Assert.assertTrue(isValid);
+    }
+
+    @Test
+    public void invalidPropertyPrice_ShouldReturnFalse(){
+        int price = 0;
+        boolean isValid = Validator.isValidPrice(price);
+        Assert.assertFalse(isValid);
+    }
+
+    @Test
+    public void invalidPropertyPrice2_ShouldReturnFalse(){
+        int price = Integer.MIN_VALUE;
+        boolean isValid = Validator.isValidPrice(price);
+        Assert.assertFalse(isValid);
+    }
 }
