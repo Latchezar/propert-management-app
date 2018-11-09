@@ -25,12 +25,16 @@ public interface propertyDetailsContracts {
         void setTenantOrLandlord(LoginUser user);;
 
         Activity getActivity();
+
+        void startActivity(Intent intent);
     }
 
     interface Presenter {
         void subscribe(propertyDetailsContracts.View view);
 
         void loadProperty(LoginUser user, Property property);
+
+        void signInChat();
 
         void getProperty();
     }
