@@ -70,6 +70,11 @@ public class chatFragment extends Fragment implements chatContracts.View {
     }
 
     @Override
+    public void showCustomException(String text) {
+
+    }
+
+    @Override
     public void showMessages(List<ChatMessage> chat) {
         runOnUi(() -> {
             //mTitle.setText(names.get(0));
@@ -85,6 +90,11 @@ public class chatFragment extends Fragment implements chatContracts.View {
         super.onResume();
         mPresenter.subscribe(this);
         mPresenter.showMessages();
+    }
+
+    @Override
+    public void showError(Exception e) {
+
     }
 
     @OnClick(R.id.btn_send_messsage)

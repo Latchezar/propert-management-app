@@ -12,13 +12,13 @@ public interface chatContracts {
     interface View {
         void setPresenter(chatContracts.Presenter presenter);
 
-        //void showCustomException(String text);
+        void showCustomException(String text);
 
         void showMessages(List<ChatMessage> chat);
 
         void onResume();
 
-        //void showError(Exception e);
+        void showError(Exception e);
 
         //void
         //void showPropertyDetails(Property property);
