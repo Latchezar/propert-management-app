@@ -19,6 +19,8 @@ import java.util.Random;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import okhttp3.Response;
+
 public class chatPresenter implements chatContracts.Presenter {
 
     private HttpChatService mService;
@@ -43,20 +45,30 @@ public class chatPresenter implements chatContracts.Presenter {
     }
 
     @Override
-    public void sendMessage(String newMessage) {
+    public void sendMessage(String newMessage)  {
         ChatMessage newMessageObj = new ChatMessage();
-        newMessage += "s";
-        //"messageType":1,"propertyID":2,"senderID":1,"messageText":"Hello, I am Latcho","messageID":1541600377000
-        newMessageObj.setMessageText(newMessage);
 
-        long datetime = System.currentTimeMillis();
-        newMessageObj.setMessageID(datetime);
-        newMessageObj.setPropertyID(2);
-        newMessageObj.setMessageType(1);
-        newMessageObj.setSenderID(1);
+        mAsyncRunner.runInBackground(() -> {
+                //newMessage += "s";
+                //"messageType":1,"propertyID":2,"senderID":1,"messageText":"Hello, I am Latcho","messageID":1541600377000
+                newMessageObj.setMessageText(newMessage);
+
+                long datetime = System.currentTimeMillis();
+                newMessageObj.setMessageID(datetime);
+                newMessageObj.setPropertyID(2);
+                newMessageObj.setMessageType(1);
+                newMessageObj.setSenderID(1);
+
+            //try {
+            //    Object response = mService.sendNewMessage(newMessageObj);
+            //} catch (IOException e) {
+            //    e.printStackTrace();
+            //}
+            int f = 63;
+
+        });
 
         int g = 5;
-
     }
 
     @Override

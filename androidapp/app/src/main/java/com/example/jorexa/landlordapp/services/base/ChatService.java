@@ -10,5 +10,7 @@ public interface ChatService {
 
     List<ChatMessage> getAllMessages() throws IOException;
 
+    Object sendNewMessage(Object newMessage) throws IOException;
+
     List<ChatMessage> getNewMessages() throws IOException;
 }

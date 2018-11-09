@@ -5,6 +5,7 @@ import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsContracts;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface chatContracts {

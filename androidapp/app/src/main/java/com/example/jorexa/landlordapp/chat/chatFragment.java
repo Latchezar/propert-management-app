@@ -17,6 +17,7 @@ import com.example.jorexa.landlordapp.models.ChatMessage;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsContracts;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -91,6 +92,7 @@ public class chatFragment extends Fragment implements chatContracts.View {
         //mPresenter.showMessages();
         String newMessage = mNewMessage.getText().toString();
         mPresenter.sendMessage(newMessage);
+
         //textTest.setText("123456");
         //mPresenter.showMessages();
 

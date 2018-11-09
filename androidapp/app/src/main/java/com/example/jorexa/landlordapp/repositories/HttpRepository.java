@@ -88,6 +88,16 @@ public class HttpRepository<T> implements Repository<T> {
     }
 
     @Override
+    public Object sendNewMessage(T newMessage) throws IOException {
+        String requestBody = mJsonParser.toJson(newMessage);
+        String url = mServerUrl;
+        url += "chat/";
+        Response response = mHttpRequester.post(url, requestBody);
+        int code = response.code();
+        return response;
+    }
+
+    @Override
     public Object create(T mUser) throws IOException {
         String requestBody = mJsonParser.toJson(mUser);
         String url = mServerUrl;

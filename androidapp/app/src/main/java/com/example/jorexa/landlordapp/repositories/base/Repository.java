@@ -16,5 +16,7 @@ public interface Repository<T> {
 
     Object create(T mUser) throws IOException;
 
+    Object sendNewMessage(T newMessage) throws IOException;
+
     T getById(int id) throws IOException;
 }
