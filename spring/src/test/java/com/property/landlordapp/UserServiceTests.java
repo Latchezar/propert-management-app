@@ -1,11 +1,10 @@
 package com.property.landlordapp;
 
-import com.property.landlordapp.constants.ResponseText;
-import com.property.landlordapp.controllers.UserController;
 import com.property.landlordapp.models.ChatMessage;
 import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
-import com.property.landlordapp.services.ServiceBase;
+import com.property.landlordapp.repositories.RepositoryBase;
+import com.property.landlordapp.services.UserService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,13 +19,12 @@ import java.sql.Timestamp;
 import java.util.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class UserControllerTests {
-
+public class UserServiceTests {
     @Mock
-    ServiceBase mockService;
+    RepositoryBase mockRepository;
 
     @InjectMocks
-    UserController controller;
+    UserService service;
 
     Map<String, User> userMapEmail = new HashMap<>();
     Map<Integer, User> userMapId = new HashMap<>();
@@ -36,17 +34,14 @@ public class UserControllerTests {
     Map<Integer, List<ChatMessage>> chatMessagesByPropertyID = new HashMap<>();
 
     {
-        //fake users
         User u1 = new User("fname1", "lname1", "pass1", 1, "fname1@gmail.com");
         User u2 = new User("fname2", "lname2", "pass2", 2, "fname2@gmail.com");
         User u3 = new User("fname3", "lname3", "pass3", 1, "fname3@gmail.com");
         User u4 = new User("fname4", "lname4", "pass4", 2, "fname4@gmail.com");
 
-        //fake properties
         Property p1 = new Property(1, "property1", 100, 1, 2,"add1");
         Property p2 = new Property(2, "property2", 100, 3, 4,"add2");
 
-        //fake chat
         ChatMessage m1 = new ChatMessage(new Timestamp(new Date().getTime()), 1, 1, 1, "m1 text", 123123);
         ChatMessage m2 = new ChatMessage(new Timestamp(new Date().getTime()), 1, 1, 2, "m2 text", 123124);
         ChatMessage m3 = new ChatMessage(new Timestamp(new Date().getTime()), 1, 2, 3, "m3 text", 123125);
@@ -91,10 +86,10 @@ public class UserControllerTests {
     @Test
     public void loginAttempt_ShouldReturnResponseEntityWithBodyTrue(){
         User user = userMapId.get(1);
-        Mockito.when(mockService.loginAttempt(user)).
-                thenReturn(new ResponseEntity<> (true, HttpStatus.OK));
+        Mockito.when(mockRepository.loginAttempt(user)).
+                thenReturn(new ResponseEntity<>(true, HttpStatus.OK));
 
-        ResponseEntity response = controller.loginAttempt(user);
+        ResponseEntity response = service.loginAttempt(user);
         boolean isValid = (boolean) response.getBody();
 
         Assert.assertTrue(isValid);
@@ -103,10 +98,10 @@ public class UserControllerTests {
     @Test
     public void loginAttempt_ShouldReturnResponseEntityWithBodyFalse(){
         User user = userMapId.get(1);
-        Mockito.when(mockService.loginAttempt(user)).
+        Mockito.when(mockRepository.loginAttempt(user)).
                 thenReturn(new ResponseEntity<> (false, HttpStatus.OK));
 
-        ResponseEntity response = controller.loginAttempt(user);
+        ResponseEntity response = service.loginAttempt(user);
         boolean isValid = (boolean) response.getBody();
 
         Assert.assertFalse(isValid);
@@ -115,15 +110,15 @@ public class UserControllerTests {
     @Test
     public void newUserRegistration_ShouldReturnResponseEntityWithBodyTrue(){
         User user = userMapId.get(2);
-        Mockito.when(mockService.registerNewUser(user))
+        Mockito.when(mockRepository.registerNewUser(user))
                 .thenReturn(new ResponseEntity<> (true, HttpStatus.OK));
 
 
-        ResponseEntity response1 = controller.registerNewUser(user);
+        ResponseEntity response1 = service.registerNewUser(user);
 
-        Mockito.when(mockService.registerNewUser(null))
+        Mockito.when(mockRepository.registerNewUser(null))
                 .thenReturn(new ResponseEntity<> (false, HttpStatus.BAD_REQUEST));
-        ResponseEntity response2 = controller.registerNewUser(null);
+        ResponseEntity response2 = service.registerNewUser(null);
         boolean isValid1 = (boolean) response1.getBody();
         boolean isValid2 = (boolean) response2.getBody();
 
@@ -134,79 +129,78 @@ public class UserControllerTests {
     @Test
     public void newPropertyCreate_ShouldReturnTrueIfNotNull(){
         Property property = propertyMap.get(1);
-        Mockito.when(mockService.createNewProperty(property))
+        Mockito.when(mockRepository.createNewProperty(property))
                 .thenReturn(new ResponseEntity<>(true, HttpStatus.OK));
-        boolean isValid = (boolean) controller.createNewProperty(property).getBody();
+        boolean isValid = (boolean) service.createNewProperty(property).getBody();
         Assert.assertTrue(isValid);
-        Mockito.when(mockService.createNewProperty(null))
+        Mockito.when(mockRepository.createNewProperty(null))
                 .thenReturn(new ResponseEntity<>(false, HttpStatus.BAD_REQUEST));
-        isValid = (boolean) controller.createNewProperty(null).getBody();
+        isValid = (boolean) service.createNewProperty(null).getBody();
         Assert.assertFalse(isValid);
     }
 
     @Test
     public void getPropertiesByLandlordID_ShouldReturnListIfNotNull(){
-        Mockito.when(mockService.getPropertiesByLandlordID(1))
+        Mockito.when(mockRepository.getPropertiesByLandlordID(1))
                 .thenReturn(new ResponseEntity<> (landlordProperties.get(1), HttpStatus.OK));
-        List<Property> list = (List<Property>) controller.getPropertiesByLandlordID(1).getBody();
+        List<Property> list = (List<Property>) service.getPropertiesByLandlordID(1).getBody();
         Assert.assertEquals(list, landlordProperties.get(1));
     }
 
     @Test
     public void getPropertiesByTenantID_ShouldReturnList(){
-        Mockito.when(mockService.getPropertiesByTenantID(2))
+        Mockito.when(mockRepository.getPropertiesByTenantID(2))
                 .thenReturn(new ResponseEntity<> (tenantsProperties.get(2), HttpStatus.OK));
-        List<Property> list = (List<Property>) controller.getPropertiesByTenantID(2).getBody();
+        List<Property> list = (List<Property>) service.getPropertiesByTenantID(2).getBody();
         Assert.assertEquals(list, tenantsProperties.get(2));
     }
 
     @Test
     public void getUserById_ShouldReturnUserIfExists(){
-        Mockito.when(mockService.getUserByID(3))
+        Mockito.when(mockRepository.getUserByID(3))
                 .thenReturn(new ResponseEntity<>(userMapId.get(3), HttpStatus.OK));
-        User user = (User) controller.getUserByID(3).getBody();
+        User user = (User) service.getUserByID(3).getBody();
         Assert.assertEquals(user, userMapId.get(3));
-        Mockito.when(mockService.getUserByID(7))
+        Mockito.when(mockRepository.getUserByID(7))
                 .thenReturn(new ResponseEntity<> (null, HttpStatus.NOT_FOUND));
-        user = (User) controller.getUserByID(7).getBody();
+        user = (User) service.getUserByID(7).getBody();
         Assert.assertEquals(null, user);
     }
 
     @Test
     public void getChatMessagesByPropertyID_ShouldReturnListIfPropertyExists(){
-        Mockito.when(mockService.getChatMessagesByPropertyID(1))
+        Mockito.when(mockRepository.getChatMessagesByPropertyID(1))
                 .thenReturn(new ResponseEntity<> (chatMessagesByPropertyID.get(1), HttpStatus.OK));
-        List list = (List) controller.getChatMessagesByPropertyID(1).getBody();
+        List list = (List) service.getChatMessagesByPropertyID(1).getBody();
         Assert.assertEquals(chatMessagesByPropertyID.get(1), list);
-        Mockito.when(mockService.getChatMessagesByPropertyID(10))
+        Mockito.when(mockRepository.getChatMessagesByPropertyID(10))
                 .thenReturn(new ResponseEntity<> (null, HttpStatus.NOT_FOUND));
-        list = (List) controller.getChatMessagesByPropertyID(10).getBody();
+        list = (List) service.getChatMessagesByPropertyID(10).getBody();
         Assert.assertNull(list);
     }
 
     @Test
     public void sendMessage_ShouldReturnSuccessIfNotNull() {
         List<ChatMessage> messages = chatMessagesByPropertyID.get(1);
-        Mockito.when(mockService.sendMessage(messages.get(1)))
+        Mockito.when(mockRepository.sendMessage(messages.get(1)))
                 .thenReturn(new ResponseEntity<> ("Success", HttpStatus.OK));
-        String response = controller.sendMessage(messages.get(1)).getBody().toString();
+        String response = service.sendMessage(messages.get(1)).getBody().toString();
         Assert.assertEquals("Success", response);
-        Mockito.when(mockService.sendMessage(null))
+        Mockito.when(mockRepository.sendMessage(null))
                 .thenReturn(new ResponseEntity<> ("Fail", HttpStatus.BAD_REQUEST));
-        response = controller.sendMessage(null).getBody().toString();
+        response = service.sendMessage(null).getBody().toString();
         Assert.assertEquals("Fail", response);
     }
 
     @Test
     public void getNewMessages_ShouldReturnMessages(){
-        Mockito.when(mockService.getNewMessages(1, 400))
+        Mockito.when(mockRepository.getNewMessages(1, 400))
                 .thenReturn(new ResponseEntity<> (chatMessagesByPropertyID.get(1), HttpStatus.OK));
-        List list = (List) controller.getNewMessages(1, 400).getBody();
+        List list = (List) service.getNewMessages(1, 400).getBody();
         Assert.assertEquals(chatMessagesByPropertyID.get(1), list);
-        Mockito.when(mockService.getNewMessages(8, 500))
+        Mockito.when(mockRepository.getNewMessages(8, 500))
                 .thenReturn(new ResponseEntity<> (chatMessagesByPropertyID.get(8), HttpStatus.OK));
-        list = (List) controller.getNewMessages(8, 500).getBody();
+        list = (List) service.getNewMessages(8, 500).getBody();
         Assert.assertNull(list);
     }
-
 }
