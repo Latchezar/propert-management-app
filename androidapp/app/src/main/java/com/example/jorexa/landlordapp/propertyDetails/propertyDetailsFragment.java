@@ -19,6 +19,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,10 +59,17 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
         mPropertyPrice.setText(property.getPropertyPrice()+"");
     }
 
+
+
     @Override
     public void showError(Exception e) {
         runOnUi(()-> Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show());
         throw new RuntimeException(e);
+    }
+
+    @OnClick(R.id.btn_tenant_or_landlord_chat)
+    public void signInChat() {
+        mPresenter.signInChat();
     }
 
     @Override

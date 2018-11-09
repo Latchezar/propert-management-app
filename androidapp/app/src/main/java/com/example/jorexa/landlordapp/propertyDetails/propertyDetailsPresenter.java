@@ -1,6 +1,9 @@
 package com.example.jorexa.landlordapp.propertyDetails;
 
+import android.content.Intent;
+
 import com.example.jorexa.landlordapp.async.AsyncRunner;
+import com.example.jorexa.landlordapp.chat.chatActivity;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.services.base.LoginService;
@@ -50,6 +53,12 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
             }
         });
 
+    }
+
+    @Override
+    public void signInChat() {
+        Intent intent = new Intent(mView.getActivity(), chatActivity.class);
+        mView.startActivity(intent);
     }
 
     @Override

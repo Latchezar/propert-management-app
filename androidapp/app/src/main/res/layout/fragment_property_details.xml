@@ -41,6 +41,15 @@
             android:textSize="20dp"
             android:text="..." />
 
+        <Button
+            android:id="@+id/btn_tenant_or_landlord_chat"
+            android:layout_width="match_parent"
+            android:text="Chat room"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_tenant_or_landlord"
+
+            />
+
     </RelativeLayout>
 
 </FrameLayout>
