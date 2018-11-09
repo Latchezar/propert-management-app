@@ -10,7 +10,7 @@ public interface Repository<T> {
 
     List<T> getAllMessages() throws IOException;
 
-    List<T> getNewMessages() throws IOException;
+    List<T> getNewMessages(long lastTimeStamp) throws IOException;
 
     T login(T item) throws IOException;
 

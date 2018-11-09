@@ -30,6 +30,7 @@ public class chatPresenter implements chatContracts.Presenter {
     private final AsyncRunner mAsyncRunner2;
     private chatContracts.View mView;
     private int mStop = 0;
+    private long mlastTimeStamp;
 
     @Inject
     public chatPresenter(@Named("chatMessage")HttpChatService service, AsyncRunner asyncRunner, AsyncRunner asyncRunner2) {
@@ -84,9 +85,10 @@ public class chatPresenter implements chatContracts.Presenter {
     }
 
     @Override
-    public void showMessages(int stopValue) {
+    public void showMessages(long lastTimeStamp) {
         ChatMessage chat = new ChatMessage();
         //chat.setMessageID();
+        mlastTimeStamp = lastTimeStamp;
 
         mAsyncRunner.runInBackground(() -> {
             for(;;) {
@@ -94,7 +96,7 @@ public class chatPresenter implements chatContracts.Presenter {
                     break;
                 }
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -102,9 +104,15 @@ public class chatPresenter implements chatContracts.Presenter {
                     //List<ChatMessage> messages;
                     List<ChatMessage> newMessages;
                     //messages = mService.getAllMessages();
-                    newMessages = mService.getNewMessages();
-                    newMessages.get(0).setMessageText(new Random() + "");
-                    mView.showMessages(newMessages);
+                    newMessages = mService.getNewMessages(mlastTimeStamp);
+
+                    if(newMessages != null) {
+                        mView.showMessages(newMessages);
+                        int count = newMessages.size();
+                        mlastTimeStamp = newMessages.get(count - 1).getMilliseconds();
+                        //1541757886000
+                    }
+
                     int a = 5;
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -121,32 +129,4 @@ public class chatPresenter implements chatContracts.Presenter {
         //mView.showMessages(chat);
     }
 
-    @Override
-    public void testFunc() {
-        ChatMessage newMessageObj = new ChatMessage();
-
-        mAsyncRunner2.runInBackground(() -> {
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    //List<ChatMessage> messages;
-                    List<ChatMessage> newMessages;
-                    //messages = mService.getAllMessages();
-                    newMessages = mService.getNewMessages();
-                    newMessages.get(0).setMessageText(new Random() + "");
-                    mView.showMessages(newMessages);
-                    int a = 5;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    //mView.showError(e);
-                    int t = 3;
-                }
-
-        });
-
-        int g = 5;
-    }
 }

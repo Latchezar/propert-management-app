@@ -71,13 +71,17 @@ public class HttpRepository<T> implements Repository<T> {
     }
 
     @Override
-    public List<T> getNewMessages() throws IOException {
+    public List<T> getNewMessages(long lastTimeStamp) throws IOException {
         String jsonArray = null;
         String url = mServerUrl;
-        url += "/newchat/2/1541601918000";
+        url += "/newchat/2/"+lastTimeStamp;
         //url += 2;
         jsonArray = mHttpRequester.get(url);
-        return mJsonParser.fromJsonArray(jsonArray);
+        if (jsonArray.equals("No new messages found")) {
+            return null;
+        } else {
+            return mJsonParser.fromJsonArray(jsonArray);
+        }
     }
 
     @Override

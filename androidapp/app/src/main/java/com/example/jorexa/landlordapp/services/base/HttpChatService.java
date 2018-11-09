@@ -23,8 +23,8 @@ public class HttpChatService implements ChatService {
     }
 
     @Override
-    public List<ChatMessage> getNewMessages() throws IOException {
-        return mChatMessageRepository.getNewMessages();
+    public List<ChatMessage> getNewMessages(long lastTimeStamp) throws IOException {
+        return mChatMessageRepository.getNewMessages(lastTimeStamp);
     }
 
     @Override

@@ -37,8 +37,7 @@ public interface chatContracts {
 
         void sendMessage(String newMessage);
 
-        void showMessages(int value);
+        void showMessages(long lastTimeStamp);
 
-        void testFunc();
     }
 }
