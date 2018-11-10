@@ -31,6 +31,8 @@ public class chatPresenter implements chatContracts.Presenter {
     private chatContracts.View mView;
     private int mStop = 0;
     private long mlastTimeStamp;
+    private int mPropertyID;
+    private int mSenderID;
 
     @Inject
     public chatPresenter(@Named("chatMessage")HttpChatService service, AsyncRunner asyncRunner, AsyncRunner asyncRunner2) {
@@ -51,8 +53,11 @@ public class chatPresenter implements chatContracts.Presenter {
     }
 
     @Override
-    public void loadChat(int propertyID) {
-
+    public void loadChat(Property property, LoginUser mainUser, LoginUser otherUser) {
+        mPropertyID = property.getPropertyID();
+        mSenderID = mainUser.getId();
+        showMessages(0);
+        int g = 5;
     }
 
     @Override
@@ -70,9 +75,9 @@ public class chatPresenter implements chatContracts.Presenter {
                 long datetime = System.currentTimeMillis();
                 newMessageObj.setMessageID(null);
                 newMessageObj.setMilliseconds(datetime);
-                newMessageObj.setPropertyID(2);
+                newMessageObj.setPropertyID(mPropertyID);
                 newMessageObj.setMessageType(1);
-                newMessageObj.setSenderID(1);
+                newMessageObj.setSenderID(mSenderID);
 
             try {
                 Object response = mService.sendNewMessage(newMessageObj);
@@ -110,7 +115,7 @@ public class chatPresenter implements chatContracts.Presenter {
                     //List<ChatMessage> messages;
                     List<ChatMessage> newMessages;
                     //messages = mService.getAllMessages();
-                    newMessages = mService.getNewMessages(mlastTimeStamp);
+                    newMessages = mService.getNewMessages(mPropertyID, mlastTimeStamp);
 
                     if(newMessages != null) {
                         mView.showMessages(newMessages);

@@ -14,7 +14,7 @@ public interface propertyDetailsContracts {
     interface View {
         void setPresenter(propertyDetailsContracts.Presenter presenter);
 
-        void openChatActivity(LoginUser user);
+        void openChatActivity(LoginUser mainUser, LoginUser otherUser, Property property);
 
         void showCustomException(String text);
 
@@ -42,7 +42,7 @@ public interface propertyDetailsContracts {
     }
 
     interface Navigator {
-        void navigateWith(LoginUser user);
+        void navigateWith(LoginUser mainUser, LoginUser otherUser, Property property);
     }
 
 }

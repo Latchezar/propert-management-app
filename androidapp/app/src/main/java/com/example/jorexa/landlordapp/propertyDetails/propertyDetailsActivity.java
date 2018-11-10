@@ -54,13 +54,15 @@ public class propertyDetailsActivity extends DaggerAppCompatActivity implements 
     }
 
     @Override
-    public void navigateWith(LoginUser user) {
+    public void navigateWith(LoginUser mainUser, LoginUser otherUser, Property property) {
         Intent intent = new Intent(
                 this,
                 chatActivity.class
         );
 
-        intent.putExtra(chatActivity.EXTRA_KEY_MAINUSER, user);
+        intent.putExtra(chatActivity.EXTRA_KEY_MAINUSER, mainUser);
+        intent.putExtra(chatActivity.EXTRA_KEY_OTHERUSER, otherUser);
+        intent.putExtra(chatActivity.EXTRA_KEY_PROPERTY, property);
 
         startActivity(intent);
     }

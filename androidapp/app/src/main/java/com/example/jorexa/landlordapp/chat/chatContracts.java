@@ -34,7 +34,7 @@ public interface chatContracts {
     interface Presenter {
         void subscribe(chatContracts.View view);
 
-        void loadChat(int propertyID);
+        void loadChat(Property property, LoginUser mainUser, LoginUser otherUser);
 
         void sendMessage(String newMessage);
 

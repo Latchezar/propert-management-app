@@ -23,6 +23,7 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
 
     private propertyDetailsContracts.View mView;
     private LoginUser mUser;
+    private LoginUser mMainUser;
 
     @Inject
     public propertyDetailsPresenter(@Named("login")LoginService service, AsyncRunner asyncRunner) {
@@ -39,10 +40,11 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
     public void loadProperty(LoginUser userlogin, Property property)
     {
         mPropertyDetails = property;
+        mMainUser = userlogin;
 
         mAsyncRunner.runInBackground(() -> {
             try {
-                LoginUser user = new LoginUser();
+                LoginUser user;
                 if (userlogin.getUserType() == 1) {
                     user = mService.getUser(property.getTenantID());
                 } else {
@@ -51,6 +53,10 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
 
                 mUser = user;
                 int t = 45;
+
+                while (mView == null){
+                }
+
                 mView.setTenantOrLandlord(user);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -62,7 +68,7 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
 
     @Override
     public void signInChat() {
-        mView.openChatActivity(mUser);
+        mView.openChatActivity(mMainUser, mUser, mPropertyDetails);
     }
 
     @Override

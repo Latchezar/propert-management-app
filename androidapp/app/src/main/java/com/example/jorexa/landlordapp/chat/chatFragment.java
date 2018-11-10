@@ -90,7 +90,8 @@ public class chatFragment extends Fragment implements chatContracts.View {
     public void onResume(){
         super.onResume();
         mPresenter.subscribe(this);
-        mPresenter.showMessages(0);
+        //mPresenter.loadChat();
+        //mPresenter.showMessages(0);
         //mPresenter.testFunc();
     }
 
