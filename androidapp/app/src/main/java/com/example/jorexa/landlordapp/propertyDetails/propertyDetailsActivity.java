@@ -60,7 +60,7 @@ public class propertyDetailsActivity extends DaggerAppCompatActivity implements 
                 chatActivity.class
         );
 
-        intent.putExtra(chatActivity.EXTRA_UUSER, user);
+        intent.putExtra(chatActivity.EXTRA_KEY_MAINUSER, user);
 
         startActivity(intent);
     }
