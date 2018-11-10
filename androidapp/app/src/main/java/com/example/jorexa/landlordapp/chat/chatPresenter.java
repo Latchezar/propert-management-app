@@ -45,6 +45,12 @@ public class chatPresenter implements chatContracts.Presenter {
     }
 
     @Override
+    public void stopChat() {
+        mStop = 1;
+
+    }
+
+    @Override
     public void loadChat(int propertyID) {
 
     }

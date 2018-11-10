@@ -22,6 +22,7 @@ public interface chatContracts {
 
         void showError(Exception e);
 
+        void stopChat();
         //void
         //void showPropertyDetails(Property property);
 
@@ -39,5 +40,6 @@ public interface chatContracts {
 
         void showMessages(long lastTimeStamp);
 
+        void stopChat();
     }
 }

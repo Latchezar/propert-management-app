@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.models.ChatMessage;
@@ -91,6 +92,12 @@ public class chatFragment extends Fragment implements chatContracts.View {
         mPresenter.subscribe(this);
         mPresenter.showMessages(0);
         //mPresenter.testFunc();
+    }
+
+    @Override
+    public void stopChat() {
+        int g = 5;
+        mPresenter.stopChat();
     }
 
     @Override

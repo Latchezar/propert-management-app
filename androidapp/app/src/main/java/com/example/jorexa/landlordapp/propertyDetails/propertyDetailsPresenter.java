@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.chat.chatActivity;
+import com.example.jorexa.landlordapp.createProperty.CreatePropertyActivity;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.services.base.LoginService;
@@ -46,6 +47,8 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
                 } else {
                     user = mService.getUser(property.getLandlordID());
                 }
+
+                int t = 45;
                 mView.setTenantOrLandlord(user);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -58,6 +61,11 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
     @Override
     public void signInChat() {
         Intent intent = new Intent(mView.getActivity(), chatActivity.class);
+
+        LoginUser uuser = new LoginUser();
+        uuser.setFirstName("Ivan");
+
+        //intent.putExtra(chatActivity.EXTRA_UUSER, uuser);
         mView.startActivity(intent);
     }
 
