@@ -52,13 +52,16 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
 
     @Override
     public void presentPropertiesToView(List<Property> properties) {
+        String message;
+        if (mUserProfile.getUserType() == 1){
+            message = "You don't have any properties yet.";
+        } else {
+            message = "You don;t rent any properties";
+        }
+        while (mView == null){
+        }
+
         if (properties == null || properties.isEmpty()) {
-            String message;
-            if (mUserProfile.getUserType() == 1){
-                message = "You don't have any properties yet.";
-            } else {
-                message = "You don;t rent any properties";
-            }
             mView.showEmptyPropertiesList(message);
         } else {
             mView.showProperties(properties);

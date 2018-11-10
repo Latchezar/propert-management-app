@@ -53,26 +53,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LandlordFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LandlordFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/LandlordFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1538">
-              <caret line="143" column="5" lean-forward="false" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+            <state relative-caret-position="710">
+              <caret line="106" column="58" lean-forward="false" selection-start-line="106" selection-start-column="58" selection-end-line="106" selection-end-column="58" />
               <folding>
-                <element signature="e#4011#4012#0" expanded="true" />
-                <element signature="e#4052#4053#0" expanded="true" />
+                <element signature="method#LandlordFragment#0;class#LandlordFragment#0" expanded="false" />
+                <element signature="method#onResume#0;class#LandlordFragment#0" expanded="false" />
+                <element signature="method#onItemClick#0;class#LandlordFragment#0" expanded="false" />
+                <element signature="method#onCreateView#0;class#LandlordFragment#0" expanded="false" />
+                <element signature="method#showCustomException#0;class#LandlordFragment#0" expanded="false" />
+                <element signature="method#showProperties#0;class#LandlordFragment#0" expanded="false" />
+                <element signature="e#3142#3250#0" expanded="false" />
+                <element signature="method#showError#0;class#LandlordFragment#0" expanded="false" />
+                <element signature="method#showPropertyDetails#0;class#LandlordFragment#0" expanded="false" />
+                <element signature="method#showEmptyPropertiesList#0;class#LandlordFragment#0" expanded="false" />
+                <element signature="method#determineFloatButton#0;class#LandlordFragment#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserProfilePresenter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserProfilePresenter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/UserProfilePresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="212">
+              <caret line="36" column="52" lean-forward="false" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#UserProfilePresenter#0;class#UserProfilePresenter#0" expanded="false" />
+                <element signature="method#setUserProfile#0;class#UserProfilePresenter#0" expanded="false" />
+                <element signature="e#1195#1555#0" expanded="false" />
+                <element signature="method#presentPropertiesToView#0;class#UserProfilePresenter#0" expanded="false" />
+                <element signature="method#fabClick#0;class#UserProfilePresenter#0" expanded="false" />
+                <element signature="method#loadUser#0;class#UserProfilePresenter#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -81,19 +96,13 @@
       <file leaf-file-name="CreatePropertyPresenter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/createProperty/CreatePropertyPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="51" column="47" lean-forward="false" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserProfileActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/UserProfileActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-136">
-              <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="382">
+              <caret line="32" column="81" lean-forward="false" selection-start-line="32" selection-start-column="81" selection-end-line="32" selection-end-column="81" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#CreatePropertyPresenter#0;class#CreatePropertyPresenter#0" expanded="false" />
+                <element signature="method#onSubmit#0;class#CreatePropertyPresenter#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2168,9 +2177,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/fab_plus_sign.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_landlord.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/TenantFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/createProperty/CreatePropertyPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/UserProfileContracts.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/LandlordFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/createProperty/CreatePropertyPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/UserProfilePresenter.java" />
       </list>
     </option>
@@ -2240,26 +2249,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="landlordapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="androidapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="androidapp" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="landlordapp" type="462c0819:PsiDirectoryNode" />
-              <item name="createProperty" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="androidapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="androidapp" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="landlordapp" type="462c0819:PsiDirectoryNode" />
-              <item name="userprofile" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="androidapp" type="b2602c69:ProjectViewProjectNode" />
@@ -2467,6 +2456,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2479,7 +2469,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2488,7 +2478,7 @@
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -2505,15 +2495,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/UserProfilePresenter.java</url>
-          <line>54</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2611,6 +2593,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/UserProfileContracts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="32" column="50" lean-forward="false" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/UserProfileActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-136">
@@ -2621,37 +2611,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/createProperty/CreatePropertyPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="51" column="47" lean-forward="false" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/UserProfileContracts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="32" column="50" lean-forward="false" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/LandlordFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1538">
-          <caret line="143" column="5" lean-forward="false" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+        <state relative-caret-position="382">
+          <caret line="32" column="81" lean-forward="false" selection-start-line="32" selection-start-column="81" selection-end-line="32" selection-end-column="81" />
           <folding>
-            <element signature="e#4011#4012#0" expanded="true" />
-            <element signature="e#4052#4053#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#CreatePropertyPresenter#0;class#CreatePropertyPresenter#0" expanded="false" />
+            <element signature="method#onSubmit#0;class#CreatePropertyPresenter#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/UserProfilePresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="212">
+          <caret line="36" column="52" lean-forward="false" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#UserProfilePresenter#0;class#UserProfilePresenter#0" expanded="false" />
+            <element signature="method#setUserProfile#0;class#UserProfilePresenter#0" expanded="false" />
+            <element signature="e#1195#1555#0" expanded="false" />
+            <element signature="method#presentPropertiesToView#0;class#UserProfilePresenter#0" expanded="false" />
+            <element signature="method#fabClick#0;class#UserProfilePresenter#0" expanded="false" />
+            <element signature="method#loadUser#0;class#UserProfilePresenter#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/LandlordFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="710">
+          <caret line="106" column="58" lean-forward="false" selection-start-line="106" selection-start-column="58" selection-end-line="106" selection-end-column="58" />
+          <folding>
+            <element signature="method#LandlordFragment#0;class#LandlordFragment#0" expanded="false" />
+            <element signature="method#onResume#0;class#LandlordFragment#0" expanded="false" />
+            <element signature="method#onItemClick#0;class#LandlordFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#LandlordFragment#0" expanded="false" />
+            <element signature="method#showCustomException#0;class#LandlordFragment#0" expanded="false" />
+            <element signature="method#showProperties#0;class#LandlordFragment#0" expanded="false" />
+            <element signature="e#3142#3250#0" expanded="false" />
+            <element signature="method#showError#0;class#LandlordFragment#0" expanded="false" />
+            <element signature="method#showPropertyDetails#0;class#LandlordFragment#0" expanded="false" />
+            <element signature="method#showEmptyPropertiesList#0;class#LandlordFragment#0" expanded="false" />
+            <element signature="method#determineFloatButton#0;class#LandlordFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>
