@@ -16,6 +16,14 @@ public class User {
     @Column(name = "UserID")
     private int id;
 
+    public User(String firstName, String lastName, String password, int userType, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.userType = userType;
+        this.email = email;
+    }
+
     @Column(name = "FirstName")
     private String firstName;
 
