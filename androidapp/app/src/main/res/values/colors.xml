@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="loginBackground">#9e9eaf</color>
+    <color name="colorPrimary">#40cabf</color>
+    <color name="colorPrimaryDark">#FEDCD2</color>
+    <color name="colorAccent">#DCB239</color>
+    <color name="loginBackground">#8FD8D2</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="button">#4d4d4d</color>
-    <color name="profileBackground">#FFC6CFFF</color>
+    <color name="button">#DCB239</color>
+    <color name="profileBackground">#8FD8D2</color>
 </resources>

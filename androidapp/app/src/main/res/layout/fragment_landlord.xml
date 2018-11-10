@@ -37,7 +37,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_user_title"
-            android:background="@drawable/rounded_listview"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:headerDividersEnabled="false"
+            android:footerDividersEnabled="false"
+            android:dividerHeight="8dp"
+            android:divider="@color/profileBackground"
+            android:cacheColorHint="@color/profileBackground"
             />
 
     </RelativeLayout>
