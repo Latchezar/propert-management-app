@@ -13,7 +13,10 @@ import android.widget.Toast;
 
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.chat.chatActivity;
+import com.example.jorexa.landlordapp.models.LoginUser;
+import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsActivity;
+import com.example.jorexa.landlordapp.userprofile.UserProfileContracts;
 
 import javax.inject.Inject;
 
@@ -32,6 +35,7 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
 
 
     private LoginContracts.Presenter mPresenter;
+    private LoginContracts.Navigator mNavigator;
 
     @Inject
     public LoginFragment() {
@@ -100,6 +104,15 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
                 Toast.makeText(getContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG)
                         .show()
         );
+    }
+
+    @Override
+    public void openUserProfileActivity(LoginUser loggedUser) {
+        runOnUi(() -> mNavigator.navigateWith(loggedUser));
+    }
+
+    void setNavigator(LoginContracts.Navigator navigator) {
+        mNavigator = navigator;
     }
 
     private void runOnUi(Runnable action) {

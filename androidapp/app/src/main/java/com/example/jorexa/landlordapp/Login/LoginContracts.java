@@ -3,6 +3,9 @@ package com.example.jorexa.landlordapp.Login;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.example.jorexa.landlordapp.models.LoginUser;
+import com.example.jorexa.landlordapp.models.Property;
+
 public interface LoginContracts {
     interface View {
         void setPresenter(Presenter presenter);
@@ -11,7 +14,9 @@ public interface LoginContracts {
 
         void showError(Exception e);
 
-        Activity getActivity();
+        void openUserProfileActivity(LoginUser loggedUser);
+
+         Activity getActivity();
 
         void startActivity(Intent intent);
     }
@@ -27,4 +32,9 @@ public interface LoginContracts {
 
         void loadLogin();
     }
+
+    interface Navigator {
+        void navigateWith(LoginUser loggedUser);
+    }
+
 }

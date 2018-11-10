@@ -42,7 +42,7 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
 
         mAsyncRunner.runInBackground(() -> {
             try {
-                LoginUser user;
+                LoginUser user = new LoginUser();
                 if (userlogin.getUserType() == 1) {
                     user = mService.getUser(property.getTenantID());
                 } else {
