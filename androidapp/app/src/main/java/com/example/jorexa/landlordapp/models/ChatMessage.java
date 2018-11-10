@@ -11,17 +11,20 @@ public class ChatMessage implements Serializable {
     public String messageText;
     long milliseconds;
 
+    public String senderName;
+
     public ChatMessage() {
 
     }
 
-    public ChatMessage(Timestamp messageID, int messageType, int propertyID, int senderID, String messageText, long milliseconds) {
+    public ChatMessage(Timestamp messageID, int messageType, int propertyID, int senderID, String messageText, long milliseconds, String senderName) {
         this.messageID = messageID;
         this.messageType = messageType;
         this.propertyID = propertyID;
         this.senderID = senderID;
         this.messageText = messageText;
         this.milliseconds = milliseconds;
+        this.senderName = senderName;
     }
 
 
@@ -71,5 +74,13 @@ public class ChatMessage implements Serializable {
 
     public void setMilliseconds(long milliseconds) {
         this.milliseconds = milliseconds;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
     }
 }

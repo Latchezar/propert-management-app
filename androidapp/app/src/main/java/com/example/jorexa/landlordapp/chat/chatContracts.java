@@ -14,7 +14,7 @@ public interface chatContracts {
 
         void showCustomException(String text);
 
-        void showMessages(List<ChatMessage> chat);
+        void showMessages(List<ChatMessage> chat, LoginUser MainUser, LoginUser OtherUser);
 
         void onResume();
 
