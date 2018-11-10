@@ -40,6 +40,8 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
 
     private propertyDetailsContracts.Presenter mPresenter;
 
+    private propertyDetailsContracts.Navigator mNavigator;
+
     @Inject
     public propertyDetailsFragment() {
         // Required empty public constructor
@@ -70,6 +72,11 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
     @OnClick(R.id.btn_tenant_or_landlord_chat)
     public void signInChat() {
         mPresenter.signInChat();
+    }
+
+    @Override
+    public void openChatActivity(LoginUser user) {
+        runOnUi(() -> mNavigator.navigateWith(user));
     }
 
     @Override
@@ -105,6 +112,10 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
     @Override
     public void showCustomException(String text) {
         runOnUi(()-> Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show());
+    }
+
+    void setNavigator(propertyDetailsContracts.Navigator navigator) {
+        mNavigator = navigator;
     }
 
     private void runOnUi(Runnable action) {

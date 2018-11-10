@@ -14,6 +14,8 @@ public interface propertyDetailsContracts {
     interface View {
         void setPresenter(propertyDetailsContracts.Presenter presenter);
 
+        void openChatActivity(LoginUser user);
+
         void showCustomException(String text);
 
         void onResume();
@@ -38,4 +40,9 @@ public interface propertyDetailsContracts {
 
         void getProperty();
     }
+
+    interface Navigator {
+        void navigateWith(LoginUser user);
+    }
+
 }

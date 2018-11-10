@@ -18,7 +18,8 @@ import javax.inject.Inject;
 import dagger.android.support.DaggerAppCompatActivity;
 
 public class chatActivity extends DaggerAppCompatActivity {
-    public static final String EXTRA_UUSER = "UUSER_EXTRA_KEY";
+    public static final String EXTRA_MAIN_USER = "EXTRA_MAIN_USER";
+    public static final String EXTRA_OTHER_USER = "EXTRA_OTHER_USER";
 
     @Inject
     chatFragment mChatFragment;
@@ -31,8 +32,9 @@ public class chatActivity extends DaggerAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        //Intent intent = getIntent();
-        //LoginUser user = (LoginUser) intent.getSerializableExtra(chatActivity.EXTRA_UUSER);
+        Intent intent = getIntent();
+        LoginUser otherUser = (LoginUser) intent.getSerializableExtra(chatActivity.EXTRA_OTHER_USER);
+        LoginUser mainUser = (LoginUser) intent.getSerializableExtra(chatActivity.EXTRA_MAIN_USER);
 
         int g = 4;
 

@@ -22,6 +22,7 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
     private Property mPropertyDetails;
 
     private propertyDetailsContracts.View mView;
+    private LoginUser mUser;
 
     @Inject
     public propertyDetailsPresenter(@Named("login")LoginService service, AsyncRunner asyncRunner) {
@@ -48,6 +49,7 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
                     user = mService.getUser(property.getLandlordID());
                 }
 
+                mUser = user;
                 int t = 45;
                 mView.setTenantOrLandlord(user);
             } catch (IOException e) {
@@ -60,13 +62,7 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
 
     @Override
     public void signInChat() {
-        Intent intent = new Intent(mView.getActivity(), chatActivity.class);
-
-        LoginUser uuser = new LoginUser();
-        uuser.setFirstName("Ivan");
-
-        //intent.putExtra(chatActivity.EXTRA_UUSER, uuser);
-        mView.startActivity(intent);
+        mView.openChatActivity(mUser);
     }
 
     @Override
