@@ -1,6 +1,7 @@
 package com.example.jorexa.landlordapp.userprofile;
 
 import android.content.Intent;
+import android.view.View;
 
 import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.createProperty.CreatePropertyActivity;
@@ -75,8 +76,10 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
     public void loadUser() {
         String title = "Hello " + mUserProfile.getFirstName() + ", you are logged in as ";
         if (mUserProfile.getUserType() == 1){
+            mView.determineFloatButton(View.VISIBLE);
             title += "landlord";
         } else if (mUserProfile.getUserType() == 2){
+            mView.determineFloatButton(View.GONE);
             title += "tenant";
         }
         mView.setTitle(title);

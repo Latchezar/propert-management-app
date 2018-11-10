@@ -29,6 +29,8 @@ public interface UserProfileContracts {
         void startActivity(Intent intent);
 
         void showEmptyPropertiesList(String message);
+
+        void determineFloatButton(int visibility);
     }
 
     interface Presenter {

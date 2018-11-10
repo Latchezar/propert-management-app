@@ -133,6 +133,11 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
         runOnUi(() -> mNoPropertiesMessage.setVisibility(View.VISIBLE));
     }
 
+    @Override
+    public void determineFloatButton(int visibility) {
+        mFloatingActionButton.setVisibility(visibility);
+    }
+
     @OnClick(R.id.fab_create_property)
     public void onClick(View view){
         mPresenter.fabClick(this);
