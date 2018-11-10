@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.models.ChatMessage;
+import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.propertyDetails.propertyDetailsContracts;
 
@@ -76,10 +77,11 @@ public class chatFragment extends Fragment implements chatContracts.View {
     }
 
     @Override
-    public void showMessages(List<ChatMessage> chat) {
+    public void showMessages(List<ChatMessage> chat, LoginUser mainUser, LoginUser otherUser) {
         runOnUi(() -> {
             //mTitle.setText(names.get(0));
             //mChatAdapter.clear();
+
             mChatAdapter.addAll(chat);
             mChatListView.setSelection(mChatListView.getCount() - 1);
             //Test
@@ -90,7 +92,8 @@ public class chatFragment extends Fragment implements chatContracts.View {
     public void onResume(){
         super.onResume();
         mPresenter.subscribe(this);
-        mPresenter.showMessages(0);
+        //mPresenter.loadChat();
+        //mPresenter.showMessages(0);
         //mPresenter.testFunc();
     }
 

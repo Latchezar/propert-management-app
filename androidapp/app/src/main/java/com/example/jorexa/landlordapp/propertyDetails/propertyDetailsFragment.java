@@ -75,8 +75,9 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
     }
 
     @Override
-    public void openChatActivity(LoginUser user) {
-        runOnUi(() -> mNavigator.navigateWith(user));
+    public void openChatActivity(LoginUser mainUser, LoginUser otherUser, Property property)
+    {
+        runOnUi(() -> mNavigator.navigateWith(mainUser, otherUser, property));
     }
 
     @Override

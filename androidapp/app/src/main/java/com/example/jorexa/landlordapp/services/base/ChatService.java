@@ -12,5 +12,5 @@ public interface ChatService {
 
     Object sendNewMessage(Object newMessage) throws IOException;
 
-    List<ChatMessage> getNewMessages(long lastTimeStamp) throws IOException;
+    List<ChatMessage> getNewMessages(int propertyID, long lastTimeStamp) throws IOException;
 }

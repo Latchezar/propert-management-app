@@ -71,10 +71,10 @@ public class HttpRepository<T> implements Repository<T> {
     }
 
     @Override
-    public List<T> getNewMessages(long lastTimeStamp) throws IOException {
+    public List<T> getNewMessages(int propertyID, long lastTimeStamp) throws IOException {
         String jsonArray = null;
         String url = mServerUrl;
-        url += "/newchat/2/"+lastTimeStamp;
+        url += "/newchat/"+propertyID+"/"+lastTimeStamp;
         //url += 2;
         jsonArray = mHttpRequester.get(url);
         if (jsonArray.equals("No new messages found")) {
