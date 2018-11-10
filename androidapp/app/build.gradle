@@ -51,4 +51,5 @@ dependencies {
     //email
     implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
 
+    implementation 'com.android.support:design:26.1.0'
 }

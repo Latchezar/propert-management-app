@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -46,7 +47,22 @@
             android:dividerHeight="8dp"
             android:divider="@color/profileBackground"
             android:cacheColorHint="@color/profileBackground"
-            />
+            >
+
+
+        </ListView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_create_property"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:src="@drawable/fab_plus_sign"
+            app:backgroundTint="#FF000000"
+            android:focusable="true"
+            android:layout_margin="16dp"/>
 
     </RelativeLayout>
 

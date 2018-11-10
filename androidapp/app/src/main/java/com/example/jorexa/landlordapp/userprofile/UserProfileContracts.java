@@ -29,6 +29,8 @@ public interface UserProfileContracts {
         void startActivity(Intent intent);
 
         void showEmptyPropertiesList(String message);
+
+        void determineFloatButton(int visibility);
     }
 
     interface Presenter {
@@ -41,6 +43,8 @@ public interface UserProfileContracts {
         void selectProperty(Property property);
 
         void presentPropertiesToView(List<Property> properties);
+
+        void fabClick(View view);
     }
 
     interface Navigator {
