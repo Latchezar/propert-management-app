@@ -3,6 +3,7 @@ package com.example.jorexa.landlordapp.userprofile;
 
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnItemClick;
 
 /**
@@ -40,6 +42,9 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
 
     @BindView(R.id.tv_user_title)
     TextView mNoPropertiesMessage;
+
+    @BindView(R.id.fab_create_property)
+    FloatingActionButton mFloatingActionButton;
 
     @Inject
     ArrayAdapter<Property> mPropertiesAdapter;
@@ -126,7 +131,11 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
         mPropertiesListView.setVisibility(View.GONE);
         mNoPropertiesMessage.setText(message);
         runOnUi(() -> mNoPropertiesMessage.setVisibility(View.VISIBLE));
+    }
 
+    @OnClick(R.id.fab_create_property)
+    public void onClick(View view){
+        mPresenter.fabClick(this);
     }
 
     void setNavigator(UserProfileContracts.Navigator navigator) {

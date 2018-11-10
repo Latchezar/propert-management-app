@@ -1,6 +1,9 @@
 package com.example.jorexa.landlordapp.userprofile;
 
+import android.content.Intent;
+
 import com.example.jorexa.landlordapp.async.AsyncRunner;
+import com.example.jorexa.landlordapp.createProperty.CreatePropertyActivity;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.services.base.LoginService;
@@ -59,6 +62,13 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
         } else {
             mView.showProperties(properties);
         }
+    }
+
+    @Override
+    public void fabClick(UserProfileContracts.View view) {
+        Intent intent = new Intent(view.getActivity(), CreatePropertyActivity.class);
+        intent.putExtra(CreatePropertyActivity.EXTRA_KEY, mUserProfile.getId());
+        mView.startActivity(intent);
     }
 
     @Override

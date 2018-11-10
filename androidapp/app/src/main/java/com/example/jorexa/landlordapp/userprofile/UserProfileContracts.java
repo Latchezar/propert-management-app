@@ -41,6 +41,8 @@ public interface UserProfileContracts {
         void selectProperty(Property property);
 
         void presentPropertiesToView(List<Property> properties);
+
+        void fabClick(View view);
     }
 
     interface Navigator {

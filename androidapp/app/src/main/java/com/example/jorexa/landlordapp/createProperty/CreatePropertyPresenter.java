@@ -50,6 +50,7 @@ public class CreatePropertyPresenter implements CreatePropertyContracts.Presente
 
                     String response = (String) mService.create(mProperty);
                     mView.showCustomException(response);
+                    mView.getActivity().finish();
                 } catch (IOException e) {
                     mView.showError(e);
                     throw new RuntimeException(e);
