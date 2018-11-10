@@ -37,6 +37,10 @@ public class SQLRepository implements RepositoryBase {
         this.sessionFactory = sessionFactory;
     }
 
+    public SQLRepository(){
+
+    }
+
     public String sha1(String input) {
         String sha1 = null;
         try {

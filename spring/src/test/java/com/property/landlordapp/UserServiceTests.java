@@ -15,8 +15,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.sql.Timestamp;
-import java.util.*;
+import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserServiceTests {
