@@ -16,17 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="chatActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/chat/chatActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chatPresenter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chatPresenter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/chat/chatPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
@@ -36,21 +26,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HttpLoginService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/services/base/HttpLoginService.java">
+      <file leaf-file-name="LoginFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/Login/LoginFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+            <state relative-caret-position="136">
+              <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HttpRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/repositories/HttpRepository.java">
+      <file leaf-file-name="LoginPresenter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/Login/LoginPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="73" column="34" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="48" />
+            <state relative-caret-position="153">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -66,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chatListAdapter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chatListAdapter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/chat/chatListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="47" column="52" lean-forward="false" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+            <state relative-caret-position="268">
+              <caret line="46" column="67" lean-forward="false" selection-start-line="46" selection-start-column="67" selection-end-line="46" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -110,6 +100,16 @@
                 <element signature="e#1898#1899#0" expanded="true" />
                 <element signature="e#1942#1943#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginUser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/models/LoginUser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -2225,8 +2225,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/chat/chatFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/models/ShowChatMessage.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/models/ChatMessage.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/chat/chatListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/chat/chatPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/chat/chatListAdapter.java" />
       </list>
     </option>
   </component>
@@ -2560,22 +2560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/Login/LoginFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/Login/LoginPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/userprofile/TenantFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -2723,6 +2707,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/chat/chatPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="129" column="61" lean-forward="false" selection-start-line="129" selection-start-column="61" selection-end-line="129" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/Login/LoginFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/Login/LoginPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/models/LoginUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/models/ChatMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -2738,16 +2754,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/chat/chatListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="47" column="52" lean-forward="false" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jorexa/landlordapp/chat/chatPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="129" column="61" lean-forward="false" selection-start-line="129" selection-start-column="61" selection-end-line="129" selection-end-column="61" />
+        <state relative-caret-position="268">
+          <caret line="46" column="67" lean-forward="false" selection-start-line="46" selection-start-column="67" selection-end-line="46" selection-end-column="67" />
           <folding />
         </state>
       </provider>
