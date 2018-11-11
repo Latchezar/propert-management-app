@@ -69,9 +69,7 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
 
     @Override
     public void showCustomException(String text) {
-
         runOnUi(() -> mMessage.setText(text));
-
     }
 
     @OnClick(R.id.btn_login)
