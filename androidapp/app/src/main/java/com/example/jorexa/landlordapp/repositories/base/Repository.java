@@ -20,5 +20,7 @@ public interface Repository<T> {
 
     String deleteProperty(int propertyID) throws IOException;
 
+    String changeTenant(int propertyID, String email) throws IOException;
+
     T getById(int id) throws IOException;
 }

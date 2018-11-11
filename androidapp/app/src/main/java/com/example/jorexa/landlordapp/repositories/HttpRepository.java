@@ -108,6 +108,13 @@ public class HttpRepository<T> implements Repository<T> {
     }
 
     @Override
+    public String changeTenant(int propertyID, String email) throws IOException {
+
+        String url = mServerUrl+"tenant/"+propertyID+"/"+email;
+        return mHttpRequester.put(url);
+    }
+
+    @Override
     public Object create(T mUser) throws IOException {
         String requestBody = mJsonParser.toJson(mUser);
         String url = mServerUrl;

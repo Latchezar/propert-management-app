@@ -9,5 +9,7 @@ public interface HttpRequester {
 
     String delete(String url) throws IOException;
 
+    String put(String url) throws IOException;
+
     Response post(String url, String body) throws IOException;
 }

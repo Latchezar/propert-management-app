@@ -38,6 +38,7 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
         mPropertyDetails = property;
         mMainUser = userlogin;
 
+        //20
         mAsyncRunner.runInBackground(() -> {
             try {
                 LoginUser user;
@@ -85,6 +86,7 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
                 if (doDelete.equals("Success")) {
                     while (mView == null){ }
                     mView.showCustomException("Successfully deleted property!");
+                    //mView.onResume();
                     //...
                 } else {
                     while (mView == null){ }
@@ -100,7 +102,30 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
 
     @Override
     public void changeEmail(String email) {
-        //change email
+        if (email.equals("")) {
+            mView.showCustomException("Please, enter email address!");
+        } else {
+        mAsyncRunner.runInBackground(() -> {
+            try {
+                String changeTenant = mService.changeTenant(mPropertyDetails.getPropertyID(), email);
+                if (changeTenant.equals("Success")) {
+                    while (mView == null) {
+                    }
+                    mView.showCustomException("Successfully changed property!");
+                    //mView.onResume();
+                    //...
+                } else {
+                    while (mView == null) {
+                    }
+                    mView.showCustomException(changeTenant);
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                mView.showError(e);
+            }
+        });
+      }
     }
 
 

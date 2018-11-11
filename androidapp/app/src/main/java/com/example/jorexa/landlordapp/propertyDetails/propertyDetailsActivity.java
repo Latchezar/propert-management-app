@@ -67,4 +67,9 @@ public class propertyDetailsActivity extends DaggerAppCompatActivity implements 
         startActivity(intent);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
 }

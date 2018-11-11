@@ -39,6 +39,11 @@ public class HttpLoginService implements LoginService {
     }
 
     @Override
+    public String changeTenant(int propertyID, String email) throws IOException {
+        return mTestUserRepository.changeTenant(propertyID, email);
+    }
+
+    @Override
     public Object create(Object mUser) throws IOException {
         return mTestUserRepository.create((LoginUser)mUser);
     }
