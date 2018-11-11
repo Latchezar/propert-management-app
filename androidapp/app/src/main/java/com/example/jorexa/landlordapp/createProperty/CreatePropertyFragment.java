@@ -91,6 +91,12 @@ public class CreatePropertyFragment extends Fragment implements CreatePropertyCo
         mUserID = user;
     }
 
+    @Override
+    public void determiteEnd(String text) {
+        showCustomException(text);
+        getActivity().finish();
+    }
+
     @OnClick(R.id.new_property_button)
     public void onSubmit(View view) {
         String name = String.valueOf(mNameField.getText());

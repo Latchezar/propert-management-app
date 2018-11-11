@@ -21,6 +21,8 @@ public interface CreatePropertyContracts {
         void displayWrongInformation(String error);
 
         void setUser(int user);
+
+        void determiteEnd(String text);
     }
 
     interface Presenter {

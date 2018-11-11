@@ -75,6 +75,16 @@ public class UserProfileActivity extends DaggerAppCompatActivity implements User
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        try {
+            mUserProfilePresenter.setUserProfile(mLoginUser);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void navigateWith(Property property) {
         Intent intent = new Intent(
                 this,

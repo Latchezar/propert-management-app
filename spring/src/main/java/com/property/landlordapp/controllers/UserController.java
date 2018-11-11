@@ -67,7 +67,7 @@ public class UserController {
         return this.service.deleteProperty(id);
     }
 
-    @PutMapping("tenant//{id}/{email}")
+    @PutMapping("tenant/{id}/{email}")
     public ResponseEntity setTenant(@PathVariable int id, @PathVariable String email) {
         return this.service.setTenant(id, email);
     }

@@ -31,6 +31,8 @@ public interface UserProfileContracts {
         void showEmptyPropertiesList(String message);
 
         void determineFloatButton(int visibility);
+
+        void onResume();
     }
 
     interface Presenter {
