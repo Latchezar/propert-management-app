@@ -75,24 +75,17 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
 
     @Override
     public void onDeleteButtonClick() {
-        //delete button logic
-
-      int g = 6;
         mAsyncRunner.runInBackground(() -> {
             try {
-
-                int e = 4;
                 String doDelete = mService.deleteProperty(mPropertyDetails.getPropertyID());
                 if (doDelete.equals("Success")) {
                     while (mView == null){ }
                     mView.showCustomException("Successfully deleted property!");
-                    //mView.onResume();
-                    //...
+                    mView.getActivity().finish();
                 } else {
                     while (mView == null){ }
                     mView.showCustomException(doDelete);
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
                 mView.showError(e);
@@ -112,8 +105,7 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
                     while (mView == null) {
                     }
                     mView.showCustomException("Successfully changed property!");
-                    mView.onResume();
-                    //...
+                    mView.getActivity().finish();
                 } else {
                     while (mView == null) {
                     }
