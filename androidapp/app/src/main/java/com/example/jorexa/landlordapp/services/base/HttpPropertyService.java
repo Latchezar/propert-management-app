@@ -32,6 +32,14 @@ public class HttpPropertyService implements LoginService {
     }
 
     @Override
+    public String deleteProperty(int propertyID) throws IOException {
+
+        int f = 54;
+        return "test";
+        //return mRepository.deleteProperty(propertyID);
+    }
+
+    @Override
     public Object create(Object mUser) throws IOException {
         return mRepository.create((Property)mUser);
     }

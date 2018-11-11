@@ -29,6 +29,22 @@ public class OkHttpHttpRequester implements HttpRequester {
     }
 
     @Override
+    public String delete(String url) throws IOException {
+        Request request = new Request.Builder()
+                    .delete()
+                    .url(url)
+                    .build();
+
+        OkHttpClient client = new OkHttpClient();
+
+        Response response = client.newCall(request)
+                .execute();
+
+        String body = response.body().string();
+        return body;
+    }
+
+    @Override
     public Response post(String url, String bodyString) throws IOException {
         RequestBody body = RequestBody.create(
                 MediaType.parse("application/json"),

@@ -76,6 +76,26 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
     public void onDeleteButtonClick() {
         //delete button logic
 
+      int g = 6;
+        mAsyncRunner.runInBackground(() -> {
+            try {
+
+                int e = 4;
+                String doDelete = mService.deleteProperty(mPropertyDetails.getPropertyID());
+                if (doDelete.equals("Success")) {
+                    while (mView == null){ }
+                    mView.showCustomException("Successfully deleted property!");
+                    //...
+                } else {
+                    while (mView == null){ }
+                    mView.showCustomException(doDelete);
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                mView.showError(e);
+            }
+        });
     }
 
     @Override
