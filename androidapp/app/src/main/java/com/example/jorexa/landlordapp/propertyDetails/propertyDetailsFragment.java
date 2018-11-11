@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,12 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
 
     @BindView(R.id.change_tenant_email)
     EditText mTenantEmail;
+
+    @BindView(R.id.tenant_email_btn)
+    Button mEmailButton;
+
+    @BindView(R.id.delete_property_btn)
+    Button mDeleteButton;
 
     private propertyDetailsContracts.Presenter mPresenter;
 
@@ -95,6 +102,15 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
             }
             setText += user.firstName+ " "+user.lastName;
             mTenantOrLandlord.setText(setText);
+        });
+    }
+
+    @Override
+    public void setVisibility(int visibility) {
+        runOnUi( () -> {
+            mTenantEmail.setVisibility(visibility);
+            mEmailButton.setVisibility(visibility);
+            mDeleteButton.setVisibility(visibility);
         });
     }
 

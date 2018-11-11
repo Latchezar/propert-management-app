@@ -1,5 +1,7 @@
 package com.example.jorexa.landlordapp.propertyDetails;
 
+import android.view.View;
+
 import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
@@ -42,16 +44,19 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
         mAsyncRunner.runInBackground(() -> {
             try {
                 LoginUser user;
+                int visibility;
                 if (userlogin.getUserType() == 1) {
                     user = mService.getUser(property.getTenantID());
+                    visibility = View.VISIBLE;
                 } else {
                     user = mService.getUser(property.getLandlordID());
+                    visibility = View.GONE;
                 }
-
                 mUser = user;
 
                 while (mView == null){
                 }
+                mView.setVisibility(visibility);
                 if (property.getLandlordID() != property.getTenantID()) {
                     mView.setTenantOrLandlord(user);
                 }

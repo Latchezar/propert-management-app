@@ -29,7 +29,7 @@ public interface propertyDetailsContracts {
 
         Activity getActivity();
 
-        void startActivity(Intent intent);
+        void setVisibility(int visibility);
     }
 
     interface Presenter {
