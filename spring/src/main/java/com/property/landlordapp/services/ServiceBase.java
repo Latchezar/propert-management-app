@@ -26,4 +26,6 @@ public interface ServiceBase {
     ResponseEntity sendMessage(ChatMessage chatMessage);
 
     ResponseEntity getNewMessages(int id, long miliseconds);
+
+    ResponseEntity deleteProperty(int id);
 }
