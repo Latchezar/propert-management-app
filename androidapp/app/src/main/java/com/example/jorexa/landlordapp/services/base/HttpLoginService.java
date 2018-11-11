@@ -33,6 +33,12 @@ public class HttpLoginService implements LoginService {
     }
 
     @Override
+    public String deleteProperty(int propertyID) throws IOException {
+
+        return mTestUserRepository.deleteProperty(propertyID);
+    }
+
+    @Override
     public Object create(Object mUser) throws IOException {
         return mTestUserRepository.create((LoginUser)mUser);
     }

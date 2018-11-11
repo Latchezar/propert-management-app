@@ -102,6 +102,12 @@ public class HttpRepository<T> implements Repository<T> {
     }
 
     @Override
+    public String deleteProperty(int propertyID) throws IOException {
+     String url = mServerUrl+"property/"+propertyID;
+        return mHttpRequester.delete(url);
+    }
+
+    @Override
     public Object create(T mUser) throws IOException {
         String requestBody = mJsonParser.toJson(mUser);
         String url = mServerUrl;

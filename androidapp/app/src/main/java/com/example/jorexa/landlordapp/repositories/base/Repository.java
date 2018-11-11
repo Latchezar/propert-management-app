@@ -18,5 +18,7 @@ public interface Repository<T> {
 
     Object sendNewMessage(T newMessage) throws IOException;
 
+    String deleteProperty(int propertyID) throws IOException;
+
     T getById(int id) throws IOException;
 }

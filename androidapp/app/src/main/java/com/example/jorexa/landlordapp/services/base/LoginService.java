@@ -14,5 +14,7 @@ public interface LoginService {
 
     LoginUser getUser(int id) throws IOException;
 
+    String deleteProperty(int propertyID) throws IOException;
+
     Object create(Object mUser) throws IOException;
 }
