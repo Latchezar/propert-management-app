@@ -22,6 +22,8 @@ public interface chatContracts {
 
         void showError(Exception e);
 
+        void setChatTitle(LoginUser mainUser);
+
         void stopChat();
         //void
         //void showPropertyDetails(Property property);

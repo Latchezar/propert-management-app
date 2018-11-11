@@ -58,6 +58,10 @@ public class chatPresenter implements chatContracts.Presenter {
         mOtherUser = otherUser;
         mPropertyID = property.getPropertyID();
         mSenderID = mainUser.getId();
+
+        //while (mView == null){ }
+
+        //mView.setChatTitle(mainUser);
         showMessages(0);
         int g = 5;
     }
@@ -106,6 +110,7 @@ public class chatPresenter implements chatContracts.Presenter {
                                     newMessages.get(a).setSenderName(mOtherUser.getFirstName()+" "+mOtherUser.getLastName());
                                 }
                         }
+                        mView.setChatTitle(mOtherUser);
                         mView.showMessages(newMessages);
                         int count = newMessages.size();
                         mlastTimeStamp = newMessages.get(count - 1).getMilliseconds();

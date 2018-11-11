@@ -35,8 +35,8 @@ public class chatFragment extends Fragment implements chatContracts.View {
 
     private chatContracts.Presenter mPresenter;
 
-    @BindView(R.id.tv_chat_test)
-    TextView textTest;
+    @BindView(R.id.tv_chat_title)
+    TextView mChatTitle;
 
     @BindView(R.id.ed_message)
     EditText mNewMessage;
@@ -77,6 +77,20 @@ public class chatFragment extends Fragment implements chatContracts.View {
     }
 
     @Override
+    public void setChatTitle(LoginUser mainUser) {
+        runOnUi(() -> {
+            String userTypeName = "";
+                if(mainUser.getUserType() == 1) {
+                    userTypeName = "landlord";
+                } else if (mainUser.getUserType() == 2) {
+                    userTypeName = "tenant";
+                }
+                String titleMessage = "Chat with "+mainUser.getFirstName()+" "+mainUser.getLastName()+" your "+userTypeName;
+                mChatTitle.setText(titleMessage);
+         });
+    }
+
+    @Override
     public void showMessages(List<ChatMessage> chat) {
         runOnUi(() -> {
             mChatAdapter.addAll(chat);
@@ -88,14 +102,10 @@ public class chatFragment extends Fragment implements chatContracts.View {
     public void onResume(){
         super.onResume();
         mPresenter.subscribe(this);
-        //mPresenter.loadChat();
-        //mPresenter.showMessages(0);
-        //mPresenter.testFunc();
     }
 
     @Override
     public void stopChat() {
-        int g = 5;
         mPresenter.stopChat();
     }
 
@@ -111,14 +121,8 @@ public class chatFragment extends Fragment implements chatContracts.View {
 
     @OnClick(R.id.btn_send_messsage)
     public void testButton() {
-        //mPresenter.showMessages();
         String newMessage = mNewMessage.getText().toString();
         mPresenter.sendMessage(newMessage);
-        //mPresenter.showMessages(1);
-        //mPresenter.testFunc();
-        //textTest.setText("123456");
-        //mPresenter.showMessages();
-
     }
 
     private void runOnUi(Runnable action) {
