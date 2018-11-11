@@ -59,6 +59,7 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
         mPropertyName.setText("Property Name: " + property.getPropertyName());
         mPropertyAddress.setText("Property Address: " + property.getAddress());
         mPropertyPrice.setText("Price: " + Integer.toString(property.getPropertyPrice()) + "BGN");
+        mTenantOrLandlord.setText("Tenant: none");
     }
 
 

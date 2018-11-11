@@ -51,8 +51,9 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
 
                 while (mView == null){
                 }
-
-                mView.setTenantOrLandlord(user);
+                if (property.getLandlordID() != property.getTenantID()) {
+                    mView.setTenantOrLandlord(user);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
                 mView.showError(e);
