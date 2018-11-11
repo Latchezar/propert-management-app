@@ -77,14 +77,10 @@ public class chatFragment extends Fragment implements chatContracts.View {
     }
 
     @Override
-    public void showMessages(List<ChatMessage> chat, LoginUser mainUser, LoginUser otherUser) {
+    public void showMessages(List<ChatMessage> chat) {
         runOnUi(() -> {
-            //mTitle.setText(names.get(0));
-            //mChatAdapter.clear();
-
             mChatAdapter.addAll(chat);
             mChatListView.setSelection(mChatListView.getCount() - 1);
-            //Test
         });
     }
 

@@ -27,7 +27,6 @@ public class chatPresenter implements chatContracts.Presenter {
     private HttpChatService mService;
     private LoginUser mUserProfile;
     private final AsyncRunner mAsyncRunner;
-    private final AsyncRunner mAsyncRunner2;
     private chatContracts.View mView;
     private int mStop = 0;
     private long mlastTimeStamp;
@@ -37,9 +36,8 @@ public class chatPresenter implements chatContracts.Presenter {
     private LoginUser mOtherUser;
 
     @Inject
-    public chatPresenter(@Named("chatMessage")HttpChatService service, AsyncRunner asyncRunner, AsyncRunner asyncRunner2) {
+    public chatPresenter(@Named("chatMessage")HttpChatService service, AsyncRunner asyncRunner) {
         mAsyncRunner = asyncRunner;
-        mAsyncRunner2 = new AsyncRunnerImpl();
         mService = service;
     }
 
@@ -67,13 +65,8 @@ public class chatPresenter implements chatContracts.Presenter {
     @Override
     public void sendMessage(String newMessage)  {
         ChatMessage newMessageObj = new ChatMessage();
-
         mStop = 1;
-        //mAsyncRunner.
-
-        mAsyncRunner2.runInBackground(() -> {
-                //newMessage += "s";
-                //"messageType":1,"propertyID":2,"senderID":1,"messageText":"Hello, I am Latcho","messageID":1541600377000
+        mAsyncRunner.runInBackground(() -> {
                 newMessageObj.setMessageText(newMessage);
 
                 long datetime = System.currentTimeMillis();
@@ -85,40 +78,23 @@ public class chatPresenter implements chatContracts.Presenter {
 
             try {
                 Object response = mService.sendNewMessage(newMessageObj);
-                int gg = 453;
                 mStop = 0;
                 showMessages(0);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            int f = 63;
-
         });
-
-        //mView.startAgain();
-        int g = 5;
     }
 
     @Override
     public void showMessages(long lastTimeStamp) {
         ChatMessage chat = new ChatMessage();
-        //chat.setMessageID();
         mlastTimeStamp = lastTimeStamp;
 
         mAsyncRunner.runInBackground(() -> {
             for(;;) {
-                if(mStop == 1) {
-                    break;
-                }
                 try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    //List<ChatMessage> messages;
                     List<ChatMessage> newMessages;
-                    //messages = mService.getAllMessages();
                     newMessages = mService.getNewMessages(mPropertyID, mlastTimeStamp);
 
                     if(newMessages != null) {
@@ -130,26 +106,25 @@ public class chatPresenter implements chatContracts.Presenter {
                                     newMessages.get(a).setSenderName(mOtherUser.getFirstName()+" "+mOtherUser.getLastName());
                                 }
                         }
-                        mView.showMessages(newMessages, mMainUser, mOtherUser);
+                        mView.showMessages(newMessages);
                         int count = newMessages.size();
                         mlastTimeStamp = newMessages.get(count - 1).getMilliseconds();
-                        //1541757886000
                     }
 
-                    int a = 5;
                 } catch (IOException e) {
                     e.printStackTrace();
                     //mView.showError(e);
-                    int t = 3;
+                }
+                if(mStop == 1) {
+                    break;
+                }
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
-            //if(mStop == 1) {
-            //    sendMessage("Jorexa test");
-            //}
         });
-
-        //chat.setMessageText("Test Message 123");
-        //mView.showMessages(chat);
     }
 
 }
