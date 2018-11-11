@@ -14,13 +14,15 @@ public interface chatContracts {
 
         void showCustomException(String text);
 
-        void showMessages(List<ChatMessage> chat, LoginUser MainUser, LoginUser OtherUser);
+        void showMessages(List<ChatMessage> chat);
 
         void onResume();
 
         void startAgain();
 
         void showError(Exception e);
+
+        void setChatTitle(LoginUser mainUser);
 
         void stopChat();
         //void

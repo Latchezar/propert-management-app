@@ -39,11 +39,8 @@ public class chatActivity extends DaggerAppCompatActivity {
         LoginUser otherUser = (LoginUser) intent.getSerializableExtra(chatActivity.EXTRA_KEY_OTHERUSER);
         Property property = (Property) intent.getSerializableExtra(chatActivity.EXTRA_KEY_PROPERTY);
 
-        int g = 4;
-
         mChatFragment.setPresenter(mChatPresenter);
 
-        //PropertyID
         mChatPresenter.loadChat(property, mainUser, otherUser);
 
         FragmentTransaction transaction = getFragmentManager()
@@ -56,7 +53,6 @@ public class chatActivity extends DaggerAppCompatActivity {
     @Override
     public void onBackPressed() {
         mChatFragment.stopChat();
-        //int g = 5;
         super.onBackPressed();
     }
 }

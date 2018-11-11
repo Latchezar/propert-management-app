@@ -92,19 +92,6 @@
             android:textStyle="bold"
             android:text="@string/login_signUp_button" />
 
-        <Button
-            android:background="@drawable/rounded_button"
-            android:id="@+id/btn_testChat"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_signUp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="Test Chat Activity" />
-
     </RelativeLayout>
 
 </FrameLayout>

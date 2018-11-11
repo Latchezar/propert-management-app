@@ -92,11 +92,11 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
         mPresenter.signUp();
     }
 
-    @OnClick(R.id.btn_testChat)
-    public void testOpenChatActivity(View view)
-    {
-        mPresenter.testOpenChat();
-    }
+    //@OnClick(R.id.btn_testChat)
+    //public void testOpenChatActivity(View view)
+    //{
+    //    mPresenter.testOpenChat();
+    //}
 
     @Override
     public void showError(Exception e) {
