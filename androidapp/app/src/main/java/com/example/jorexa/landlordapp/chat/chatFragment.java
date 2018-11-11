@@ -122,6 +122,7 @@ public class chatFragment extends Fragment implements chatContracts.View {
     @OnClick(R.id.btn_send_messsage)
     public void testButton() {
         String newMessage = mNewMessage.getText().toString();
+        mNewMessage.getText().clear();
         mPresenter.sendMessage(newMessage);
     }
 
