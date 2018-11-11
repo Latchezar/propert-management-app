@@ -72,5 +72,16 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
         mView.setPropertyInformation(mPropertyDetails);
     }
 
+    @Override
+    public void onDeleteButtonClick() {
+        //delete button logic
+
+    }
+
+    @Override
+    public void changeEmail(String email) {
+        //change email
+    }
+
 
 }

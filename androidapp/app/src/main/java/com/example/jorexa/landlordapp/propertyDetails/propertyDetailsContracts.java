@@ -2,6 +2,7 @@ package com.example.jorexa.landlordapp.propertyDetails;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.view.View;
 
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
@@ -39,6 +40,10 @@ public interface propertyDetailsContracts {
         void signInChat();
 
         void getProperty();
+
+        void onDeleteButtonClick();
+
+        void changeEmail(String email);
     }
 
     interface Navigator {

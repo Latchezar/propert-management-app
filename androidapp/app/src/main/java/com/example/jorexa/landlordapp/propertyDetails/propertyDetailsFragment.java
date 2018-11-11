@@ -38,6 +38,9 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
     @BindView(R.id.tv_tenant_or_landlord)
     TextView mTenantOrLandlord;
 
+    @BindView(R.id.change_tenant_email)
+    EditText mTenantEmail;
+
     private propertyDetailsContracts.Presenter mPresenter;
 
     private propertyDetailsContracts.Navigator mNavigator;
@@ -114,6 +117,17 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
     @Override
     public void showCustomException(String text) {
         runOnUi(()-> Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show());
+    }
+
+    @OnClick(R.id.delete_property_btn)
+    public void onDeleteButtonClick(View view) {
+        mPresenter.onDeleteButtonClick(view);
+    }
+
+    @OnClick(R.id.tenant_email_btn)
+    public void changeTenant(View view){
+        String email = mTenantEmail.getText().toString();
+        mPresenter.changeEmail(email);
     }
 
     void setNavigator(propertyDetailsContracts.Navigator navigator) {

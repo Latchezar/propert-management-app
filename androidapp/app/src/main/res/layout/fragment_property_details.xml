@@ -83,8 +83,37 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
+            android:layout_marginBottom="30dp"
             android:layout_below="@+id/btn_tenant_or_landlord_chat"
             android:text="@string/delete_property_btn"/>
+
+        <EditText
+            android:layout_below="@+id/delete_property_btn"
+            android:id="@+id/change_tenant_email"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:background="@drawable/rounder_edittext"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:paddingBottom="11dp"
+            android:paddingTop="11dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:hint="@string/tenant_email"/>
+
+        <Button
+            android:id="@+id/tenant_email_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:layout_below="@id/delete_property_btn"
+            android:layout_toEndOf="@+id/change_tenant_email"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="@string/change_tenant_btn"/>
 
     </RelativeLayout>
 
