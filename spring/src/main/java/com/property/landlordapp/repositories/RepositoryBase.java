@@ -5,8 +5,6 @@ import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import org.springframework.http.ResponseEntity;
 
-import java.sql.Timestamp;
-
 public interface RepositoryBase {
     ResponseEntity loginAttempt(User login);
 
@@ -27,4 +25,6 @@ public interface RepositoryBase {
     ResponseEntity getNewMessages(int id, long miliseconds);
 
     ResponseEntity deleteProperty(int id);
+
+    ResponseEntity setTenant(int id, String email);
 }

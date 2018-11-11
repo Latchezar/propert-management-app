@@ -56,7 +56,7 @@ public class UserProfilePresenter implements UserProfileContracts.Presenter {
         if (mUserProfile.getUserType() == 1){
             message = "You don't have any properties yet.";
         } else {
-            message = "You don;t rent any properties";
+            message = "You don't rent any properties";
         }
         while (mView == null){
         }

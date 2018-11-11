@@ -4,6 +4,7 @@ import com.property.landlordapp.models.ChatMessage;
 import com.property.landlordapp.models.Property;
 import com.property.landlordapp.models.User;
 import com.property.landlordapp.services.ServiceBase;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -64,5 +65,10 @@ public class UserController {
     @DeleteMapping("property/{id}")
     public ResponseEntity deleteProperty(@PathVariable int id) {
         return this.service.deleteProperty(id);
+    }
+
+    @PutMapping("tenant//{id}/{email}")
+    public ResponseEntity setTenant(@PathVariable int id, @PathVariable String email) {
+        return this.service.setTenant(id, email);
     }
 }

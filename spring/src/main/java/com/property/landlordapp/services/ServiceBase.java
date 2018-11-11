@@ -28,4 +28,6 @@ public interface ServiceBase {
     ResponseEntity getNewMessages(int id, long miliseconds);
 
     ResponseEntity deleteProperty(int id);
+
+    ResponseEntity setTenant(int id, String email);
 }

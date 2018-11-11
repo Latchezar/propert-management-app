@@ -68,4 +68,9 @@ public class UserService implements ServiceBase{
     public ResponseEntity deleteProperty(int id) {
         return this.repository.deleteProperty(id);
     }
+
+    @Override
+    public ResponseEntity setTenant(int id, String email) {
+        return this.repository.setTenant(id, email);
+    }
 }

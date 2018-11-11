@@ -8,6 +8,7 @@ import com.property.landlordapp.utils.Validator;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -258,6 +259,42 @@ public class SQLRepository implements RepositoryBase {
             return new ResponseEntity<>("Success", HttpStatus.OK);
         }
         return new ResponseEntity<>("Not Success", HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity setTenant(int id, String email) {
+        User user;
+        Property property;
+        //get property
+
+        //get UserByEmail
+        try (Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            user = (User) session.get(User.class, email);
+            session.getTransaction().commit();
+            session.close();
+        } catch (Exception e) {
+            return new ResponseEntity<> (e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            property = (Property) session.get(Property.class, id);
+            session.getTransaction().commit();
+            session.close();
+        } catch (Exception e) {
+            return new ResponseEntity<> (e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+            String update = "update properties p set p.TenantID = " + user.getId() + " where p.PropertyID = " + property.getPropertyID() + ";";
+            int updatedEntities = session.createSQLQuery(update)
+                    .executeUpdate();
+            transaction.commit();
+            session.close();
+        } catch (Exception e) {
+            return new ResponseEntity<> (e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<> ("Success", HttpStatus.OK);
     }
 
     private List getPropertyList(String columns, int id){
