@@ -8,4 +8,5 @@
     <color name="button">#DCB239</color>
     <color name="profileBackground">#8FD8D2</color>
     <color name="transparent">#008fd8d2</color>
+    <color name="black">#000000</color>
 </resources>
