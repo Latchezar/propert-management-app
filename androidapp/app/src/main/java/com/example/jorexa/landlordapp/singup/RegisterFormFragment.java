@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jorexa.landlordapp.Constants;
+import com.example.jorexa.landlordapp.Login.LoginContracts;
 import com.example.jorexa.landlordapp.R;
 import com.example.jorexa.landlordapp.createProperty.CreatePropertyActivity;
 import com.example.jorexa.landlordapp.models.LoginUser;
@@ -45,6 +46,7 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
 
     private int typeSelection;
     private SignUpContracts.Presenter mPresenter;
+    private LoginContracts.Navigator mNavigator;
 
     @Inject
     public RegisterFormFragment() {
@@ -124,12 +126,13 @@ public class RegisterFormFragment extends Fragment implements SignUpContracts.Vi
         mErrorBox.setText(error);
     }
 
-    @OnClick(R.id.test_button)
-    public void testCreateProperty(View view){
-        LoginUser testUser = new LoginUser();
-        testUser.setId(1);
-        Intent intent = new Intent(this.getActivity(), CreatePropertyActivity.class);
-        intent.putExtra(CreatePropertyActivity.EXTRA_KEY, testUser.getId());
-        this.startActivity(intent);
+    @Override
+    public void openUserProfileActivity(LoginUser mUser) {
+        runOnUi(() -> mNavigator.navigateWith(mUser));
+    }
+
+
+    public void setNavigator(LoginContracts.Navigator navigator) {
+        mNavigator = navigator;
     }
 }

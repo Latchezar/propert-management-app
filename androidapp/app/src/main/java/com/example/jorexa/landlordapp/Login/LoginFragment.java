@@ -70,13 +70,7 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
     @Override
     public void showCustomException(String text) {
 
-        runOnUi(() -> {
-            //Toast.makeText(getContext(),
-            //        text,
-            //        Toast.LENGTH_LONG)
-            //        .show();
-            mMessage.setText(text);
-        });
+        runOnUi(() -> mMessage.setText(text));
 
     }
 
@@ -92,11 +86,6 @@ public class LoginFragment extends Fragment implements LoginContracts.View {
         mPresenter.signUp();
     }
 
-    //@OnClick(R.id.btn_testChat)
-    //public void testOpenChatActivity(View view)
-    //{
-    //    mPresenter.testOpenChat();
-    //}
 
     @Override
     public void showError(Exception e) {

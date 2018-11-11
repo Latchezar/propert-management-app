@@ -2,6 +2,8 @@ package com.example.jorexa.landlordapp.singup;
 
 import android.app.Activity;
 
+import com.example.jorexa.landlordapp.models.LoginUser;
+
 public interface SignUpContracts {
     interface View {
         void onResume();
@@ -15,6 +17,8 @@ public interface SignUpContracts {
         Activity getActivity();
 
         void displayWrongInformation(String error);
+
+        void openUserProfileActivity(LoginUser mUser);
     }
 
     interface Presenter {

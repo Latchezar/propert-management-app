@@ -28,8 +28,6 @@ public interface LoginContracts {
 
         void signUp();
 
-        void testOpenChat();
-
         void loadLogin();
     }
 

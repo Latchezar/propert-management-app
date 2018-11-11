@@ -49,10 +49,6 @@ public class LoginPresenter implements LoginContracts.Presenter {
                     LoginUser loggedUser = mLoginService.signIn(user);
 
                     if (loggedUser != null) {
-                        //mView.showCustomException("OK!"+loggedUser.userType);
-                        //Intent intent = new Intent(mView.getActivity(), UserProfileActivity.class);
-                        //intent.putExtra(UserProfileActivity.EXTRA_KEY, loggedUser);
-                        //mView.startActivity(intent);
                         mView.openUserProfileActivity(loggedUser);
                     } else {
                         mView.showCustomException("Invalid login. Please, enter valid name and password");
@@ -68,13 +64,6 @@ public class LoginPresenter implements LoginContracts.Presenter {
     @Override
     public void signUp(){
         Intent intent = new Intent(mView.getActivity(), SignUpActivity.class);
-        mView.startActivity(intent);
-        //mView.openSignUpActivity();
-    }
-
-    @Override
-    public void testOpenChat() {
-        Intent intent = new Intent(mView.getActivity(), chatActivity.class);
         mView.startActivity(intent);
     }
 

@@ -1,9 +1,12 @@
 package com.example.jorexa.landlordapp.singup;
 
+import android.content.Intent;
+
 import com.example.jorexa.landlordapp.Constants;
 import com.example.jorexa.landlordapp.async.AsyncRunner;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.services.base.LoginService;
+import com.example.jorexa.landlordapp.userprofile.UserProfileActivity;
 
 import java.io.IOException;
 
@@ -83,7 +86,7 @@ public class SignUpPresenter implements SignUpContracts.Presenter {
 
     @Override
     public void endActivity() {
-        mView.getActivity().finish();
+        mView.openUserProfileActivity(mUser);
     }
 
 
