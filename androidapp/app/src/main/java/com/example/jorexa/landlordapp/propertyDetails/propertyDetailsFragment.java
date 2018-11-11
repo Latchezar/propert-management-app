@@ -121,7 +121,7 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
 
     @OnClick(R.id.delete_property_btn)
     public void onDeleteButtonClick(View view) {
-        mPresenter.onDeleteButtonClick(view);
+        mPresenter.onDeleteButtonClick();
     }
 
     @OnClick(R.id.tenant_email_btn)
