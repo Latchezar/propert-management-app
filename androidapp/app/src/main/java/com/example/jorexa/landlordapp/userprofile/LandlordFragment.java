@@ -128,9 +128,11 @@ public class LandlordFragment extends Fragment implements UserProfileContracts.V
 
     @Override
     public void showEmptyPropertiesList(String message) {
-        mPropertiesListView.setVisibility(View.GONE);
-        mNoPropertiesMessage.setText(message);
-        runOnUi(() -> mNoPropertiesMessage.setVisibility(View.VISIBLE));
+        runOnUi(() -> {
+                mPropertiesListView.setVisibility(View.GONE);
+                mNoPropertiesMessage.setText(message);
+                mNoPropertiesMessage.setVisibility(View.VISIBLE);
+        });
     }
 
     @Override

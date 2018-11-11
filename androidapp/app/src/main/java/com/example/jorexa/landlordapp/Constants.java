@@ -4,6 +4,7 @@ public class Constants {
     public static final String BASE_SERVER_URL
             //= "http://echo.jsontest.com/email/value/password/two";
     = "http://78.90.64.155:8080/api";
+    //= "http://192.168.0.102:8080/api";
 
     //Wrong registration texts
     public static final String WRONG_FIRST_NAME = "The First Name should be between 3 and 64 characters!";
