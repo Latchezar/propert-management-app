@@ -1,10 +1,6 @@
 package com.example.jorexa.landlordapp.propertyDetails;
 
-import android.content.Intent;
-
 import com.example.jorexa.landlordapp.async.AsyncRunner;
-import com.example.jorexa.landlordapp.chat.chatActivity;
-import com.example.jorexa.landlordapp.createProperty.CreatePropertyActivity;
 import com.example.jorexa.landlordapp.models.LoginUser;
 import com.example.jorexa.landlordapp.models.Property;
 import com.example.jorexa.landlordapp.services.base.LoginService;
@@ -52,7 +48,6 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
                 }
 
                 mUser = user;
-                int t = 45;
 
                 while (mView == null){
                 }

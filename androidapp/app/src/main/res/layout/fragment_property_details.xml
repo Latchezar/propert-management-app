@@ -14,38 +14,39 @@
             android:id="@+id/tv_property_details_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="Jorexa" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_property_details_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_property_details_name"
-            android:textSize="20dp"
-            android:text="Sofiq, ul. Tsar Ivan Shishman N:3" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_property_details_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_property_details_address"
-            android:textSize="20dp"
-            android:text="..." />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_tenant_or_landlord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_property_details_price"
-            android:textSize="20dp"
-            android:text="..." />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btn_tenant_or_landlord_chat"
             android:layout_width="match_parent"
-            android:text="Chat room"
+            android:text="@string/chat_room_btn"
+            android:background="@drawable/rounded_button"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
             android:layout_below="@+id/tv_tenant_or_landlord"
 
             />

@@ -85,7 +85,7 @@ public class chatFragment extends Fragment implements chatContracts.View {
                 } else if (mainUser.getUserType() == 2) {
                     userTypeName = "tenant";
                 }
-                String titleMessage = "Chat with "+mainUser.getFirstName()+" "+mainUser.getLastName()+" your "+userTypeName;
+                String titleMessage = "Chat with " + mainUser.getFirstName() + " " + mainUser.getLastName() + " your " + userTypeName;
                 mChatTitle.setText(titleMessage);
          });
     }

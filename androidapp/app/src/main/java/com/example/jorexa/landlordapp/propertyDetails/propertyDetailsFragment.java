@@ -56,9 +56,9 @@ public class propertyDetailsFragment extends Fragment implements propertyDetails
 
     @Override
     public void setPropertyInformation(Property property) {
-        mPropertyName.setText(property.getPropertyName());
-        mPropertyAddress.setText(property.getAddress());
-        mPropertyPrice.setText(property.getPropertyPrice()+"");
+        mPropertyName.setText("Property Name: " + property.getPropertyName());
+        mPropertyAddress.setText("Property Address: " + property.getAddress());
+        mPropertyPrice.setText("Price: " + Integer.toString(property.getPropertyPrice()));
     }
 
 

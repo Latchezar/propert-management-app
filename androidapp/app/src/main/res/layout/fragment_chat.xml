@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".chat.chatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,13 +21,13 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_below="@id/tv_chat_title"
-            android:background="@drawable/rounded_listview"
+            android:background="@color/transparent"
             />
 
         <EditText
            android:id="@+id/ed_message"
            android:layout_width="match_parent"
-           android:textSize="20dp"
+           android:textSize="20sp"
            android:layout_height="wrap_content"
            android:layout_below="@+id/lv_chatMessages"
           />
@@ -37,7 +36,7 @@
             android:id="@+id/btn_send_messsage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Send"
+            android:text="@string/send_chat_btn"
             android:layout_below="@+id/ed_message"
             />
 
