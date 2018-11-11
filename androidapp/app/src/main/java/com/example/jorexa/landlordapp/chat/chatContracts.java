@@ -25,12 +25,7 @@ public interface chatContracts {
         void setChatTitle(LoginUser mainUser);
 
         void stopChat();
-        //void
-        //void showPropertyDetails(Property property);
 
-        //Activity getActivity();
-
-        //void startActivity(Intent intent);
     }
 
     interface Presenter {

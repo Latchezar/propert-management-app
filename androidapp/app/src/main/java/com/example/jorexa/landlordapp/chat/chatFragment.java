@@ -73,7 +73,10 @@ public class chatFragment extends Fragment implements chatContracts.View {
 
     @Override
     public void showCustomException(String text) {
-
+        runOnUi(() ->
+                Toast.makeText(getContext(), text, Toast.LENGTH_LONG)
+                        .show()
+        );
     }
 
     @Override
@@ -116,7 +119,10 @@ public class chatFragment extends Fragment implements chatContracts.View {
 
     @Override
     public void showError(Exception e) {
-
+        runOnUi(() ->
+                Toast.makeText(getContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG)
+                        .show()
+        );
     }
 
     @OnClick(R.id.btn_send_messsage)
