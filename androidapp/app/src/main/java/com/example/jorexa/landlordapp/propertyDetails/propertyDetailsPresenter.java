@@ -112,7 +112,7 @@ public class propertyDetailsPresenter implements propertyDetailsContracts.Presen
                     while (mView == null) {
                     }
                     mView.showCustomException("Successfully changed property!");
-                    //mView.onResume();
+                    mView.onResume();
                     //...
                 } else {
                     while (mView == null) {
