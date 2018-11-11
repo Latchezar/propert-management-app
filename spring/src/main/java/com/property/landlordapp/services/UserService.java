@@ -63,4 +63,9 @@ public class UserService implements ServiceBase{
     public ResponseEntity getNewMessages(int id, long miliseconds) {
         return this.repository.getNewMessages(id, miliseconds);
     }
+
+    @Override
+    public ResponseEntity deleteProperty(int id) {
+        return this.repository.deleteProperty(id);
+    }
 }

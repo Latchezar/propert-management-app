@@ -16,6 +16,7 @@ public class Property {
         this.address = address;
     }
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PropertyID")

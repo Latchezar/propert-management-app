@@ -60,4 +60,9 @@ public class UserController {
     public ResponseEntity getNewMessages(@PathVariable int id, @PathVariable long miliseconds){
         return this.service.getNewMessages(id, miliseconds);
     }
+
+    @DeleteMapping("property/{id}")
+    public ResponseEntity deleteProperty(@PathVariable int id) {
+        return this.service.deleteProperty(id);
+    }
 }

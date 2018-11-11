@@ -166,6 +166,7 @@ public class SQLRepository implements RepositoryBase {
         try(Session session = sessionFactory.openSession()){
             Criteria criteria = session.createCriteria(User.class);
             user = (User) criteria.add(Restrictions.eq("id", id)).uniqueResult();
+            session.close();
         } catch (Exception e){
             throw new RuntimeException(e);
         }
@@ -229,6 +230,34 @@ public class SQLRepository implements RepositoryBase {
         Collections.reverse(result);
         normalizeChat(result);
         return new ResponseEntity<> (result, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity deleteProperty(int id) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.createSQLQuery("delete from chat where PropertyID = " + id + ";").executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.createSQLQuery("delete from properties where PropertyID = " + id + ";").executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+        Property property;
+        try {
+            property = session.get(Property.class, id);
+            session.getTransaction().commit();
+            session.close();
+        } catch (Exception e) {
+            return new ResponseEntity<> (e. getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        if (property == null) {
+            return new ResponseEntity<>("Success", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Not Success", HttpStatus.OK);
     }
 
     private List getPropertyList(String columns, int id){
