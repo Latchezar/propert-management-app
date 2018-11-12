@@ -132,6 +132,7 @@
 
         <EditText
             android:id="@+id/sign_up_password_field"
+            android:inputType="textPassword"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/sign_up_password_label"
@@ -161,6 +162,7 @@
 
         <EditText
             android:id="@+id/sign_up_confirm_password_field"
+            android:inputType="textPassword"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/sign_up_confirm_password_label"
