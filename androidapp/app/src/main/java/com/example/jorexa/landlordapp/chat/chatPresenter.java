@@ -60,9 +60,9 @@ public class chatPresenter implements chatContracts.Presenter {
         mSenderID = mainUser.getId();
 
         //while (mView == null){ }
-
+        mlastTimeStamp = 0;
         //mView.setChatTitle(mainUser);
-        showMessages(0);
+        showMessages(mlastTimeStamp);
         int g = 5;
     }
 
@@ -83,7 +83,7 @@ public class chatPresenter implements chatContracts.Presenter {
             try {
                 Object response = mService.sendNewMessage(newMessageObj);
                 mStop = 0;
-                showMessages(0);
+                showMessages(mlastTimeStamp);
             } catch (IOException e) {
                 e.printStackTrace();
             }
